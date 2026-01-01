@@ -1,32 +1,633 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Vibhas Tallapalli | UWaterloo Engineering</title>
+    <meta name="description"
+        content="Portfolio of Vibhas Tallapalli, Nanotechnology Engineering student focused on Mechanical Design and Hardware Systems.">
+    <title>Vibhas Tallapalli | Mechanical Design & Hardware Systems</title>
+
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            /* Palette */
+            --bg-dark: #1a1a1a;
+            --bg-card: #252525;
+            --gold: #E4B429;
+            --text-main: #f5f5f5;
+            --text-muted: #d3d3d3;
+            --text-dim: #a0a0a0;
+
+            /* Spacing */
+            --container-padding: 2rem;
+            --max-width: 1200px;
+
+            /* UI */
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-lg);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 4rem var(--container-padding);
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* Typography Hierarchy (Recruiter Scan) */
+        .gold-text {
+            color: var(--gold);
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            color: white;
+            /* High contrast */
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: #111;
+            border-color: var(--gold);
+        }
+
+        .btn-primary:hover {
+            background-color: #d4a725;
+            border-color: #d4a725;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border-color: var(--text-muted);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* 1. Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem var(--container-padding);
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* 2. Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: 85vh;
+            padding-top: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-degree {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-focus {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-credibility {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .image-slot {
+            background-color: #2a2a2a;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            border: 2px dashed #444;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero-image-slot {
+            aspect-ratio: 4/5;
+            /* Portrait-ish for headshot */
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+        }
+
+        /* 3. About / Pivot */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-slot {
+            aspect-ratio: 16/10;
+            width: 100%;
+        }
+
+        /* 4. Technical Focus Strip */
+        .tech-focus {
+            background: #202020;
+            margin-top: 2rem;
+            border-radius: var(--radius-lg);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-card h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            border-left: 2px solid #333;
+            padding-left: 0.8rem;
+        }
+
+        /* 5. Experience */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .exp-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid #333;
+            transition: transform 0.2s;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-4px);
+            border-color: #444;
+        }
+
+        .exp-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-slot-sm {
+            width: 50px;
+            height: 50px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #777;
+        }
+
+        .exp-title h4 {
+            margin-bottom: 0.2rem;
+            color: #fff;
+        }
+
+        .exp-role {
+            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .exp-bullets {
+            list-style: none;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .exp-bullets li::before {
+            content: "•";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* 6. Featured Projects */
+        .project-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .project-img-slot {
+            width: 100%;
+            height: 350px;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border-bottom: 1px solid #333;
+        }
+
+        .project-details {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .project-info p {
+            margin-bottom: 0;
+            max-width: 600px;
+        }
+
+        /* 7. Waterloo Flex */
+        .waterloo-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .waterloo-emblem-slot {
+            width: 80px;
+            height: 80px;
+            background: #333;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            border: 2px solid #444;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 1rem;
+            }
+
+            .hero-image-slot {
+                margin: 0 auto;
+                order: -1;
+                /* Image on top mobile? Or keep bottom? User didn't specify, standard is top or between. Keeping default order for now but centering. */
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                /* Simplification for pure HTML/CSS without JS toggle */
+            }
+
+            /* Add simple mobile menu indicator if needed, but keeping clean */
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- 1. Navbar -->
     <nav>
-        <div class="logo"><strong>VIBHAS TALLAPALLI</strong></div>
-        <div>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="https://www.linkedin.com/in/vibhas-tallapalli-168b0a320/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <div class="nav-container">
+            <div class="nav-logo">Vibhas Tallapalli</div>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#resume">Resume</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            </div>
         </div>
     </nav>
 
-    <div class="container hero">
-        <h1>Vibhas Tallapalli</h1>
-        <p>Nanotechnology Engineering Student @ University of Waterloo</p>
-        <p style="max-width: 600px; margin: 1rem auto;">
-            Mechanical Trainee at <strong>Waterloop</strong> and <strong>Electrium</strong>. 
-            Focused on CAD design, precision manufacturing, and system integration.
-        </p>
-        <div class="cta">
-            <a href="projects.html" class="btn">View Technical Projects</a>
-            <a href="assets/resume.pdf" class="btn" style="background:#4b5563; margin-left:10px;">Download Resume (PDF)</a>
+    <!-- 2. Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Vibhas Tallapalli</h1>
+            <div class="hero-degree">Nanotechnology Engineering @ University of Waterloo</div>
+            <div class="hero-focus">Mechanical Design · CAD · Hardware Systems</div>
+
+            <p class="hero-credibility">
+                Mechanical trainee with hands-on experience in CAD, manufacturing,
+                and prototyping through University of Waterloo design teams.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View Technical Projects</a>
+                <a href="#" class="btn btn-secondary">Download Resume</a>
+            </div>
         </div>
-    </div>
+
+        <!-- Image Slot #1 -->
+        <div class="image-slot hero-image-slot">
+            [IMG: Hero Headshot or Hardware/Lab Photo]
+        </div>
+    </section>
+
+    <!-- 3. About / Pivot -->
+    <section class="about">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="section-title">Bridging Nanoscale Theory with Macroscale Engineering</h2>
+                <p>
+                    I am a Nanotechnology Engineering student at the University of Waterloo
+                    with a strong interest in mechanical design and hardware-focused engineering.
+                    My academic background provides a foundation in materials science, physics,
+                    and systems-level thinking.
+                </p>
+                <p>
+                    Through hands-on experience as a mechanical trainee with Waterloop and Electrium,
+                    my work has focused on CAD design, component fabrication, and manufacturing workflows.
+                    I enjoy translating engineering requirements into functional, manufacturable mechanical components.
+                </p>
+            </div>
+
+            <!-- Image Slot #2 -->
+            <div class="image-slot about-image-slot">
+                [IMG: You in Team Merch / Workshop Context]
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Technical Focus Strip -->
+    <section class="tech-focus">
+        <div class="tech-grid">
+            <div class="tech-card">
+                <h4>Mechanical Design</h4>
+                <ul class="tech-list">
+                    <li>Onshape</li>
+                    <li>SolidWorks</li>
+                    <li>Fusion 360</li>
+                    <li>Basic GD&T</li>
+                </ul>
+            </div>
+            <div class="tech-card">
+                <h4>Manufacturing</h4>
+                <ul class="tech-list">
+                    <li>3D Printing (FDM / SLA)</li>
+                    <li>Mechanical Assembly</li>
+                    <li>Introductory Machining</li>
+                </ul>
+            </div>
+            <div class="tech-card">
+                <h4>Programming</h4>
+                <ul class="tech-list">
+                    <li>Python</li>
+                    <li>MATLAB</li>
+                    <li>Introductory C++</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Experience Highlights -->
+    <section class="experience">
+        <h2 class="section-title">Experience Highlights</h2>
+        <div class="experience-grid">
+            <!-- Waterloop Card -->
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div class="logo-slot-sm">[Logo]</div>
+                    <div class="exp-title">
+                        <h4>Waterloop</h4>
+                        <div class="exp-role">Mechanical Trainee</div>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Supported component fabrication and CAD optimization</li>
+                    <li>Worked on mechanical subsystems in a fast-paced design team</li>
+                </ul>
+            </div>
+
+            <!-- Electrium Card -->
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div class="logo-slot-sm">[Logo]</div>
+                    <div class="exp-title">
+                        <h4>Electrium</h4>
+                        <div class="exp-role">Mechanical Trainee</div>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Contributed to mechanical design and integration of electronics housings</li>
+                    <li>Assisted with prototyping and manufacturing-oriented decisions</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Featured Projects -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <!-- Project 1 -->
+        <div class="project-card">
+            <!-- Image Slot #3 -->
+            <div class="project-img-slot">
+                [IMG: Project 1 CAD Render]
+            </div>
+            <div class="project-details">
+                <div class="project-info">
+                    <h3>Project Title 1</h3>
+                    <p>One-line description of the problem and your contribution to the mechanical design.</p>
+                </div>
+                <a href="#" class="btn btn-secondary">View Project →</a>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <!-- Image Slot #4 -->
+            <div class="project-img-slot">
+                [IMG: Project 2 CAD Render]
+            </div>
+            <div class="project-details">
+                <div class="project-info">
+                    <h3>Project Title 2</h3>
+                    <p>One-line description of the problem and your contribution to the mechanical design.</p>
+                </div>
+                <a href="#" class="btn btn-secondary">View Project →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Waterloo Flex -->
+    <section class="waterloo-section">
+        <!-- Image Slot #5 -->
+        <div class="waterloo-emblem-slot">
+            [UW]
+        </div>
+        <h4 style="color: var(--gold); letter-spacing: 0.05em;">NANOTECHNOLOGY ENGINEERING</h4>
+        <p style="margin-bottom: 0;">University of Waterloo</p>
+    </section>
+
+    <!-- 8. Final CTA -->
+    <section style="text-align: center; padding: 6rem 1rem;">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; color: #fff;">Explore my technical projects and design
+            experience.</h2>
+        <a href="#projects" class="btn btn-primary">View Technical Projects →</a>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        style="text-align: center; padding: 2rem; border-top: 1px solid #333; color: var(--text-dim); font-size: 0.9rem;">
+        &copy; 2024 Vibhas Tallapalli.
+    </footer>
+
 </body>
+
 </html>
