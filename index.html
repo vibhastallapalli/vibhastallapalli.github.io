@@ -238,36 +238,46 @@
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1.3fr 1fr;
+            /* 56% / 44% Split */
+            gap: 3rem;
+            align-items: center;
         }
 
         /* Skills Table style */
         .skill-row {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             border-bottom: 1px solid #333;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
         }
 
         .skill-cat {
             font-weight: 700;
             color: var(--gold);
             display: block;
-            margin-bottom: 0.25rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         .skill-list {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        .about-img-strip {
-            margin-top: 2rem;
-            height: 120px;
+        .about-feature-img {
             width: 100%;
+            height: 100%;
+            min-height: 350px;
+            /* Ensure sufficient height */
+            background: #2a2a2a;
+            border: 2px dashed #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            border-radius: var(--radius);
         }
 
         /* --- 4. Experience (Compact) --- */
@@ -477,10 +487,10 @@
         </div>
     </section>
 
-    <!-- 3. About + Skills (Combined) -->
+    <!-- 3. About + Skills (Restructured) -->
     <section class="about-section">
         <div class="container about-grid">
-            <!-- Left: About -->
+            <!-- Left: Text + Skills -->
             <div>
                 <h2>From Nanoscale to <span class="gold">Mechanical Systems</span></h2>
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
@@ -491,26 +501,28 @@
                     like Waterloop and Electrium, I focus on translating engineering requirements into functional,
                     manufacturable components.
                 </p>
-                <div class="placeholder about-img-strip">
-                    [IMG: Workshop / Design Team Context]
+
+                <!-- Embedded Skills Block -->
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #333;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: #fff;">Technical Toolkit</h3>
+                    <div class="skill-row">
+                        <span class="skill-cat">Mechanical Design</span>
+                        <div class="skill-list">Onshape, SolidWorks, Fusion 360, Basic GD&T</div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-cat">Manufacturing</span>
+                        <div class="skill-list">3D Printing (FDM/SLA), Mechanical Assembly, Intro Machining</div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-cat">Programming</span>
+                        <div class="skill-list">Python, MATLAB, Introductory C++</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Right: Skills -->
-            <div>
-                <h2>Technical Toolkit</h2>
-                <div class="skill-row">
-                    <span class="skill-cat">Mechanical Design</span>
-                    <div class="skill-list">Onshape, SolidWorks, Fusion 360, Basic GD&T</div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">Manufacturing</span>
-                    <div class="skill-list">3D Printing (FDM/SLA), Mechanical Assembly, Intro Machining</div>
-                </div>
-                <div class="skill-row">
-                    <span class="skill-cat">Programming</span>
-                    <div class="skill-list">Python, MATLAB, Introductory C++</div>
-                </div>
+            <!-- Right: Feature Image -->
+            <div class="about-feature-img">
+                [IMG: Workshop / Design Team / Hands-on Context]
             </div>
         </div>
     </section>
