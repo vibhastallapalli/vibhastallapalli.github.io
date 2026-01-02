@@ -270,14 +270,9 @@
             width: 100%;
             height: 100%;
             min-height: 350px;
-            /* Ensure sufficient height */
-            background: #2a2a2a;
-            border: 2px dashed #444;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dim);
+            object-fit: cover;
             border-radius: var(--radius);
+            display: block;
         }
 
         /* --- 4. Experience (Compact) --- */
@@ -481,9 +476,7 @@
                     <a href="#resume" class="btn btn-secondary">Download Resume</a>
                 </div>
             </div>
-            <div class="placeholder hero-img">
-                [IMG: Headshot or Workshop Photo]
-            </div>
+            <img src="Headshot.jpg" alt="Vibhas Tallapalli" class="hero-img">
         </div>
     </section>
 
@@ -521,9 +514,7 @@
             </div>
 
             <!-- Right: Feature Image -->
-            <div class="about-feature-img">
-                [IMG: Workshop / Design Team / Hands-on Context]
-            </div>
+            <img src="Carbonfibre.jpg" alt="Carbon Fibre Workshop" class="about-feature-img">
         </div>
     </section>
 
@@ -563,7 +554,7 @@
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="proj-card">
-                    <div class="placeholder proj-img">[IMG: CAD Render or Prototype]</div>
+                    <img src="pod.jpg" alt="Hyperloop Pod" class="proj-img" style="object-fit: cover;">
                     <div class="proj-content">
                         <h3 class="proj-title">Project Title 1</h3>
                         <p class="proj-desc">One-line description of the mechanical problem solved and your specific
@@ -574,7 +565,7 @@
                 </div>
                 <!-- Project 2 -->
                 <div class="proj-card">
-                    <div class="placeholder proj-img">[IMG: CAD Render or Prototype]</div>
+                    <img src="Data.jpg" alt="Data Analysis Project" class="proj-img" style="object-fit: cover;">
                     <div class="proj-content">
                         <h3 class="proj-title">Project Title 2</h3>
                         <p class="proj-desc">One-line description of the mechanical problem solved and your specific
