@@ -361,30 +361,51 @@
         }
 
         /* --- 6. Waterloo Branding --- */
+        /* --- 6. Waterloo Branding (Credential Card) --- */
         .waterloo-sec {
             text-align: center;
             padding: 4rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .credential-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: #202020;
+            padding: 1.25rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: var(--shadow);
+            max-width: 500px;
         }
 
         .waterloo-logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem auto;
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .uw-details {
+            text-align: left;
         }
 
         .waterloo-text {
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
             color: var(--gold);
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 0.2rem;
+            display: block;
         }
 
         .waterloo-uni {
             font-size: 1.1rem;
-            font-weight: 400;
+            font-weight: 500;
             color: #fff;
+            line-height: 1.2;
         }
 
         /* --- 7. Final CTA --- */
@@ -476,7 +497,7 @@
                     <a href="#resume" class="btn btn-secondary">Download Resume</a>
                 </div>
             </div>
-            <img src="Assets/headshot1.png" alt="Vibhas Tallapalli" class="hero-img">
+            <img src="Assets/Headshot.jpg" alt="Vibhas Tallapalli" class="hero-img">
         </div>
     </section>
 
@@ -580,9 +601,13 @@
 
     <!-- 6. Waterloo Branding -->
     <section class="container waterloo-sec">
-        <div class="placeholder waterloo-logo">[UW]</div>
-        <div class="waterloo-text">Nanotechnology Engineering</div>
-        <div class="waterloo-uni">University of Waterloo</div>
+        <div class="credential-card">
+            <img src="Assets/WaterlooEmblem.png" alt="University of Waterloo Emblem" class="waterloo-logo">
+            <div class="uw-details">
+                <span class="waterloo-text">Nanotechnology Engineering</span>
+                <div class="waterloo-uni">University of Waterloo</div>
+            </div>
+        </div>
     </section>
 
     <!-- 7. Final CTA -->
@@ -594,4 +619,3 @@
 </body>
 
 </html>
-
