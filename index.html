@@ -200,8 +200,17 @@
 
         .hero-subtitle {
             font-size: 1.5rem;
-            margin: 0.25rem 0 0.15rem 0;
+            margin: 0.5rem 0 0.5rem 0;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-uw-logo {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
         }
 
         .hero-focus {
@@ -486,7 +495,10 @@
         <div class="hero-grid">
             <div class="hero-content">
                 <h1>Vibhas Tallapalli</h1>
-                <div class="hero-subtitle gold">Nanotechnology Engineering @ University of Waterloo</div>
+                <div class="hero-subtitle gold">
+                    <img src="Assets/WaterlooEmblem.png" alt="UW Logo" class="hero-uw-logo">
+                    <span>Nanotechnology Engineering @ University of Waterloo</span>
+                </div>
                 <div class="hero-focus">Mechanical Design · CAD · Hardware Systems</div>
                 <p class="hero-desc">
                     Mechanical trainee with hands-on experience in CAD, manufacturing,
@@ -599,16 +611,7 @@
         </div>
     </section>
 
-    <!-- 6. Waterloo Branding -->
-    <section class="container waterloo-sec">
-        <div class="credential-card">
-            <img src="Assets/WaterlooEmblem.png" alt="University of Waterloo Emblem" class="waterloo-logo">
-            <div class="uw-details">
-                <span class="waterloo-text">Nanotechnology Engineering</span>
-                <div class="waterloo-uni">University of Waterloo</div>
-            </div>
-        </div>
-    </section>
+    <!-- 6. Waterloo Branding (Moved to Hero) -->
 
     <!-- 7. Final CTA -->
     <section class="container cta-sec">
@@ -619,4 +622,3 @@
 </body>
 
 </html>
-
