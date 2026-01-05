@@ -12,6 +12,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/smoothscroll.min.js"></script>
+    <script>
+        // Native smooth scrolling for Chrome/Firefox/Edge
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
 
     <style>
         /* --- CSS Reset & Variables --- */
@@ -465,7 +470,18 @@
             }
 
             .nav-links {
-                display: none;
+                /* Make sure nav is visible on mobile */
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                font-size: 0.8rem;
+                justify-content: flex-end;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
             }
 
             /* Simplified for now */
@@ -484,7 +500,8 @@
             <div class="brand">Vibhas Tallapalli</div>
             <div class="nav-links">
                 <a href="#projects">Projects</a>
-                <a href="#resume">Resume</a>
+                <a href="Experiences/Waterloop-Mechanical-Trainee.html">Experiences</a>
+                <a href="Assets/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
                 <a href="https://www.linkedin.com/in/vibhas-tallapalli-168b0a320/" target="_blank"
                     rel="noopener noreferrer">LinkedIn</a>
             </div>
@@ -507,8 +524,9 @@
                     using Python, C++, and Arduino.
                 </p>
                 <div class="hero-btns">
-                    <a href="#projects" class="btn btn-primary">View Technical Projects</a>
-                    <a href="#resume" class="btn btn-secondary">Download Resume</a>
+                    <a href="#projects-grid" class="btn btn-primary">View Technical Projects</a>
+                    <a href="Assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View
+                        Resume</a>
                 </div>
             </div>
             <img src="Assets/headshot1.png" alt="Vibhas Tallapalli" class="hero-img">
@@ -524,8 +542,9 @@
                 <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
                     I’m an engineering student at the University of Waterloo focused on mechanical design and
                     hardware development
-                    <strong>Most of my hands-on experience comes from CAD, prototyping, and manufacturing through student design teams like Waterloop and Electrium,</strong> where I help design parts that 
-                    can be built, assembled, and tested. I’ve also worked with Python, 
+                    <strong>Most of my hands-on experience comes from CAD, prototyping, and manufacturing through
+                        student design teams like Waterloop and Electrium,</strong> where I help design parts that
+                    can be built, assembled, and tested. I’ve also worked with Python,
                     C++, and Arduino on projects that combine hardware and programming.
 
                 </p>
@@ -549,7 +568,7 @@
             </div>
 
             <!-- Right: Feature Image -->
-            <img src="Assets/carbon.png" alt="Carbon Fibre Workshop" class="about-feature-img">
+            <img src="Assets/carbon.png" alt="Carbon Fibre Workshop" class="about-feature-img" loading="lazy">
         </div>
     </section>
 
@@ -564,7 +583,8 @@
                     <div class="exp-role">Mechanical Trainee</div>
                 </div>
                 <ul class="exp-bullets">
-                    <li>Worked on carbon fiber pod panels, fitting and finishing parts so the two halves aligned properly before drilling and assembly.</li>
+                    <li>Worked on carbon fiber pod panels, fitting and finishing parts so the two halves aligned
+                        properly before drilling and assembly.</li>
                     <li>Took brake clamp designs from CAD to drawings and machined the parts using a manual mill.</li>
                 </ul>
             </div>
@@ -575,35 +595,43 @@
                     <div class="exp-role">Mechanical Trainee</div>
                 </div>
                 <ul class="exp-bullets">
-                    <li>Worked on CAD for the e-bike frame and battery enclosure, working with the electrical team to figure out dimensions and fit.</li>
-                    <li>Modeled the e-bike frame in SolidWorks, building parts of the CAD layout for the mechanical team.</li>
+                    <li>Worked on CAD for the e-bike frame and battery enclosure, working with the electrical team to
+                        figure out dimensions and fit.</li>
+                    <li>Modeled the e-bike frame in SolidWorks, building parts of the CAD layout for the mechanical
+                        team.</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- 5. Featured Projects -->
-    <section id="projects" class="about-section"> <!-- Darker bg for contrast -->
+    <section id="projects-grid" class="about-section"> <!-- Darker bg for contrast -->
         <div class="container">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="proj-card">
-                    <img src="Assets/pod.jpg" alt="Hyperloop Pod" class="proj-img" style="object-fit: cover;">
+                    <img src="Assets/pod.jpg" alt="Hyperloop Pod" class="proj-img" style="object-fit: cover;"
+                        loading="lazy">
                     <div class="proj-content">
                         <h3 class="proj-title">Pod Assembly Fit</h3>
-                        <p class="proj-desc">Assembled and checked multiple CAD components in Onshape and SolidWorks to verify fit and alignment.</p>
-                        <a href="#" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View
+                        <p class="proj-desc">Assembled and checked multiple CAD components in Onshape and SolidWorks to
+                            verify fit and alignment.</p>
+                        <a href="Projects/Waterloop-Mechanical-Trainee.html" class="btn btn-secondary"
+                            style="font-size: 0.85rem; padding: 0.5rem 1rem;">View
                             Project →</a>
                     </div>
                 </div>
                 <!-- Project 2 -->
                 <div class="proj-card">
-                    <img src="Assets/Data.jpg" alt="Data Analysis Project" class="proj-img" style="object-fit: cover;">
+                    <img src="Assets/Data.jpg" alt="Data Analysis Project" class="proj-img" style="object-fit: cover;"
+                        loading="lazy">
                     <div class="proj-content">
                         <h3 class="proj-title">E-Bike Speed Control Simulation</h3>
-                        <p class="proj-desc">Built a physics-based simulation using C++ and Python to study e-bike speed, energy use, and efficiency under varying conditions.</p>
-                        <a href="#" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View
+                        <p class="proj-desc">Built a physics-based simulation using C++ and Python to study e-bike
+                            speed, energy use, and efficiency under varying conditions.</p>
+                        <a href="Projects/e-bike-speed-control.html" class="btn btn-secondary"
+                            style="font-size: 0.85rem; padding: 0.5rem 1rem;">View
                             Project →</a>
                     </div>
                 </div>
@@ -622,7 +650,3 @@
 </body>
 
 </html>
-
-
-
-
