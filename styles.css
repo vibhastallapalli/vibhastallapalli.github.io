@@ -113,6 +113,21 @@ section {
     padding: var(--section-padding);
 }
 
+@media (max-width: 768px) {
+    .project-page {
+        padding: 1rem;
+    }
+
+    .project-page p,
+    .project-page li {
+        font-size: 1rem;
+    }
+
+    .project-header h1 {
+        font-size: 2rem;
+    }
+}
+
 /* Placeholders */
 .placeholder {
     background: #2a2a2a;
