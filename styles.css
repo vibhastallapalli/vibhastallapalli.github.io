@@ -1,48 +1,254 @@
+/* --- CSS Reset & Variables --- */
 :root {
-    --bg: #111827;
-    --card: #1f2937;
-    --accent: #3b82f6; /* Waterloo Blue-ish */
-    --text-main: #f3f4f6;
-    --text-dim: #9ca3af;
+    /* Colors */
+    --bg-dark: #1a1a1a;
+    --bg-card: #252525;
+    --gold: #E4B429;
+    /* Muted Waterloo Gold */
+    --text-main: #f5f5f5;
+    --text-muted: #cdcdcd;
+    --text-dim: #999999;
+
+    /* Spacing - Compact to reduce scroll */
+    --section-padding: 2rem 1.5rem;
+    --max-width: 1100px;
+
+    /* UI */
+    --radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
     color: var(--text-main);
-    line-height: 1.6;
-    margin: 0;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 10%;
-    background: #0f172a;
-    border-bottom: 1px solid #334155;
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
 }
 
-nav a { color: var(--text-main); text-decoration: none; margin-left: 20px; font-weight: 500; }
-nav a:hover { color: var(--accent); }
+a:hover {
+    opacity: 0.8;
+}
 
-.container { max-width: 900px; margin: 0 auto; padding: 4rem 20px; }
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
 
-.hero { text-align: center; padding: 4rem 0; }
-.hero h1 { font-size: 3rem; margin-bottom: 0; }
-.hero p { color: var(--text-dim); font-size: 1.2rem; }
+/* Typography */
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+}
 
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+.text-sm {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+/* Buttons */
 .btn {
     display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
     font-weight: 600;
-    margin-top: 1rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    text-align: center;
 }
 
-/* Project Page Specifics */
-.tech-spec { background: var(--card); padding: 2rem; border-radius: 8px; margin: 2rem 0; }
-.tech-spec h3 { color: var(--accent); margin-top: 0; }
-img { width: 100%; border-radius: 8px; margin: 1rem 0; border: 1px solid #334155; }
+.btn-primary {
+    background: var(--gold);
+    color: #111;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-main);
+}
+
+/* Layout Utilities */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+section {
+    padding: var(--section-padding);
+}
+
+/* Placeholders */
+.placeholder {
+    background: #2a2a2a;
+    border: 2px dashed #444;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    text-align: center;
+    border-radius: var(--radius);
+}
+
+/* --- 1. Sticky Navbar --- */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #333;
+    padding: 1.2rem 2rem;
+    display: block;
+    /* Ensure flex behavior works from child */
+}
+
+.nav-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* --- Project / Experience Page Specifics --- */
+.project-page {
+    padding: 2rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--text-main);
+}
+
+.project-header {
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #333;
+    margin-bottom: 2rem;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+}
+
+.project-content {
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.project-content h2,
+.project-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.project-content p,
+.project-content ul {
+    margin-bottom: 1rem;
+}
+
+.project-content ul {
+    list-style-position: inside;
+}
+
+.project-note {
+    font-style: italic;
+    color: var(--text-dim);
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+}
+
+/* --- Components from Old Styles (Preserved just in case) --- */
+.tech-spec {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.tech-spec h3 {
+    color: var(--gold);
+    margin-top: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        /* Make sure nav is visible on mobile */
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        font-size: 0.8rem;
+        justify-content: flex-end;
+    }
+
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+}
