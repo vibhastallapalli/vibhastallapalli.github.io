@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Experiences | Your Name</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo"><a href="../index.html"><strong>[YOUR NAME]</strong></a></div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#experiences" class="gold">Experiences</a>
+                <!-- Acting as current page indicator -->
+                <a href="../projects.html">Projects</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 4rem;">
+        <h1>Experiences</h1>
+        <p class="text-sm" style="margin-bottom: 3rem;">Engineering Design Teams & Traineeships</p>
+
+        <!-- Card Grid -->
+        <div class="exp-grid">
+            <!-- Waterloop Card -->
+            <div class="exp-card" onclick="scrollToSection('waterloop')">
+                <img src="../Assets/pod.jpg" alt="Waterloop Pod Render">
+                <div class="exp-card-content">
+                    <h3>Waterloop</h3>
+                    <span class="exp-role">Mechanical Trainee</span>
+                    <p class="exp-impact">Designed assembly-critical brake brackets reducing weight by 12% for the 2025
+                        Hyperloop pod.</p>
+                </div>
+            </div>
+
+            <!-- Electrium Card -->
+            <div class="exp-card" onclick="scrollToSection('electrium')">
+                <img src="../Assets/Carbonfibre.jpg" alt="Electrium Manufacturing">
+                <div class="exp-card-content">
+                    <h3>Electrium</h3>
+                    <span class="exp-role">Battery Systems Lead</span>
+                    <p class="exp-impact">Spearheaded the integration of a new BMS, improving battery reliability by
+                        20%.</p>
+                </div>
+            </div>
+
+            <!-- Formula Card -->
+            <div class="exp-card" onclick="scrollToSection('formula')">
+                <img src="../Assets/Data.jpg" alt="Formula SAE Data">
+                <div class="exp-card-content">
+                    <h3>Formula SAE</h3>
+                    <span class="exp-role">Junior Designer</span>
+                    <p class="exp-impact">Optimized suspension geometry using Adams Car simulation validation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Sections -->
+
+        <!-- Waterloop Detail -->
+        <div id="waterloop" class="project-page exp-section">
+            <div class="project-header">
+                <h2>Waterloop: Brake Component Design</h2>
+                <p class="project-subtitle">Mechanical Trainee | 2025 Cycle</p>
+            </div>
+            <div class="project-content">
+                <h3>Overview</h3>
+                <p>Waterloop is UWaterloo's SpaceX Hyperloop competition team. I served as a Mechanical Trainee during
+                    the 2025 development cycle.</p>
+
+                <h3>Role & Responsibility</h3>
+                <p>Specifically responsible for the design and manufacturing of secondary brake clamps and support
+                    brackets for the pod's deceleration system.</p>
+
+                <div class="tech-spec">
+                    <h3>Technical Work</h3>
+                    <ul>
+                        <li><strong>CAD:</strong> Developed 3D models in Onshape ensuring 0.05mm tolerances.</li>
+                        <li><strong>Material:</strong> Selected 6061-T6 Aluminum for strength-to-weight ratio.</li>
+                        <li><strong>Manufacturing:</strong> Hands-on operation of Lathe and Milling machine; precision
+                            carbon fiber cutting.</li>
+                    </ul>
+                    <img src="../Assets/pod.jpg" alt="Onshape Render" loading="lazy" style="margin-top:1rem;">
+                </div>
+
+                <h3>Results</h3>
+                <p>The final bracket assembly achieved a 12% weight reduction compared to the previous iteration while
+                    maintaining structural integrity during 2g deceleration tests.</p>
+
+                <h3>Lessons Learned</h3>
+                <p>Design for Manufacturing (DFM) was the biggest takeaway—realizing that a "perfect" CAD model is
+                    useless
+                    if the milling bits cannot reach the internal radii.</p>
+            </div>
+        </div>
+
+        <!-- Electrium Detail (Placeholder) -->
+        <div id="electrium" class="project-page exp-section">
+            <div class="project-header">
+                <h2>Electrium Mobility</h2>
+                <p class="project-subtitle">Battery Systems Lead | 2024</p>
+            </div>
+            <div class="project-content">
+                <div class="placeholder" style="height: 200px; margin-bottom: 2rem;">
+                    [Detailed Electrium Content Placeholder]
+                </div>
+                <h3>Overview</h3>
+                <p>Electrium is a design team focused on creating sustainable personal electric vehicles. My focus was
+                    on the custom battery pack implementation.</p>
+                <ul>
+                    <li>Designed modular battery packs using 18650 cells.</li>
+                    <li>Implemented spot-welding procedures for safe assembly.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Formula Detail (Placeholder) -->
+        <div id="formula" class="project-page exp-section">
+            <div class="project-header">
+                <h2>Formula Student</h2>
+                <p class="project-subtitle">Junior Designer | 2024</p>
+            </div>
+            <div class="project-content">
+                <div class="placeholder" style="height: 200px; margin-bottom: 2rem;">
+                    [Detailed Formula Content Placeholder]
+                </div>
+                <h3>Overview</h3>
+                <p>Contributing to the chassis design and suspension kinematics for the upcoming competition vehicle.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scroll Script -->
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Add highlight class
+                element.classList.add('highlight-active');
+                // Remove it after animation ends so it can be re-triggered
+                setTimeout(() => {
+                    element.classList.remove('highlight-active');
+                }, 1500);
+            }
+        }
+    </script>
+</body>
+
+</html>
