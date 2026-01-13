@@ -232,10 +232,45 @@
         }
 
         .hero-btns {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            /* Ensure buttons wrap on small screens if needed */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            width: fit-content;
+        }
+
+        /* Scoped styles for Hero Buttons to ensure specific look */
+        .hero-btns .btn {
+            background-color: var(--gold);
+            color: #000;
+            /* Black text */
+            border-radius: 6px;
+            padding: 0.85rem 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
+            /* Fill grid cell */
+            justify-content: center;
+        }
+
+        /* Resume button spans full width (bottom row) */
+        .hero-btns .btn:last-child {
+            grid-column: 1 / -1;
+            justify-self: center;
+        }
+
+        /* Black Glow Hover Effect */
+        .hero-btns .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            filter: brightness(1.05);
+        }
+
+        /* Mobile Adjustments for Hero Buttons */
+        @media (max-width: 768px) {
+            .hero-btns {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
         }
 
         .hero-img {
