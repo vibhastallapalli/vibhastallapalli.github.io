@@ -104,23 +104,50 @@
 
         /* Buttons */
         .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.5rem;
             font-weight: 600;
-            border-radius: var(--radius);
+            border-radius: 6px;
             font-size: 1rem;
             text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            /* Remove focus outline */
+            text-decoration: none;
+        }
+
+        .btn:focus {
+            outline: none;
         }
 
         .btn-primary {
             background: var(--gold);
-            color: #111;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            /* Black Glow */
+            filter: brightness(1.05);
         }
 
         .btn-secondary {
-            background: transparent;
-            border: 1px solid var(--text-muted);
-            color: var(--text-main);
+            background: var(--bg-card);
+            /* Dark Grey */
+            border: 1px solid #333;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--gold);
+            /* Gold Glow */
+            border-color: var(--gold);
         }
 
         /* Layout Utilities */
@@ -231,37 +258,56 @@
             line-height: 1.7;
         }
 
+        /* Hero Buttons Layout */
+        .hero-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 500px;
+            /* Limit width to force wrap if needed, but flex wrap logic below handles structure */
+            align-items: center;
+        }
+
+        /* Force break for 3rd button to be on new row if using flex wrap... 
+           Actually, the user wants 2 top, 1 bottom.
+           We can simply use flex-wrap and set the width of the last button or container constraints.
+           Or use a specific width calculator.
+           
+           Better approach: Just standard flex logic. Buttons will wrap if container is small.
+           To FORCE the layout [1][2] / [3], we can use a grid with specific placement, 
+           BUT user complained about grid issues. 
+           
+           Let's stick to flex, but maybe just let them wrap naturally or use a wrapper in HTML?
+           The HTML is flat.
+           
+           Let's try grid again but correct:
+        */
         .hero-btns {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, auto);
             gap: 1rem;
             width: fit-content;
+            justify-items: center;
+            /* Center items in their cells */
         }
 
-        /* Scoped styles for Hero Buttons to ensure specific look */
         .hero-btns .btn {
-            background-color: var(--gold);
-            color: #000;
-            /* Black text */
-            border-radius: 6px;
-            padding: 0.85rem 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
             width: 100%;
-            /* Fill grid cell */
-            justify-content: center;
+            /* Fill the cell */
+            min-width: 160px;
+            /* Ensure decent size */
         }
 
-        /* Resume button spans full width (bottom row) */
+        /* The 3rd button (Resume) */
         .hero-btns .btn:last-child {
             grid-column: 1 / -1;
+            /* Span full width of grid */
             justify-self: center;
-        }
-
-        /* Black Glow Hover Effect */
-        .hero-btns .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            filter: brightness(1.05);
+            /* Center horizontally */
+            width: auto;
+            /* Don't stretch full width */
+            min-width: 160px;
+            /* Match others */
         }
 
         /* Mobile Adjustments for Hero Buttons */
@@ -269,6 +315,10 @@
             .hero-btns {
                 display: flex;
                 flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-btns .btn {
                 width: 100%;
             }
         }
