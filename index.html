@@ -188,23 +188,20 @@
 
         /* --- 2. Hero Section (No Scroll) --- */
         .hero {
-            min-height: 65vh;
-            /* Almost full viewport */
+            min-height: 75vh;
             display: flex;
             align-items: center;
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 3rem;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
             align-items: center;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             margin: 1.5rem 0;
             font-weight: 600;
             display: flex;
@@ -219,30 +216,36 @@
         }
 
         .hero-focus {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--text-main);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 500;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .hero-desc {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            max-width: 500px;
+            max-width: 540px;
+            line-height: 1.7;
         }
 
         .hero-btns {
             display: flex;
-            gap: 1rem;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            /* Ensure buttons wrap on small screens if needed */
         }
 
         .hero-img {
-            aspect-ratio: 3/4;
             width: 100%;
-            max-width: 280px;
+            max-width: 320px;
             margin: 0 auto;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         /* --- 3. About + Skills (Combined) --- */
@@ -525,9 +528,7 @@
                 </p>
                 <div class="hero-btns">
                     <a href="Experiences/index.html" class="btn btn-primary">View Experiences</a>
-                    <a href="Projects/index_proj.html" class="btn btn-primary"
-                        style="background: transparent; border: 1px solid var(--text-muted);">View Technical
-                        Projects</a>
+                    <a href="Projects/index_proj.html" class="btn btn-secondary">View Technical Projects</a>
                     <a href="Assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View
                         Resume</a>
                 </div>
