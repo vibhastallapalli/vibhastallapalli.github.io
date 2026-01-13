@@ -4,151 +4,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences | Vibhas Tallapalli</title>
     <link rel="stylesheet" href="../styles.css">
-    <title>Experiences | Your Name</title>
+    <!-- Smooth Scroll Support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/smoothscroll.min.js"></script>
+    <script>
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+    <style>
+        /* --- Page Specific Styles --- */
+
+        /* Header */
+        .exp-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .exp-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .header-accent {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(228, 180, 41, 0.4);
+            border-radius: 2px;
+        }
+
+        /* Overview Cards Grid */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .overview-card {
+            background: #222;
+            border: 1px solid #333;
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            text-align: left;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+            position: relative;
+        }
+
+        /* Hover Effects */
+        .overview-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(228, 180, 41, 0.15);
+        }
+
+        .overview-card:hover .btn-card {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(228, 180, 41, 0.3);
+            color: #fff;
+        }
+
+        .card-team {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .card-role {
+            font-size: 0.9rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-card {
+            align-self: flex-start;
+            background: transparent;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            /* Let the card handle click, or button can be independent. User said card clickable or button. making card clickable via onclick */
+        }
+
+        /* Detailed Sections */
+        .detail-section {
+            scroll-margin-top: 100px;
+            /* Offset for sticky nav */
+            margin-bottom: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .detail-section:first-of-type {
+            border-top: none;
+        }
+
+        .detail-header {
+            margin-bottom: 2rem;
+        }
+
+        .detail-team {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-meta {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .detail-banner {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            margin-bottom: 2.5rem;
+            border: 1px solid #333;
+        }
+
+        .detail-content {
+            max-width: 800px;
+        }
+
+        .detail-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .detail-bullets {
+            list-style: none;
+            margin-left: 0.5rem;
+        }
+
+        .detail-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .detail-bullets li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* Highlight Animation */
+        @keyframes highlightInfo {
+            0% {
+                background-color: rgba(228, 180, 41, 0.1);
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        .highlight-active {
+            animation: highlightInfo 1.5s ease-out;
+            border-radius: var(--radius);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-banner {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
     <nav>
         <div class="nav-content">
-            <div class="logo"><a href="../index.html"><strong>[YOUR NAME]</strong></a></div>
+            <div class="brand"><a href="../index.html">Vibhas Tallapalli</a></div>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="../index.html#experiences" class="gold">Experiences</a>
+                <a href="../index.html#experiences">Experiences</a> <!-- Keeping nav generic, user can navigate back -->
                 <a href="../Projects/index_proj.html">Projects</a>
-                <a href="../Assets/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
-                <a href="https://www.linkedin.com/in/vibhas-tallapalli-168b0a320/" target="_blank"
-                    rel="noopener noreferrer">LinkedIn</a>
+                <a href="../Assets/resume.pdf" target="_blank">Resume</a>
             </div>
         </div>
     </nav>
 
     <div class="container" style="padding-top: 4rem;">
-        <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Experiences</h1>
-        <p class="text-sm" style="margin-bottom: 4rem; font-size: 1.1rem; color: var(--text-muted);">Engineering Design
-            Teams & Traineeships</p>
 
-        <!-- Card Grid -->
-        <div class="exp-grid">
-            <!-- Waterloop Card -->
-            <div class="exp-card" onclick="scrollToSection('waterloop')">
-                <img src="../Assets/pod.jpg" alt="Waterloop Pod Render">
-                <div class="exp-card-content">
-                    <h3>Waterloop</h3>
-                    <span class="exp-role">Mechanical Trainee</span>
-                    <p class="exp-impact">Designed assembly-critical brake brackets reducing weight by 12% for the 2025
-                        Hyperloop pod.</p>
+        <!-- 1. Header -->
+        <header class="exp-header">
+            <h1>Experiences</h1>
+            <p class="exp-subtitle">Engineering Design Teams & Traineeships</p>
+            <div class="header-accent"></div>
+        </header>
+
+        <!-- 2. Overview Cards -->
+        <div class="overview-grid">
+            <!-- Waterloop -->
+            <div class="overview-card" onclick="scrollToSection('waterloop')">
+                <div>
+                    <span class="card-team">Waterloop</span>
+                    <span class="card-role">Mechanical Trainee</span>
+                    <p class="card-desc">Designed critical brake components reducing weight by 12%.</p>
                 </div>
+                <button class="btn-card">View Experience →</button>
             </div>
 
-            <!-- Electrium Card -->
-            <div class="exp-card" onclick="scrollToSection('electrium')">
-                <img src="../Assets/Carbonfibre.jpg" alt="Electrium Manufacturing">
-                <div class="exp-card-content">
-                    <h3>Electrium</h3>
-                    <span class="exp-role">Battery Systems Lead</span>
-                    <p class="exp-impact">Spearheaded the integration of a new BMS, improving battery reliability by
-                        20%.</p>
+            <!-- Electrium -->
+            <div class="overview-card" onclick="scrollToSection('electrium')">
+                <div>
+                    <span class="card-team">Electrium</span>
+                    <span class="card-role">Battery Systems Lead</span>
+                    <p class="card-desc">Led development of modular battery packs & BMS integration.</p>
                 </div>
+                <button class="btn-card">View Experience →</button>
             </div>
 
-            <!-- Formula Card -->
-            <div class="exp-card" onclick="scrollToSection('formula')">
-                <img src="../Assets/Data.jpg" alt="Formula SAE Data">
-                <div class="exp-card-content">
-                    <h3>Formula SAE</h3>
-                    <span class="exp-role">Junior Designer</span>
-                    <p class="exp-impact">Optimized suspension geometry using Adams Car simulation validation.</p>
+            <!-- Biomechatronics -->
+            <div class="overview-card" onclick="scrollToSection('biomechatronics')">
+                <div>
+                    <span class="card-team">Biomechatronics</span>
+                    <span class="card-role">Design Engineer</span>
+                    <p class="card-desc">Developing assistive robotic devices for mobility.</p>
                 </div>
+                <button class="btn-card">View Experience →</button>
             </div>
         </div>
 
-        <!-- Detailed Sections -->
+        <!-- 3. Detailed Sections -->
 
-        <!-- Waterloop Detail -->
-        <div id="waterloop" class="project-page exp-section">
-            <div class="image-side">
-                <img src="../Assets/pod.jpg" alt="Waterloop Brake Assembly Render">
+        <!-- Waterloop -->
+        <section id="waterloop" class="detail-section">
+            <div class="detail-header">
+                <h2 class="detail-team">Waterloop</h2>
+                <div class="detail-meta">Mechanical Trainee | 2025</div>
             </div>
-            <div class="content-side">
-                <div class="section-header">
-                    <h2>Waterloop: Brake Design</h2>
-                    <p class="project-subtitle">Mechanical Trainee | 2025 Cycle</p>
-                </div>
-                <h3>Role & Responsibility</h3>
-                <p>Responsible for the design and manufacturing of secondary brake clamps and support brackets for the
-                    pod's deceleration system.</p>
-
-                <h3>Technical Work</h3>
-                <ul>
-                    <li><strong>CAD:</strong> Developed 3D models in Onshape ensuring 0.05mm tolerances.</li>
-                    <li><strong>Material:</strong> Selected 6061-T6 Aluminum for high strength-to-weight ratio.</li>
-                    <li><strong>Manufacturing:</strong> Hands-on operation of Lathe and Milling machine; precision
-                        carbon fiber cutting.</li>
-                </ul>
-
-                <h3>Results & Lesssons</h3>
-                <p>Achieved a 12% weight reduction with maintained structural integrity. Learned critical DFM
-                    principles: a "perfect" CAD model is useless if the milling bits cannot reach the internal radii.
+            <img src="../Assets/pod.jpg" alt="Waterloop Design" class="detail-banner">
+            <div class="detail-content">
+                <p class="detail-desc">
+                    Responsible for the mechanical design and manufacturing of the braking system components for the
+                    Hyperloop pod.
+                    Focused on lightweighting while ensuring structural integrity under high deceleration loads.
                 </p>
-            </div>
-        </div>
-
-        <!-- Electrium Detail -->
-        <div id="electrium" class="project-page exp-section">
-            <div class="image-side">
-                <img src="../Assets/Carbonfibre.jpg" alt="Electrium Battery Pack">
-            </div>
-            <div class="content-side">
-                <div class="section-header">
-                    <h2>Electrium Mobility</h2>
-                    <p class="project-subtitle">Battery Systems Lead | 2024</p>
-                </div>
-                <h3>Overview</h3>
-                <p>Electrium creates sustainable personal electric vehicles. I led the development of a custom modular
-                    battery pack using 18650 cells.</p>
-
-                <h3>Key Contributions</h3>
-                <ul>
-                    <li>Designed modular battery packs focusing on thermal management.</li>
-                    <li>Implemented spot-welding procedures for safe assembly.</li>
-                    <li>Collaborated with electrical team for BMS integration.</li>
+                <ul class="detail-bullets">
+                    <li>Designed brake calipers and mounting brackets using Onshape.</li>
+                    <li>Manufactured components using manual milling and lathe operations.</li>
+                    <li>Achieved 12% weight reduction through topological optimization.</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <!-- Formula Detail -->
-        <div id="formula" class="project-page exp-section">
-            <div class="image-side">
-                <img src="../Assets/Data.jpg" alt="Formula SAE Suspension Analysis">
+        <!-- Electrium -->
+        <section id="electrium" class="detail-section">
+            <div class="detail-header">
+                <h2 class="detail-team">Electrium</h2>
+                <div class="detail-meta">Battery Systems Lead | 2024</div>
             </div>
-            <div class="content-side">
-                <div class="section-header">
-                    <h2>Formula Student</h2>
-                    <p class="project-subtitle">Junior Designer | 2024</p>
-                </div>
-                <h3>Suspension Kinematics</h3>
-                <p>Designed and validated suspension geometry for the 2024 competition vehicle.</p>
-
-                <h3>Tools Used</h3>
-                <ul>
-                    <li><strong>Adams Car:</strong> Multibody dynamics simulation.</li>
-                    <li><strong>MATLAB:</strong> Data analysis for suspension travel and load cases.</li>
+            <img src="../Assets/Carbonfibre.jpg" alt="Electrium Battery" class="detail-banner">
+            <div class="detail-content">
+                <p class="detail-desc">
+                    Spearheaded the design and assembly of high-voltage battery packs for personal electric vehicles.
+                    Managed thermal simulation and safety integration for the energy storage system.
+                </p>
+                <ul class="detail-bullets">
+                    <li>Integrated custom BMS for real-time cell monitoring.</li>
+                    <li>Designed spot-welding jigs to improve assembly efficiency by 30%.</li>
+                    <li>Conducted thermal analysis to optimize cooling airflow.</li>
                 </ul>
             </div>
-        </div>
+        </section>
+
+        <!-- Biomechatronics -->
+        <section id="biomechatronics" class="detail-section">
+            <div class="detail-header">
+                <h2 class="detail-team">Biomechatronics</h2>
+                <div class="detail-meta">Design Engineer | 2024</div>
+            </div>
+            <!-- Placeholder for Biomechatronics Image -->
+            <div class="detail-banner placeholder"
+                style="background: #252525; display: flex; align-items: center; justify-content: center; color: #555;">
+                [Biomechatronics Image Placeholder]
+            </div>
+            <div class="detail-content">
+                <p class="detail-desc">
+                    Working on wearable robotic devices to assist individuals with mobility impairments.
+                    Focusing on ergonomic design and actuator integration.
+                </p>
+                <ul class="detail-bullets">
+                    <li>Designing 3D printed housings for soft actuators.</li>
+                    <li>Collaborating with controls team for sensor integration.</li>
+                    <li>Iterating on user feedback for comfort and usability.</li>
+                </ul>
+            </div>
+        </section>
 
     </div>
 
-    <!-- Scroll Script -->
+    <!-- Scroll & Interaction Script -->
     <script>
         function scrollToSection(id) {
             const element = document.getElementById(id);
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-                // Add highlight class
+                const offset = 100; // Account for fixed header
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Optional: Add highlight effect
                 element.classList.add('highlight-active');
-                // Remove it after animation ends so it can be re-triggered
                 setTimeout(() => {
                     element.classList.remove('highlight-active');
                 }, 1500);
