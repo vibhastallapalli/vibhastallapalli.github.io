@@ -577,6 +577,43 @@
                 font-size: 2.5rem;
             }
         }
+
+        /* --- Hover Focus Effects (Main Page) --- */
+        /* Common logic for both sections */
+        @media (min-width: 769px) {
+
+            /* When hovering the container, blur all children */
+            .exp-highlight-section:hover .exp-highlight-card,
+            .featured-projects-section:hover .featured-project-card {
+                filter: blur(2px) brightness(0.7);
+                transform: scale(0.98);
+            }
+
+            /* When hovering a specific card, reset it */
+            .exp-highlight-section .exp-highlight-card:hover,
+            .featured-projects-section .featured-project-card:hover {
+                filter: none;
+                transform: scale(1.05);
+                /* Pop effect */
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                z-index: 2;
+            }
+        }
+
+        /* Card Transitions base - apply to the cards themselves */
+        .exp-highlight-card,
+        .featured-project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Mobile specific adjustments (disable blur) */
+        @media (max-width: 768px) {
+
+            .exp-highlight-card:active,
+            .featured-project-card:active {
+                transform: scale(1.02);
+            }
+        }
     </style>
 </head>
 
@@ -664,9 +701,9 @@
     <!-- 4. Experience Highlights -->
     <section class="container" id="experiences">
         <h2>Experience Highlights</h2>
-        <div class="exp-grid">
+        <div class="exp-grid exp-highlight-section">
             <!-- Waterloop -->
-            <div class="exp-card">
+            <div class="exp-card exp-highlight-card">
                 <div class="exp-head">
                     <div class="exp-company">Waterloop</div>
                     <div class="exp-role">Mechanical Trainee</div>
@@ -678,7 +715,7 @@
                 </ul>
             </div>
             <!-- Electrium -->
-            <div class="exp-card">
+            <div class="exp-card exp-highlight-card">
                 <div class="exp-head">
                     <div class="exp-company">Electrium</div>
                     <div class="exp-role">Mechanical Trainee</div>
@@ -697,9 +734,9 @@
     <section id="projects-grid" class="about-section"> <!-- Darker bg for contrast -->
         <div class="container">
             <h2>Featured Projects</h2>
-            <div class="projects-grid">
+            <div class="projects-grid featured-projects-section">
                 <!-- Project 1 -->
-                <div class="proj-card">
+                <div class="proj-card featured-project-card">
                     <img src="Assets/pod.jpg" alt="Hyperloop Pod" class="proj-img" style="object-fit: cover;"
                         loading="lazy">
                     <div class="proj-content">
@@ -711,7 +748,7 @@
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="proj-card">
+                <div class="proj-card featured-project-card">
                     <img src="Assets/Data.jpg" alt="Data Analysis Project" class="proj-img" style="object-fit: cover;"
                         loading="lazy">
                     <div class="proj-content">
