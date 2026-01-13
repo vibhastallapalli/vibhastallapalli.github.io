@@ -582,7 +582,18 @@
         /* Common logic for both sections */
         @media (min-width: 769px) {
 
-            /* When hovering the container, blur all children */
+            /* Fix: Prevent blur when hovering logical gaps by disabling pointer events on container */
+            .exp-highlight-section,
+            .featured-projects-section {
+                pointer-events: none;
+            }
+
+            .exp-highlight-card,
+            .featured-project-card {
+                pointer-events: auto;
+            }
+
+            /* When hovering the container (now only triggers via card), blur all children */
             .exp-highlight-section:hover .exp-highlight-card,
             .featured-projects-section:hover .featured-project-card {
                 filter: blur(2px) brightness(0.7);
