@@ -33,37 +33,61 @@
     </nav>
 
     <main class="project-page">
-        <div class="project-header">
-            <h1>Featured Projects</h1>
-            <p class="project-subtitle">Mechanical Design, Simulation, and Hardware</p>
+        <div class="proj-header-editorial">
+            <h1>Selected Projects</h1>
+            <p class="project-subtitle">Design, Simulation, and <span class="gold-text">Technical Exploration</span></p>
         </div>
 
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="proj-card">
-                <img src="../Assets/pod.jpg" alt="Hyperloop Pod" class="proj-img" style="object-fit: cover;"
-                    loading="lazy">
-                <div class="proj-content">
-                    <h3 class="proj-title">Pod Assembly Fit</h3>
-                    <p class="proj-desc">Assembled and checked multiple CAD components in Onshape and SolidWorks to
-                        verify fit and alignment.</p>
-                    <a href="../Experiences/index.html#waterloop" class="btn btn-secondary"
-                        style="font-size: 0.85rem; padding: 0.5rem 1rem;">Explore Experiences →</a>
+        <section class="project-intro container">
+            <p>I build projects to understand systems — not just to ship code. These selections demonstrate my approach
+                to engineering problems, from mechanical assembly to control system simulation.</p>
+        </section>
+
+        <div class="projects-container">
+            <!-- Project 1: Image Left, Text Right -->
+            <section class="project-feature">
+                <div class="proj-img-large">
+                    <img src="../Assets/pod.jpg" alt="Hyperloop Pod Assembly in Workshop" loading="lazy">
                 </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="proj-card">
-                <img src="../Assets/Data.jpg" alt="Data Analysis Project" class="proj-img" style="object-fit: cover;"
-                    loading="lazy">
-                <div class="proj-content">
-                    <h3 class="proj-title">E-Bike Speed Control Simulation</h3>
-                    <p class="proj-desc">Built a physics-based simulation using C++ and Python to study e-bike
-                        speed, energy use, and efficiency under varying conditions.</p>
-                    <a href="e-bike-speed-control.html" class="btn btn-secondary"
-                        style="font-size: 0.85rem; padding: 0.5rem 1rem;">View
-                        Project →</a>
+                <div class="proj-details">
+                    <h2 class="proj-title-large">Pod Assembly Fit</h2>
+                    <p class="proj-hook">Precision integration for high-speed systems.</p>
+                    <p class="proj-desc">Assembled and verified complex CAD components in Onshape and SolidWorks to
+                        ensure perfect alignment within the Hyperloop pod chassis. Addressed tolerance stack-up
+                        challenges in a real-world build environment.</p>
+                    <ul class="proj-focus-list">
+                        <li>CAD Verification (Onshape/SolidWorks)</li>
+                        <li>Tolerance Analysis</li>
+                        <li>Rapid Prototyping</li>
+                    </ul>
+                    <div class="proj-actions">
+                        <a href="../Experiences/index.html#waterloop" class="btn btn-secondary">View Details →</a>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Project 2: Text Left, Image Right -->
+            <section class="project-feature reverse">
+                <div class="proj-details">
+                    <h2 class="proj-title-large">E-Bike Speed Control</h2>
+                    <p class="proj-hook">Physics-based simulation for energy optimization.</p>
+                    <p class="proj-desc">Designed a PID controller in C++ to manage e-bike speed under varying load
+                        conditions. Modeled air drag, rolling resistance, and incline disturbances to predict energy
+                        usage and system efficiency.</p>
+                    <ul class="proj-focus-list">
+                        <li>C++ & Python Simulation</li>
+                        <li>PID Control Logic</li>
+                        <li>Physics Modeling</li>
+                    </ul>
+                    <div class="proj-actions">
+                        <a href="e-bike-speed-control.html" class="btn btn-secondary">View Details →</a>
+                        <a href="#" class="btn btn-text">View Code ↗</a>
+                    </div>
+                </div>
+                <div class="proj-img-large">
+                    <img src="../Assets/Data.jpg" alt="E-bike Simulation Data Graph" loading="lazy">
+                </div>
+            </section>
         </div>
     </main>
 
