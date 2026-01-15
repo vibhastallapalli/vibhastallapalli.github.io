@@ -234,6 +234,74 @@
             .detail-banner {
                 height: 200px;
             }
+
+            .split-layout {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* New Styles for Waterloop/Compact Sections */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        /* .split-content { } Default block behavior is fine */
+
+        .split-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .compact-img {
+            width: 100%;
+            height: 250px;
+            /* Smaller fixed height as requested */
+            object-fit: cover;
+            border-radius: var(--radius);
+            border: 1px solid #333;
+        }
+
+        .skills-container {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .skills-label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
+            color: var(--text-muted);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            /* Slightly squarer than pill */
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--gold);
+            color: #fff;
+            background: rgba(228, 180, 41, 0.1);
         }
     </style>
 </head>
@@ -248,6 +316,8 @@
                 <a href="../index.html#experiences">Experiences</a> <!-- Keeping nav generic, user can navigate back -->
                 <a href="../Projects/index_proj.html">Projects</a>
                 <a href="../Assets/resume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/vibhas-tallapalli-168b0a320/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
             </div>
         </div>
     </nav>
@@ -257,7 +327,7 @@
         <!-- 1. Header -->
         <header class="exp-header">
             <h1>Experiences</h1>
-            <p class="exp-subtitle">Engineering Design Teams & Traineeships</p>
+            <p class="exp-subtitle">EEngineering teams & technical roles</p>
             <div class="header-accent"></div>
         </header>
 
@@ -272,7 +342,8 @@
                     <div>
                         <span class="card-team">Waterloop</span>
                         <span class="card-role">Mechanical Trainee</span>
-                        <p class="card-desc">Designed critical brake components reducing weight by 12%.</p>
+                        <p class="card-desc">Worked hand on with carbon fiber chassis components, brake integration, and
+                            custom machined hardware for a high-speed pod system.</p>
                     </div>
                     <button class="btn-card">View Experience →</button>
                 </div>
@@ -287,7 +358,8 @@
                     <div>
                         <span class="card-team">Electrium</span>
                         <span class="card-role">Battery Systems Lead</span>
-                        <p class="card-desc">Led development of modular battery packs & BMS integration.</p>
+                        <p class="card-desc">Created a CAD model of an existing e-bike frame and worked with the
+                            electrical team to account for battery packaging.</p>
                     </div>
                     <button class="btn-card">View Experience →</button>
                 </div>
@@ -302,7 +374,8 @@
                     <div>
                         <span class="card-team">Biomech</span>
                         <span class="card-role">Design Engineer</span>
-                        <p class="card-desc">Developing assistive robotic devices for mobility.</p>
+                        <p class="card-desc">I assisted with early design exploration for how soft strap systems
+                            interface with a rigid exoskeleton frame. </p>
                     </div>
                     <button class="btn-card">View Experience →</button>
                 </div>
@@ -317,18 +390,65 @@
                 <h2 class="detail-team">Waterloop</h2>
                 <div class="detail-meta">Mechanical Trainee | 2025</div>
             </div>
-            <img src="../Assets/pod.jpg" alt="Waterloop Design" class="detail-banner">
-            <div class="detail-content">
-                <p class="detail-desc">
-                    Responsible for the mechanical design and manufacturing of the braking system components for the
-                    Hyperloop pod.
-                    Focused on lightweighting while ensuring structural integrity under high deceleration loads.
-                </p>
-                <ul class="detail-bullets">
-                    <li>Designed brake calipers and mounting brackets using Onshape.</li>
-                    <li>Manufactured components using manual milling and lathe operations.</li>
-                    <li>Achieved 12% weight reduction through topological optimization.</li>
-                </ul>
+
+            <div class="split-layout">
+                <!-- Left Column: Text & Skills -->
+                <div class="split-content">
+                    <p class="detail-desc">
+                        RHelped integrate and fabricate the Hyperloop pod braking system, turning existing designs into
+                        CAD
+                        assemblies and checking that parts fit correctly, preparing the pod so that the brake hardware
+                        could
+                        be installed smoothly without any fit or alignment issues.
+                    </p>
+                    <ul class="detail-bullets">
+                        <li>Imported the braking system into Onshape and applied assembly constraints, adjusting part
+                            mates
+                            to make sure everything fit properly within the pod model.</li>
+                        <li>Planned mounting locations, fasteners, and hole placements by testing different positions
+                            and
+                            verifying clearances, so the braking system could be installed and adjusted without hassle.
+                        </li>
+                        <li>Worked through mate constraints and alignment issues while fitting the brake assembly into
+                            the
+                            full pod model by testing different alignments and updating CAD constraints.</li>
+                        <li>3D-printed small battery enclosure parts to test how they would assemble and interact before
+                            final fabrication.</li>
+                        <li>Machined aluminum clamps and brackets on the mill and lathe, checking fit and making
+                            adjustments
+                            as needed for the brake system</li>
+                        <li>Cut openings and mounting holes in the carbon-fiber panels, ensuring the brake hardware fit
+                            and
+                            aligned correctly.</li>
+                    </ul>
+
+                    <!-- Skills Section -->
+                    <div class="skills-container">
+                        <span class="skills-label">Skills Used</span>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Onshape</span>
+                            <span class="skill-tag">CAD Modeling</span>
+                            <span class="skill-tag">Mechanical Assembly</span>
+                            <span class="skill-tag">Tolerances</span>
+                            <span class="skill-tag">3D Printing (Prototyping & Fixtures)</span>
+                            <span class="skill-tag">Carbon-Fiber Fabrication</span>
+                            <span class="skill-tag">Machining (Mill, Lathe)</span>
+                            <span class="skill-tag">Fasteners & Hardware Selection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Images -->
+                <div class="split-images">
+                    <!-- Main Image (Smaller) -->
+                    <img src="../Assets/pod.jpg" alt="Waterloop Design" class="compact-img">
+
+                    <!-- Side Picture (New/Placeholder) -->
+                    <div class="compact-img"
+                        style="background: #222; display: flex; align-items: center; justify-content: center; text-align: center; color: #555; font-size: 0.9rem;">
+                        [Side Image Placeholder]
+                    </div>
+                </div>
             </div>
         </section>
 
