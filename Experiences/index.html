@@ -303,6 +303,54 @@
             color: #fff;
             background: rgba(228, 180, 41, 0.1);
         }
+
+        /* Electrium Specifics */
+        .split-layout.electrium-layout {
+            grid-template-columns: 55% 45%;
+            /* Slightly different ratio than Waterloop */
+            gap: 3rem;
+        }
+
+        .split-images-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .img-stack-large {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            border: 1px solid #333;
+        }
+
+        .img-stack-small {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            border: 1px solid #333;
+        }
+
+        .img-caption {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #777;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .placeholder-box {
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            text-align: center;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 
@@ -327,7 +375,7 @@
         <!-- 1. Header -->
         <header class="exp-header">
             <h1>Experiences</h1>
-            <p class="exp-subtitle">EEngineering teams & technical roles</p>
+            <p class="exp-subtitle">Engineering teams & technical roles</p>
             <div class="header-accent"></div>
         </header>
 
@@ -388,14 +436,14 @@
         <section id="waterloop" class="detail-section">
             <div class="detail-header">
                 <h2 class="detail-team">Waterloop</h2>
-                <div class="detail-meta">Mechanical Trainee | 2025</div>
+                <div class="detail-meta">Mechanical Engineering Trainee | 2025</div>
             </div>
 
             <div class="split-layout">
                 <!-- Left Column: Text & Skills -->
                 <div class="split-content">
                     <p class="detail-desc">
-                        RHelped integrate and fabricate the Hyperloop pod braking system, turning existing designs into
+                        Helped integrate and fabricate the Hyperloop pod braking system, turning existing designs into
                         CAD
                         assemblies and checking that parts fit correctly, preparing the pod so that the brake hardware
                         could
@@ -432,7 +480,7 @@
                             <span class="skill-tag">Tolerances</span>
                             <span class="skill-tag">3D Printing (Prototyping & Fixtures)</span>
                             <span class="skill-tag">Carbon-Fiber Fabrication</span>
-                            <span class="skill-tag">Machining (Mill, Lathe)</span>
+                            <span class="skill-tag">Machining (Mill, Lathe, Bandsaw)</span>
                             <span class="skill-tag">Fasteners & Hardware Selection</span>
                         </div>
                     </div>
@@ -455,20 +503,62 @@
         <!-- Electrium -->
         <section id="electrium" class="detail-section">
             <div class="detail-header">
-                <h2 class="detail-team">Electrium</h2>
-                <div class="detail-meta">Battery Systems Lead | 2024</div>
+                <h2 class="detail-team">Electrium Mobility</h2>
+                <div class="detail-meta">Mechanical Engineering Trainee | 2025</div>
             </div>
-            <img src="../Assets/Carbonfibre.jpg" alt="Electrium Battery" class="detail-banner">
-            <div class="detail-content">
-                <p class="detail-desc">
-                    Spearheaded the design and assembly of high-voltage battery packs for personal electric vehicles.
-                    Managed thermal simulation and safety integration for the energy storage system.
-                </p>
-                <ul class="detail-bullets">
-                    <li>Integrated custom BMS for real-time cell monitoring.</li>
-                    <li>Designed spot-welding jigs to improve assembly efficiency by 30%.</li>
-                    <li>Conducted thermal analysis to optimize cooling airflow.</li>
-                </ul>
+
+            <div class="split-layout electrium-layout">
+                <!-- Left: Text & Skills -->
+                <div class="split-content">
+                    <p class="detail-desc">
+                        Worked on the mechanical integration of an electric bike conversion, managing CAD modeling,
+                        3D-printed mounts, and frame surface preparation for final assembly.
+                    </p>
+                    <ul class="detail-bullets">
+                        <li>Modeled custom battery enclosure and mount geometry in SolidWorks to ensure
+                            interference-free fitment on the bike frame.</li>
+                        <li>Configured and 3D-printed mounts using Cura, iterating on print settings to achieve optimal
+                            strength and dimensional accuracy.</li>
+                        <li>Managed the master CAD assembly across SolidWorks, Onshape, and Fusion 360, maintaining
+                            version control as components involved.</li>
+                        <li>Executed full frame surface preparation, including sanding and spray painting, to restore
+                            the chassis before re-assembly.</li>
+                        <li>Assembled critical mechanical subsystems including handlebars, braking components, and wheel
+                            hubs.</li>
+                        <li>Collaborated with electrical team to route cabling and mount display components securely.
+                        </li>
+                    </ul>
+
+                    <!-- Skills Section -->
+                    <div class="skills-container" style="border-top: 1px solid #2a2a2a; padding-top: 1.2rem;">
+                        <span class="skills-label">Skills Used</span>
+                        <div class="skills-tags">
+                            <span class="skill-tag">SolidWorks</span>
+                            <span class="skill-tag">Onshape</span>
+                            <span class="skill-tag">Fusion 360</span>
+                            <span class="skill-tag">CAD Modeling</span>
+                            <span class="skill-tag">Mechanical Packaging</span>
+                            <span class="skill-tag">3D Printing</span>
+                            <span class="skill-tag">Cura</span>
+                            <span class="skill-tag">Hands-On Assembly</span>
+                            <span class="skill-tag">Mech-Elec Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Stacked Images -->
+                <div class="split-images-stack">
+                    <div>
+                        <img src="../Assets/Carbonfibre.jpg" alt="Battery Enclosure CAD" class="img-stack-large">
+                        <span class="img-caption">Battery enclosure CAD model</span>
+                    </div>
+                    <div>
+                        <div class="img-stack-small placeholder-box">
+                            [Bike Frame Photo Placeholder]
+                        </div>
+                        <span class="img-caption">Frame after surface prep + repaint</span>
+                    </div>
+                </div>
             </div>
         </section>
 
