@@ -216,7 +216,6 @@ nav {
 .project-intro {
     max-width: 600px;
     margin: 0 auto 6rem;
-    /* Centered block */
     text-align: left;
     /* Strict left text alignment */
     color: var(--text-dim);
@@ -231,148 +230,102 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 8rem;
+    /* Large vertical spacing */
 }
 
 /* --- Project Sections (Redesigned) --- */
 .project-section {
-    padding: 4rem 1.5rem;
-    border-top: 1px solid #2a2a2a;
-}
-
-.project-section:first-of-type {
-    border-top: none;
-    padding-top: 0;
+    padding: 0 1.5rem;
+    border: none;
+    /* Removed lines/cards */
 }
 
 .project-grid {
-    display: flex;
-    gap: 3rem;
-    align-items: flex-start;
-}
-
-.project-text {
-    flex: 1 1 58%;
-    min-width: 0;
-}
-
-.project-media {
-    flex: 0 0 42%;
-    min-width: 0;
-}
-
-/* Image Layouts */
-.media-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.media-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    /* Strict 2-column: 50/50 */
+    gap: 4rem;
+    align-items: start;
 }
 
-.media-large {
-    width: 100%;
-    aspect-ratio: 16/10;
-    object-fit: cover;
-    border-radius: var(--radius);
-    border: 1px solid #333;
+/* Left Column: Text */
+.project-text {
+    text-align: left;
 }
 
-.media-small {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: var(--radius);
-    border: 1px solid #333;
-}
-
-.media-tall {
-    width: 100%;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    border-radius: var(--radius);
-    border: 1px solid #333;
-}
-
-.media-single {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius);
-    border: 1px solid #333;
-}
-
-/* Buttons Container */
-.project-ctas {
-    display: flex;
-    gap: 12px;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-/* Typography & Elements */
 .proj-title-large {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
     margin-bottom: 0.5rem;
     line-height: 1.1;
-    color: #fff;
-}
-
-.proj-hero .proj-title-large {
-    font-size: 2.8rem;
-    /* Hero title larger */
 }
 
 .proj-hook {
+    display: block;
     font-size: 1rem;
-    color: var(--gold);
+    color: var(--text-dim);
+    /* Lighter/secondary as requested */
     margin-bottom: 1.5rem;
-    font-weight: 500;
-    opacity: 0.9;
+    font-weight: 400;
 }
 
 .proj-desc {
     color: var(--text-muted);
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
     line-height: 1.6;
-}
-
-.proj-focus-list {
-    list-style: none;
     margin-bottom: 1.5rem;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    max-width: 95%;
 }
 
-.proj-focus-list li {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Skills Row (Using existing classes if available, defining here to be safe) */
+/* Skill Pills */
 .skills-row {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .skill-pill {
     font-size: 0.75rem;
     color: var(--text-muted);
-    border: 1px solid #444;
-    padding: 0.2rem 0.6rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.3rem 0.8rem;
     border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Buttons */
+.project-ctas {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Right Column: Images */
+.project-media {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-media img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #333;
+    object-fit: cover;
+}
+
+/* Captions */
+.media-caption {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: -0.5rem;
+    /* Pull closer to image */
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    opacity: 0.8;
 }
 
 /* --- Technical Explorations Grid --- */
@@ -422,7 +375,6 @@ nav {
     width: 100%;
     height: 140px;
     background-color: #333;
-    /* Fallback/Placeholder color */
     border-bottom: 1px solid #333;
 }
 
@@ -446,28 +398,26 @@ nav {
 /* --- Responsive Layout --- */
 @media (max-width: 900px) {
     .project-grid {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .project-media,
-    .project-text {
-        width: 100%;
-        flex: none;
-    }
-
-    .media-grid-2 {
         grid-template-columns: 1fr;
-        /* Stack images on mobile or keep 2-up if preferred */
+        /* Stack vertically */
+        gap: 3rem;
+    }
+
+    .project-text {
+        order: 1;
+        /* Text first */
+    }
+
+    .project-media {
+        order: 2;
+        /* Images below */
     }
 
     .proj-header-editorial h1 {
         font-size: 2.5rem;
     }
 
-
-    .explorations-grid {
-        grid-template-columns: 1fr;
-        /* Single column on mobile */
+    .project-intro {
+        margin-bottom: 4rem;
     }
 }
