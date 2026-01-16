@@ -179,24 +179,30 @@ nav {
     }
 }
 
-/* --- Projects Page Editorial Design --- */
+/* --- Projects Page Layout (Strict Refactor) --- */
 
-.proj-header-editorial {
-    text-align: center;
-    padding: 4rem 1.5rem 2rem;
-    max-width: 800px;
+.projects-header {
+    padding: 6rem 1.5rem 3rem;
+    max-width: var(--max-width);
     margin: 0 auto;
 }
 
+.proj-header-editorial {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .proj-header-editorial h1 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
     letter-spacing: -0.03em;
 }
 
 .project-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--text-muted);
     font-weight: 300;
 }
@@ -206,26 +212,68 @@ nav {
     font-weight: 400;
 }
 
+/* Constrained Left-Aligned Intro */
 .project-intro {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem;
+    max-width: 600px;
+    margin: 0 auto 6rem;
+    /* Centered block */
+    text-align: left;
+    /* Strict left text alignment */
     color: var(--text-dim);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
-/* Feature Rows */
 .projects-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding-bottom: 4rem;
+    padding-bottom: 6rem;
     display: flex;
     flex-direction: column;
-    gap: 6rem;
-    /* Large spacing between projects */
+    gap: 8rem;
 }
 
+/* --- Hero Section (Pod Assembly) --- */
+.proj-hero {
+    display: flex;
+    align-items: stretch;
+    gap: 4rem;
+    padding: 0 1.5rem;
+}
+
+.proj-hero__media {
+    flex: 0 0 55%;
+    /* Strict 55% width */
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.proj-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: transform 0.5s ease;
+}
+
+.proj-hero:hover .proj-hero__media img {
+    transform: scale(1.02);
+    filter: brightness(1);
+}
+
+.proj-hero__content {
+    flex: 1 1 45%;
+    /* Remaining width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* --- Feature Rows (Standard) --- */
 .project-feature {
     display: flex;
     align-items: center;
@@ -233,46 +281,55 @@ nav {
     padding: 0 1.5rem;
 }
 
+.project-feature__media {
+    flex: 0 0 50%;
+    /* Standard 50% split for features, or adjust to preference */
+    position: relative;
+    aspect-ratio: 4/3;
+    /* Consistent aspect ratio */
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.project-feature__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: transform 0.5s ease;
+}
+
+.project-feature:hover .project-feature__media img {
+    transform: scale(1.02);
+    filter: brightness(1);
+}
+
+.project-feature__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* Reverse Modifier */
 .project-feature.reverse {
     flex-direction: row-reverse;
 }
 
-/* Image Column */
-.proj-img-large {
-    flex: 1.2;
-    /* Takes up slightly more space */
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius);
-}
-
-.proj-img-large img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: transform 0.4s ease, filter 0.4s ease;
-    filter: brightness(0.9);
-}
-
-.proj-img-large:hover img {
-    transform: scale(1.03);
-    filter: brightness(1);
-}
-
-/* Text Column */
-.proj-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
+/* Typography & Elements */
 .proj-title-large {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
-    border: none;
-    /* Override default h2 border */
-    padding: 0;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.proj-hero .proj-title-large {
+    font-size: 2.8rem;
+    /* Hero title larger */
 }
 
 .proj-hook {
@@ -280,7 +337,7 @@ nav {
     color: var(--gold);
     margin-bottom: 1.5rem;
     font-weight: 500;
-    display: block;
+    opacity: 0.9;
 }
 
 .proj-desc {
@@ -291,7 +348,7 @@ nav {
 
 .proj-focus-list {
     list-style: none;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
@@ -307,51 +364,136 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.proj-actions {
+/* Skills Row (Using existing classes if available, defining here to be safe) */
+.skills-row {
     display: flex;
-    gap: 1.5rem;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
 }
 
-.btn-text {
+.skill-pill {
+    font-size: 0.75rem;
     color: var(--text-muted);
-    font-size: 0.95rem;
-    font-weight: 500;
+    border: 1px solid #444;
+    padding: 0.2rem 0.6rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --- Technical Explorations Grid --- */
+.explore-section {
+    padding: 4rem 1.5rem 8rem;
+    border-top: 1px solid #2a2a2a;
+    margin-top: 4rem;
+}
+
+.explore-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.explore-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.explore-sub {
+    color: var(--text-muted);
+}
+
+.explorations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.exploration-card {
+    display: block;
+    background: #222;
+    border: 1px solid #333;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.2s ease;
     text-decoration: none;
-    transition: color 0.2s;
 }
 
-.btn-text:hover {
-    color: var(--gold);
+.exploration-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    background: #252525;
 }
 
-/* Mobile Responsiveness */
+.exploration-thumb {
+    width: 100%;
+    height: 140px;
+    background-color: #333;
+    /* Fallback/Placeholder color */
+    border-bottom: 1px solid #333;
+}
+
+.exploration-meta {
+    padding: 1.2rem;
+}
+
+.exploration-meta h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.exploration-meta p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+}
+
+/* --- Responsive Layout --- */
 @media (max-width: 900px) {
+    .proj-hero {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .proj-hero__media {
+        flex: none;
+        width: 100%;
+        /* Stacked full width */
+        min-height: 250px;
+    }
+
+    .proj-hero__content {
+        flex: none;
+        width: 100%;
+    }
 
     .project-feature,
     .project-feature.reverse {
         flex-direction: column;
         gap: 2rem;
-        text-align: left;
+        align-items: flex-start;
     }
 
-    .proj-img-large {
+    .project-feature__media {
+        flex: none;
         width: 100%;
+        aspect-ratio: 16/9;
+        /* Landscape for mobile stack */
     }
 
-    .proj-details {
+    .project-feature__content {
+        flex: none;
         width: 100%;
-    }
-
-    .proj-title-large {
-        font-size: 1.75rem;
-    }
-
-    .proj-header-editorial {
-        padding-top: 2rem;
     }
 
     .proj-header-editorial h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
+    }
+
+    .explorations-grid {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
     }
 }
