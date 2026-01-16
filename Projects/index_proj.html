@@ -33,23 +33,26 @@
     </nav>
 
     <main class="project-page">
-        <div class="proj-header-editorial">
-            <h1>Selected Projects</h1>
-            <p class="project-subtitle">Design, Simulation, and <span class="gold-text">Technical Exploration</span></p>
-        </div>
-
-        <section class="project-intro container">
-            <p>I build projects to understand systems — not just to ship code. These selections demonstrate my approach
-                to engineering problems, from mechanical assembly to control system simulation.</p>
+        <section class="container projects-header">
+            <div class="proj-header-editorial">
+                <h1>Selected Projects</h1>
+                <p class="project-subtitle">Design, Simulation, and <span class="gold-text">Technical Exploration</span>
+                </p>
+            </div>
+            <div class="project-intro">
+                <p>I build projects to understand systems — not just to ship code. These selections demonstrate my
+                    approach
+                    to engineering problems, from mechanical assembly to control system simulation.</p>
+            </div>
         </section>
 
         <div class="projects-container">
-            <!-- Project 1: Hero (Image Left, Text Right) -->
-            <section class="project-feature proj-hero">
-                <div class="proj-img-large">
+            <!-- 2. HERO SECTION (Pod Assembly) - Image Left (55%), Text Right (45%) -->
+            <section class="container proj-hero">
+                <div class="proj-hero__media">
                     <img src="../Assets/pod.jpg" alt="Hyperloop Pod Assembly in Workshop" loading="lazy">
                 </div>
-                <div class="proj-details">
+                <div class="proj-hero__content">
                     <h2 class="proj-title-large">Pod Assembly Fit</h2>
                     <p class="proj-hook">Precision integration for high-speed systems.</p>
                     <p class="proj-desc">Assembled and verified complex CAD components in Onshape and SolidWorks to
@@ -60,15 +63,25 @@
                         <li>Tolerance Analysis</li>
                         <li>Rapid Prototyping</li>
                     </ul>
-                    <div class="proj-actions">
-                        <a href="../Experiences/index.html#waterloop" class="btn btn-secondary">View Details →</a>
+                    <div class="skills-row">
+                        <span class="skill-pill">Onshape</span>
+                        <span class="skill-pill">Mechanical Assembly</span>
+                        <span class="skill-pill">Metrology</span>
+                    </div>
+                    <div class="proj-actions" style="margin-top: 1.5rem;">
+                        <a href="../Experiences/index.html#waterloop" class="btn btn-primary">View Details →</a>
                     </div>
                 </div>
             </section>
 
-            <!-- Project 2: Standard (Text Left, Image Right) -->
-            <section class="project-feature reverse">
-                <div class="proj-details">
+            <!-- 3. FEATURE ROWS -->
+
+            <!-- Row 1: E-Bike Speed Control - Image LEFT, Text RIGHT -->
+            <section class="container project-feature">
+                <div class="project-feature__media">
+                    <img src="../Assets/Data.jpg" alt="E-bike Simulation Data Graph" loading="lazy">
+                </div>
+                <div class="project-feature__content">
                     <h2 class="proj-title-large">E-Bike Speed Control</h2>
                     <p class="proj-hook">Physics-based simulation for energy optimization.</p>
                     <p class="proj-desc">Designed a PID controller in C++ to manage e-bike speed under varying load
@@ -79,22 +92,24 @@
                         <li>PID Control Logic</li>
                         <li>Physics Modeling</li>
                     </ul>
-                    <div class="proj-actions">
-                        <a href="e-bike-speed-control.html" class="btn btn-secondary">View Details →</a>
-                        <a href="#" class="btn btn-text">View Code ↗</a>
+                    <div class="skills-row">
+                        <span class="skill-pill">C++</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Control Systems</span>
                     </div>
-                </div>
-                <div class="proj-img-large">
-                    <img src="../Assets/Data.jpg" alt="E-bike Simulation Data Graph" loading="lazy">
+                    <div class="proj-actions" style="margin-top: 1.5rem;">
+                        <a href="e-bike-speed-control.html" class="btn btn-secondary">View Details →</a>
+                        <!-- <a href="#" class="btn btn-text">View Code ↗</a> -->
+                    </div>
                 </div>
             </section>
 
-            <!-- Project 3: Standard (Image Left, Text Right) -->
-            <section class="project-feature">
-                <div class="proj-img-large">
+            <!-- Row 2: Carbon Fiber Components - Text LEFT, Image RIGHT (REVERSED) -->
+            <section class="container project-feature reverse">
+                <div class="project-feature__media">
                     <img src="../Assets/Carbonfibre.jpg" alt="Carbon Fiber Layup Process" loading="lazy">
                 </div>
-                <div class="proj-details">
+                <div class="project-feature__content">
                     <h2 class="proj-title-large">Carbon Fiber Components</h2>
                     <p class="proj-hook">Composite manufacturing for lightweight structures.</p>
                     <p class="proj-desc">Executed hand lay-up and vacuum bagging processes for custom carbon fiber
@@ -105,12 +120,52 @@
                         <li>Vacuum Bagging</li>
                         <li>Structural Optimization</li>
                     </ul>
-                    <div class="proj-actions">
+                    <div class="skills-row">
+                        <span class="skill-pill">Composites</span>
+                        <span class="skill-pill">Manufacturing</span>
+                        <span class="skill-pill">Layup</span>
+                    </div>
+                    <div class="proj-actions" style="margin-top: 1.5rem;">
                         <a href="../Experiences/index.html#waterloop" class="btn btn-secondary">View Details →</a>
                     </div>
                 </div>
             </section>
         </div>
+
+        <!-- 4. TECHNICAL EXPLORATIONS GRID -->
+        <section class="container explore-section">
+            <div class="explore-header">
+                <h2>Technical Explorations</h2>
+                <p class="explore-sub">Quick prototypes, scripts, and design studies.</p>
+            </div>
+
+            <div class="explorations-grid">
+                <!-- Card 1 -->
+                <a class="exploration-card" href="#">
+                    <div class="exploration-thumb" style="background: #333;"></div>
+                    <div class="exploration-meta">
+                        <h3>Study Timer Script</h3>
+                        <p>Python script with IR distance sensor logic.</p>
+                    </div>
+                </a>
+                <!-- Card 2 -->
+                <a class="exploration-card" href="#">
+                    <div class="exploration-thumb" style="background: #2a2a2a;"></div>
+                    <div class="exploration-meta">
+                        <h3>Random Char Gen</h3>
+                        <p>Simple utility script for data randomization.</p>
+                    </div>
+                </a>
+                <!-- Card 3 -->
+                <a class="exploration-card" href="#">
+                    <div class="exploration-thumb" style="background: #222;"></div>
+                    <div class="exploration-meta">
+                        <h3>3D Printer Mods</h3>
+                        <p>Custom cooling duct design for Ender 3.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
 
 </body>
