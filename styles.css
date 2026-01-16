@@ -233,90 +233,83 @@ nav {
     gap: 8rem;
 }
 
-/* --- Hero Section (Pod Assembly) --- */
-.proj-hero {
-    display: flex;
-    align-items: stretch;
-    gap: 4rem;
-    padding: 0 1.5rem;
+/* --- Project Sections (Redesigned) --- */
+.project-section {
+    padding: 4rem 1.5rem;
+    border-top: 1px solid #2a2a2a;
 }
 
-.proj-hero__media {
-    flex: 0 0 55%;
-    /* Strict 55% width */
-    position: relative;
+.project-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.project-grid {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.project-text {
+    flex: 1 1 58%;
+    min-width: 0;
+}
+
+.project-media {
+    flex: 0 0 42%;
+    min-width: 0;
+}
+
+/* Image Layouts */
+.media-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.media-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.media-large {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
     border-radius: var(--radius);
-    overflow: hidden;
     border: 1px solid #333;
 }
 
-.proj-hero__media img {
+.media-small {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16/9;
     object-fit: cover;
-    filter: brightness(0.9);
-    transition: transform 0.5s ease;
-}
-
-.proj-hero:hover .proj-hero__media img {
-    transform: scale(1.02);
-    filter: brightness(1);
-}
-
-.proj-hero__content {
-    flex: 1 1 45%;
-    /* Remaining width */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-}
-
-/* --- Feature Rows (Standard) --- */
-.project-feature {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    padding: 0 1.5rem;
-}
-
-.project-feature__media {
-    flex: 0 0 50%;
-    /* Standard 50% split for features, or adjust to preference */
-    position: relative;
-    aspect-ratio: 4/3;
-    /* Consistent aspect ratio */
     border-radius: var(--radius);
-    overflow: hidden;
     border: 1px solid #333;
 }
 
-.project-feature__media img {
+.media-tall {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 4/5;
     object-fit: cover;
-    filter: brightness(0.9);
-    transition: transform 0.5s ease;
+    border-radius: var(--radius);
+    border: 1px solid #333;
 }
 
-.project-feature:hover .project-feature__media img {
-    transform: scale(1.02);
-    filter: brightness(1);
+.media-single {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid #333;
 }
 
-.project-feature__content {
-    flex: 1 1 auto;
+/* Buttons Container */
+.project-ctas {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-}
-
-/* Reverse Modifier */
-.project-feature.reverse {
-    flex-direction: row-reverse;
+    gap: 12px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
 }
 
 /* Typography & Elements */
@@ -452,45 +445,26 @@ nav {
 
 /* --- Responsive Layout --- */
 @media (max-width: 900px) {
-    .proj-hero {
+    .project-grid {
         flex-direction: column;
         gap: 2rem;
     }
 
-    .proj-hero__media {
-        flex: none;
+    .project-media,
+    .project-text {
         width: 100%;
-        /* Stacked full width */
-        min-height: 250px;
+        flex: none;
     }
 
-    .proj-hero__content {
-        flex: none;
-        width: 100%;
-    }
-
-    .project-feature,
-    .project-feature.reverse {
-        flex-direction: column;
-        gap: 2rem;
-        align-items: flex-start;
-    }
-
-    .project-feature__media {
-        flex: none;
-        width: 100%;
-        aspect-ratio: 16/9;
-        /* Landscape for mobile stack */
-    }
-
-    .project-feature__content {
-        flex: none;
-        width: 100%;
+    .media-grid-2 {
+        grid-template-columns: 1fr;
+        /* Stack images on mobile or keep 2-up if preferred */
     }
 
     .proj-header-editorial h1 {
         font-size: 2.5rem;
     }
+
 
     .explorations-grid {
         grid-template-columns: 1fr;
