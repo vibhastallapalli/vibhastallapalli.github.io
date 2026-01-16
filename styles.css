@@ -328,71 +328,28 @@ nav {
     opacity: 0.8;
 }
 
-/* --- Technical Explorations Grid --- */
-.explore-section {
-    padding: 4rem 1.5rem 8rem;
-    border-top: 1px solid #2a2a2a;
-    margin-top: 4rem;
-}
-
-.explore-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.explore-header h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.explore-sub {
+/* Text Expansion Styles */
+.proj-subhead {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: var(--text-muted);
-}
-
-.explorations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.exploration-card {
-    display: block;
-    background: #222;
-    border: 1px solid #333;
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: all 0.2s ease;
-    text-decoration: none;
-}
-
-.exploration-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--gold);
-    background: #252525;
-}
-
-.exploration-thumb {
-    width: 100%;
-    height: 140px;
-    background-color: #333;
-    border-bottom: 1px solid #333;
-}
-
-.exploration-meta {
-    padding: 1.2rem;
-}
-
-.exploration-meta h3 {
-    font-size: 1.1rem;
-    color: #fff;
-    margin-bottom: 0.4rem;
+    opacity: 0.9;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
-.exploration-meta p {
-    font-size: 0.9rem;
+.proj-bullets {
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
     color: var(--text-dim);
-    line-height: 1.4;
+}
+
+.proj-bullets li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 /* --- Responsive Layout --- */
