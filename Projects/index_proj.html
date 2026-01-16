@@ -4,186 +4,639 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Technical Projects | Vibhas Tallapalli">
-    <title>Projects | Vibhas Tallapalli</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <title>Experiences | Vibhas Tallapalli</title>
     <link rel="stylesheet" href="../styles.css">
+    <!-- Smooth Scroll Support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/smoothscroll.min.js"></script>
+    <script>
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+    <style>
+        /* --- Page Specific Styles --- */
+
+        /* Header */
+        .exp-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .exp-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .header-accent {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(228, 180, 41, 0.4);
+            border-radius: 2px;
+        }
+
+        /* Overview Cards Grid */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .overview-card {
+            background: #222;
+            border: 1px solid #333;
+            border-radius: var(--radius);
+            /* Remove padding from parent so image can be full width */
+            padding: 0;
+            text-align: left;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+            /* Increased slightly for image */
+            position: relative;
+            overflow: hidden;
+            /* Ensure image corners clip */
+        }
+
+        /* Hover Effects */
+        .overview-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(228, 180, 41, 0.15);
+        }
+
+        .overview-card:hover .card-img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .overview-card:hover .btn-card {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(228, 180, 41, 0.3);
+            color: #fff;
+        }
+
+        /* Card Image */
+        .card-img-container {
+            width: 100%;
+            height: 120px;
+            overflow: hidden;
+            border-bottom: 1px solid #333;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.3s ease;
+            filter: brightness(0.85);
+            /* Slightly muted by default */
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-team {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .card-role {
+            font-size: 0.9rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-card {
+            align-self: flex-start;
+            background: transparent;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            /* Let the card handle click, or button can be independent. User said card clickable or button. making card clickable via onclick */
+        }
+
+        /* Detailed Sections */
+        .detail-section {
+            scroll-margin-top: 100px;
+            /* Offset for sticky nav */
+            margin-bottom: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .detail-section:first-of-type {
+            border-top: none;
+        }
+
+        .detail-header {
+            margin-bottom: 2rem;
+        }
+
+        .detail-team {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-meta {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .detail-banner {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            margin-bottom: 2.5rem;
+            border: 1px solid #333;
+        }
+
+        .detail-content {
+            max-width: 800px;
+        }
+
+        .detail-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .detail-bullets {
+            list-style: none;
+            margin-left: 0.5rem;
+        }
+
+        .detail-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .detail-bullets li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* Highlight Animation */
+        @keyframes highlightInfo {
+            0% {
+                background-color: rgba(228, 180, 41, 0.1);
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        .highlight-active {
+            animation: highlightInfo 1.5s ease-out;
+            border-radius: var(--radius);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-banner {
+                height: 200px;
+            }
+
+            .split-layout {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* New Styles for Waterloop/Compact Sections */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        /* .split-content { } Default block behavior is fine */
+
+        .split-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .compact-img {
+            width: 100%;
+            height: 250px;
+            /* Smaller fixed height as requested */
+            object-fit: cover;
+            border-radius: var(--radius);
+            border: 1px solid #333;
+        }
+
+        .skills-container {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .skills-label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
+            color: var(--text-muted);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            /* Slightly squarer than pill */
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--gold);
+            color: #fff;
+            background: rgba(228, 180, 41, 0.1);
+        }
+
+        /* Electrium Specifics */
+        .split-layout.electrium-layout {
+            grid-template-columns: 55% 45%;
+            /* Slightly different ratio than Waterloop */
+            gap: 3rem;
+        }
+
+        .split-images-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .img-stack-large {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            border: 1px solid #333;
+        }
+
+        .img-stack-small {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            border: 1px solid #333;
+        }
+
+        .img-caption {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #777;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .placeholder-box {
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- 1. Navbar -->
     <nav>
         <div class="nav-content">
-            <div class="brand">Vibhas Tallapalli</div>
+            <div class="brand"><a href="../index.html">Vibhas Tallapalli</a></div>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="index_proj.html" style="color: var(--gold);">Projects</a>
-                <a href="../Experiences/index.html">Experiences</a>
-                <a href="../Assets/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+                <a href="../index.html#experiences">Experiences</a> <!-- Keeping nav generic, user can navigate back -->
+                <a href="../Projects/index_proj.html">Projects</a>
+                <a href="../Assets/resume.pdf" target="_blank">Resume</a>
                 <a href="https://www.linkedin.com/in/vibhas-tallapalli-168b0a320/" target="_blank"
                     rel="noopener noreferrer">LinkedIn</a>
             </div>
         </div>
     </nav>
 
-    <main class="project-page">
-        <section class="container projects-header">
-            <div class="proj-header-editorial">
-                <h1>Selected Projects</h1>
-                <p class="project-subtitle">Design, Simulation, and <span class="gold-text">Technical Exploration</span>
-                </p>
+    <div class="container" style="padding-top: 4rem;">
+
+        <!-- 1. Header -->
+        <header class="exp-header">
+            <h1>Experiences</h1>
+            <p class="exp-subtitle">Engineering teams & technical roles</p>
+            <div class="header-accent"></div>
+        </header>
+
+        <!-- 2. Overview Cards -->
+        <div class="overview-grid">
+            <!-- Waterloop -->
+            <div class="overview-card" onclick="scrollToSection('waterloop')">
+                <div class="card-img-container">
+                    <img src="../Assets/pod.jpg" alt="Waterloop Pod" class="card-img">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <span class="card-team">Waterloop</span>
+                        <span class="card-role">Mechanical Engineering Trainee</span>
+                        <p class="card-desc">Worked hand on with carbon fiber chassis components, brake integration, and
+                            custom machined hardware for a high-speed pod system.</p>
+                    </div>
+                    <button class="btn-card">View Experience →</button>
+                </div>
             </div>
-            <div class="project-intro">
-                <p>I build projects to understand systems — not just to ship code. These selections demonstrate my
-                    approach
-                    to engineering problems, from mechanical assembly to control system simulation.</p>
+
+            <!-- Electrium -->
+            <div class="overview-card" onclick="scrollToSection('electrium')">
+                <div class="card-img-container">
+                    <img src="../Assets/ethum.png" alt="Electrium Battery" class="card-img">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <span class="card-team">Electrium Mobility</span>
+                        <span class="card-role">Mechanical Engineering Trainee</span>
+                        <p class="card-desc">Created a CAD model of an existing e-bike frame and worked with the
+                            electrical team to account for battery packaging.</p>
+                    </div>
+                    <button class="btn-card">View Experience →</button>
+                </div>
             </div>
-        </section>
 
-        <div class="projects-container">
-
-            <!-- Project 1: Pod Assembly Fit -->
-            <section class="project-section container">
-                <div class="project-grid">
-                    <!-- Left: Text -->
-                    <div class="project-text">
-                        <h2 class="proj-title-large">Pod Assembly Fit</h2>
-                        <span class="proj-hook">Precision integration for high-speed systems</span>
-                        <p class="proj-desc">Assembled and verified complex CAD components in Onshape and SolidWorks to
-                            ensure perfect alignment within the Hyperloop pod chassis. Addressed tolerance stack-up
-                            challenges in a real-world build environment.</p>
-
-                        <div class="skills-row">
-                            <span class="skill-pill">Onshape</span>
-                            <span class="skill-pill">Mechanical Assembly</span>
-                            <span class="skill-pill">Metrology</span>
-                        </div>
-
-                        <div class="project-ctas">
-                            <a href="../Experiences/index.html#waterloop" class="btn btn-primary">View Details</a>
-                            <a href="https://github.com/vibhastallapalli/repo-placeholder" target="_blank"
-                                rel="noopener" class="btn btn-secondary">View Code ↗</a>
-                        </div>
-                    </div>
-
-                    <!-- Right: Images -->
-                    <div class="project-media">
-                        <img src="../Assets/pod.jpg" alt="Hyperloop Pod Assembly">
-                        <p class="media-caption">Final assembly of the pod chassis structure.</p>
-
-                        <img src="../Assets/3d.png" alt="CAD alignment visualization">
-                        <p class="media-caption">CAD verification ensuring tolerance fit.</p>
-                    </div>
+            <!-- Biomechatronics -->
+            <div class="overview-card" onclick="scrollToSection('biomechatronics')">
+                <div class="card-img-container">
+                    <img src="../Assets/bthum.jpeg" alt="Biomechatronics" class="card-img">
                 </div>
-            </section>
-
-            <!-- Project 2: E-Bike Speed Control -->
-            <section class="project-section container">
-                <div class="project-grid">
-                    <!-- Left: Text -->
-                    <div class="project-text">
-                        <h2 class="proj-title-large">E-Bike Speed Control</h2>
-                        <span class="proj-hook">Physics-based simulation for energy optimization</span>
-                        <p class="proj-desc">Designed a PID controller in C++ to manage e-bike speed under varying load
-                            conditions. Modeled air drag, rolling resistance, and incline disturbances to predict energy
-                            usage and system efficiency.</p>
-
-                        <div class="skills-row">
-                            <span class="skill-pill">C++</span>
-                            <span class="skill-pill">Python</span>
-                            <span class="skill-pill">Control Systems</span>
-                        </div>
-
-                        <div class="project-ctas">
-                            <a href="e-bike-speed-control.html" class="btn btn-primary">View Details</a>
-                            <!-- No Code button as per original -->
-                        </div>
+                <div class="card-content">
+                    <div>
+                        <span class="card-team">Biomechatronics</span>
+                        <span class="card-role">Mechanical Engineering Trainee</span>
+                        <p class="card-desc">I assisted with early design exploration for how soft strap systems
+                            interface with a rigid exoskeleton frame. </p>
                     </div>
-
-                    <!-- Right: Images -->
-                    <div class="project-media">
-                        <img src="../Assets/Data.jpg" alt="E-bike Simulation Data">
-                        <p class="media-caption">PID response curves and energy consumption analysis.</p>
-                    </div>
+                    <button class="btn-card">View Experience →</button>
                 </div>
-            </section>
-
-            <!-- Project 3: Carbon Fiber Components -->
-            <section class="project-section container">
-                <div class="project-grid">
-                    <!-- Left: Text -->
-                    <div class="project-text">
-                        <h2 class="proj-title-large">Carbon Fiber Components</h2>
-                        <span class="proj-hook">Composite manufacturing for lightweight structures</span>
-                        <p class="proj-desc">Executed hand lay-up and vacuum bagging processes for custom carbon fiber
-                            parts. Optimized ply orientation for structural rigidity while minimizing weight for
-                            competitive vehicle applications.</p>
-
-                        <div class="skills-row">
-                            <span class="skill-pill">Composites</span>
-                            <span class="skill-pill">Manufacturing</span>
-                            <span class="skill-pill">Layup</span>
-                        </div>
-
-                        <div class="project-ctas">
-                            <a href="../Experiences/index.html#waterloop" class="btn btn-primary">View Details</a>
-                            <a href="https://github.com/vibhastallapalli/repo-placeholder-2" target="_blank"
-                                rel="noopener" class="btn btn-secondary">View Code ↗</a>
-                        </div>
-                    </div>
-
-                    <!-- Right: Images -->
-                    <div class="project-media">
-                        <img src="../Assets/Carbonfibre.jpg" alt="Carbon Fiber Layup">
-                        <p class="media-caption">Vacuum bagging process for structural panels.</p>
-                    </div>
-                </div>
-            </section>
-
+            </div>
         </div>
 
-        <!-- 4. TECHNICAL EXPLORATIONS GRID -->
-        <section class="container explore-section">
-            <div class="explore-header">
-                <h2>Technical Explorations</h2>
-                <p class="explore-sub">Quick prototypes, scripts, and design studies.</p>
+        <!-- 3. Detailed Sections -->
+
+        <!-- Waterloop -->
+        <section id="waterloop" class="detail-section">
+            <div class="detail-header">
+                <h2 class="detail-team">Waterloop</h2>
+                <div class="detail-meta">Mechanical Engineering Trainee | 2025</div>
             </div>
 
-            <div class="explorations-grid">
-                <!-- Card 1 -->
-                <a class="exploration-card" href="#">
-                    <div class="exploration-thumb" style="background: #333;"></div>
-                    <div class="exploration-meta">
-                        <h3>Study Timer Script</h3>
-                        <p>Python script with IR distance sensor logic.</p>
+            <div class="split-layout">
+                <!-- Left Column: Text & Skills -->
+                <div class="split-content">
+                    <p class="detail-desc">
+                        Helped integrate and fabricate the Hyperloop pod braking system, turning existing designs into
+                        CAD
+                        assemblies and checking that parts fit correctly, preparing the pod so that the brake hardware
+                        could
+                        be installed smoothly without any fit or alignment issues.
+                    </p>
+                    <ul class="detail-bullets">
+                        <li>Imported the braking system into Onshape and applied assembly constraints, adjusting part
+                            mates
+                            to make sure everything fit properly within the pod model.</li>
+                        <li>Planned mounting locations, fasteners, and hole placements by testing different positions
+                            and
+                            verifying clearances, so the braking system could be installed and adjusted without hassle.
+                        </li>
+                        <li>Worked through mate constraints and alignment issues while fitting the brake assembly into
+                            the
+                            full pod model by testing different alignments and updating CAD constraints.</li>
+                        <li>3D-printed small battery enclosure parts to test how they would assemble and interact before
+                            final fabrication.</li>
+                        <li>Machined aluminum clamps and brackets on the mill and lathe, checking fit and making
+                            adjustments
+                            as needed for the brake system</li>
+                        <li>Cut openings and mounting holes in the carbon-fiber panels, ensuring the brake hardware fit
+                            and
+                            aligned correctly.</li>
+                    </ul>
+
+                    <!-- Skills Section -->
+                    <div class="skills-container">
+                        <span class="skills-label">Skills Used</span>
+                        <div class="skills-tags">
+                            <span class="skill-tag">Onshape</span>
+                            <span class="skill-tag">CAD Modeling</span>
+                            <span class="skill-tag">Mechanical Assembly</span>
+                            <span class="skill-tag">Tolerances</span>
+                            <span class="skill-tag">3D Printing (Prototyping & Fixtures)</span>
+                            <span class="skill-tag">Carbon-Fiber Fabrication</span>
+                            <span class="skill-tag">Machining (Mill, Lathe, Bandsaw)</span>
+                            <span class="skill-tag">Fasteners & Hardware Selection</span>
+                        </div>
                     </div>
-                </a>
-                <!-- Card 2 -->
-                <a class="exploration-card" href="#">
-                    <div class="exploration-thumb" style="background: #2a2a2a;"></div>
-                    <div class="exploration-meta">
-                        <h3>Random Char Gen</h3>
-                        <p>Simple utility script for data randomization.</p>
-                    </div>
-                </a>
-                <!-- Card 3 -->
-                <a class="exploration-card" href="#">
-                    <div class="exploration-thumb" style="background: #222;"></div>
-                    <div class="exploration-meta">
-                        <h3>3D Printer Mods</h3>
-                        <p>Custom cooling duct design for Ender 3.</p>
-                    </div>
-                </a>
+                </div>
+
+                <!-- Right Column: Images -->
+                <div class="split-images">
+                    <!-- Main Image (Smaller) -->
+                    <img src="../Assets/Carbonfibre.jpg" alt="Waterloop Design" class="compact-img">
+
+                    <!-- Side Picture (New/Placeholder) -->
+                    <img src="../Assets/3d.png" alt="Waterloop 3D Model" class="compact-img">
+                </div>
             </div>
         </section>
-    </main>
 
+        <!-- Electrium -->
+        <section id="electrium" class="detail-section">
+            <div class="detail-header">
+                <h2 class="detail-team">Electrium Mobility</h2>
+                <div class="detail-meta">Mechanical Engineering Trainee | 2025</div>
+            </div>
+
+            <div class="split-layout electrium-layout">
+                <!-- Left: Text & Skills -->
+                <div class="split-content">
+                    <p class="detail-desc">
+                        Worked on the mechanical integration of an electric bike conversion, managing CAD modeling,
+                        3D-printed mounts, and frame surface preparation for final assembly.
+                    </p>
+                    <ul class="detail-bullets">
+                        <li>Modeled custom battery enclosure and mount geometry in SolidWorks to ensure
+                            interference free fitment on the bike frame.</li>
+                        <li>Configured and 3D-printed mounts using Cura, iterating on print settings to achieve optimal
+                            strength and dimensional accuracy.</li>
+                        <li>Managed the master CAD assembly across SolidWorks, Onshape, and Fusion 360, maintaining
+                            version control as components involved.</li>
+                        <li>Executed full frame surface preparation, including sanding and spray painting, to restore
+                            the chassis before reassembly.</li>
+                        <li>Assembled critical mechanical subsystems including handlebars, braking components, and wheel
+                            hubs.</li>
+                        <li>Collaborated with electrical team to route cabling and mount display components securely.
+                        </li>
+                    </ul>
+
+                    <!-- Skills Section -->
+                    <div class="skills-container" style="border-top: 1px solid #2a2a2a; padding-top: 1.2rem;">
+                        <span class="skills-label">Skills Used</span>
+                        <div class="skills-tags">
+                            <span class="skill-tag">SolidWorks</span>
+                            <span class="skill-tag">Onshape</span>
+                            <span class="skill-tag">Fusion 360</span>
+                            <span class="skill-tag">CAD Modeling</span>
+                            <span class="skill-tag">Mechanical Packaging</span>
+                            <span class="skill-tag">3D Printing</span>
+                            <span class="skill-tag">Cura</span>
+                            <span class="skill-tag">Hands-On Assembly</span>
+                            <span class="skill-tag">Mech-Elec Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Stacked Images -->
+                <div class="split-images-stack">
+                    <div>
+                        <img src="../Assets/cade.png" alt="Battery Enclosure CAD" class="img-stack-large">
+                    </div>
+                    <div>
+                        <img src="../Assets/spray.png" alt="Frame after surface prep" class="img-stack-small">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biomechatronics -->
+        <section id="biomechatronics" class="detail-section">
+            <div class="detail-header">
+                <h2 class="detail-team">Biomechatronics</h2>
+                <div class="detail-meta">Mechanical Engineering Trainee | 2025</div>
+            </div>
+
+            <!-- Split Layout: Text Left, Image Right -->
+            <div class="split-layout">
+                <div class="split-content">
+                    <p class="detail-desc" style="margin-bottom: 1rem;">
+                        Worked on early stage design and prototyping for the thigh and shin strap system of a lower body
+                        exoskeleton, focusing on how straps attach, adjust, and stay secure during movement. The work
+                        involved sketching concepts against the frame and leg interface, modeling attachment parts, and
+                        testing ideas through quick prototypes.
+                    </p>
+                    <ul class="detail-bullets">
+                        <li>Worked through early strap attachment layouts for the thigh and shin by sketching concepts
+                            against the exoskeleton frame and leg interface, so the straps could adjust properly without
+                            slipping during movement.</li>
+                        <li>Helped model strap attachment parts in CAD and looked at different fastening options, like
+                            clips
+                            and screw mounts.</li>
+                        <li>Looked at different strap materials such as webbing, neoprene, and padding, thinking about
+                            comfort versus load support.</li>
+                        <li>Worked around the exoskeleton frame dimensions and carbon fiber tube spacing when laying out
+                            strap attachment geometry, so the mounts wouldn’t interfere with the frame or restrict leg
+                            movement.</li>
+                        <li>3D-printed strap attachment prototypes to check fit, adjustability, and how easily they
+                            could be
+                            assembled before locking in a design.</li>
+                    </ul>
+
+                    <!-- Skills Section -->
+                    <div class="skills-container"
+                        style="border-top: 1px solid #2a2a2a; padding-top: 1.2rem; margin-top: 1.5rem;">
+                        <span class="skills-label">Skills Used</span>
+                        <div class="skills-tags">
+                            <span class="skill-tag">CAD Modeling (SolidWorks / Onshape / Fusion 360)</span>
+                            <span class="skill-tag">Concept Sketching & Layouts</span>
+                            <span class="skill-tag">Strap & Attachment Design</span>
+                            <span class="skill-tag">3D Printing (Prototyping)</span>
+                            <span class="skill-tag">Material Selection for Wearables</span>
+                            <span class="skill-tag">Design for Fit & Stability</span>
+                            <span class="skill-tag">Team-Based Iteration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Single Image -->
+                <div class="split-images">
+                    <img src="../Assets/strap.jpeg" alt="Biomechatronics Prototype" class="compact-img">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scroll & Interaction Script -->
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 100; // Account for fixed header
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Optional: Add highlight effect
+                element.classList.add('highlight-active');
+                setTimeout(() => {
+                    element.classList.remove('highlight-active');
+                }, 1500);
+            }
+        }
+    </script>
 </body>
 
 </html>
