@@ -35,14 +35,16 @@
     <main class="project-page">
         <section class="container projects-header">
             <div class="proj-header-editorial">
-                <h1>Selected Projects</h1>
-                <p class="project-subtitle">Design, Simulation, and <span class="gold-text">Technical Exploration</span>
+                <h1>Selected Engineering Projects</h1>
+                <p class="project-subtitle">Mechanical Systems, Embedded Sensors, and <span class="gold-text">
+                        Control</span>
                 </p>
             </div>
             <div class="project-intro">
-                <p>I build projects to understand systems — not just to ship code. These selections demonstrate my
-                    approach
-                    to engineering problems, from mechanical assembly to control system simulation.</p>
+                <p>I build hands-on projects to understand how mechanical, electrical, and software systems work
+                    together.
+                    These projects focus on real constraints like packaging, sensing, control logic, and iteration, not
+                    just the final output.</p>
             </div>
         </section>
 
@@ -53,40 +55,56 @@
                 <div class="project-grid">
                     <!-- Left: Text -->
                     <div class="project-text">
-                        <h2 class="proj-title-large">Pod Assembly Fit</h2>
-                        <span class="proj-hook">Precision integration for high-speed systems</span>
-                        <p class="proj-desc">Assembled and verified complex CAD components in Onshape and SolidWorks to
-                            ensure perfect alignment within the Hyperloop pod chassis. Addressed tolerance stack-up
-                            challenges in a real-world build environment.</p>
+                        <h2 class="proj-title-large">Smart Study Focus Timer</h2>
+                        <span class="proj-hook">Designing and assembling a small embedded sensor system</span>
+                        <p class="proj-desc">During exam periods, I noticed I was sitting for long periods without
+                            really thinking about it, whether I was studying, scrolling on my phone, or just staying
+                            seated out of habit. To push myself to take breaks and reset, I built a small sensor-based
+                            device that monitors presence and provides a physical reminder through a visible LED
+                            indicator. I chose to approach this as a hardware project by working with sensors,
+                            microcontroller logic, and a custom enclosure rather than relying on a webcam or screen
+                            notification. Having a physical device beside me, especially with a light that changes
+                            state, made the reminder harder to ignore and more effective.</p>
 
-                        <h3 class="proj-subhead">What I Did</h3>
+                        <h3 class="proj-subhead">How I Build It</h3>
                         <ul class="proj-bullets">
-                            <li>Verified CAD interface points for over 50 custom machined components.</li>
-                            <li>Managed tolerance stack-up analysis to ensure sub-1mm alignment across the 2m chassis.
-                            </li>
-                            <li>Executed final mechanical assembly and torque verification for safety-critical
-                                fasteners.</li>
+                            <li>Worked with Arduino hardware and basic PCB layouts to interface sensors with a
+                                microcontroller.</li>
+                            <li>Wrote the control logic to track presence, manage timing states, and trigger LED
+                                behavior.</li>
+                            <li>Tested sensor distance, angle, and placement during real study sessions, then adjusted
+                                positioning and wiring to reduce false triggers and missed detections.</li>
+                            <li>Designed and 3D-printed an enclosure to hold the electronics and allow easy access for
+                                changes.</li>
                         </ul>
 
-                        <h3 class="proj-subhead">Key Decisions</h3>
+                        <h3 class="proj-subhead">Design Choices</h3>
                         <ul class="proj-bullets">
-                            <li>Prioritized critical mating surfaces (brakes/propulsion) for tighter tolerances while
-                                loosening others to reduce cost.</li>
-                            <li>Selected laser tracker metrology to validate the frame weldment before final assembly.
+                            <li>Chose a physical device over a webcam or software alert to make the reminder harder to
+                                ignore.</li>
+                            <li>Used a visible LED indicator that could be disabled in public spaces to avoid
+                                distraction.
                             </li>
+                            <li>Chose to focus on making presence detection and timing work well instead of adding extra
+                                features.</li>
                         </ul>
 
-                        <h3 class="proj-subhead">Results / Validation</h3>
+                        <h3 class="proj-subhead">Results</h3>
                         <ul class="proj-bullets">
-                            <li>Achieved successful integration of braking and propulsion subsystems without on-site
-                                rework.</li>
-                            <li>Validated chassis structural integrity under simulated load conditions.</li>
+                            <li>Achieved reliable presence detection and reminder behavior.</li>
+                            <li>Validated the system through repeated use during exam periods.
+                            </li>
+                            <li>Learned how to troubleshoot sensor behavior and wiring issues during real world use.
+                            </li>
                         </ul>
 
                         <div class="skills-row">
-                            <span class="skill-pill">Onshape</span>
-                            <span class="skill-pill">Mechanical Assembly</span>
-                            <span class="skill-pill">Metrology</span>
+                            <span class="skill-pill">Arduino</span>
+                            <span class="skill-pill">Embedded Sensors</span>
+                            <span class="skill-pill">C++ (Arduino)</span>
+                            <span class="skill-pill">PCB Work</span>
+                            <span class="skill-pill">3D Printing</span>
+                            <span class="skill-pill">Hardware Debugging</span>
                         </div>
 
                         <div class="project-ctas">
@@ -112,36 +130,55 @@
                     <!-- Left: Text -->
                     <div class="project-text">
                         <h2 class="proj-title-large">E-Bike Speed Control</h2>
-                        <span class="proj-hook">Physics-based simulation for energy optimization</span>
-                        <p class="proj-desc">Designed a PID controller in C++ to manage e-bike speed under varying load
-                            conditions. Modeled air drag, rolling resistance, and incline disturbances to predict energy
-                            usage and system efficiency.</p>
+                        <span class="proj-hook">Physics-based PID simulation for speed tracking under load</span>
+                        <p class="proj-desc">I was helping build an e-bike through Electrium Mobility, and I wanted to
+                            understand what “good speed control” actually looks like when the load changes (like hills
+                            and drag). So I built a physics simulation in C++ and wrote a discrete PID controller
+                            to track step changes in target speed. I modeled basic resistive forces (aero drag + rolling
+                            resistance) and added a hill/load disturbance to see how the controller reacts. Then I
+                            logged results to a CSV and used Python to plot the velocity response, throttle behavior,
+                            and an efficiency-vs-speed view.</p>
 
-                        <h3 class="proj-subhead">What I Did</h3>
+                        <h3 class="proj-subhead">How I build It</h3>
                         <ul class="proj-bullets">
-                            <li>Implemented a discrete-time PID control loop in C++ from scratch (no libraries).</li>
-                            <li>Modeled system dynamics including aerodynamic drag and rolling friction forces.</li>
-                            <li>Created a Python visualization script to plot velocity response and error over time.
+                            <li>Wrote a discrete-time PID controller in C++ (P/I/D terms + integral clamping) and used
+                                it to generate a throttle command.</li>
+                            <li>Built a basic point-mass model with drag, rolling resistance, and a tunable disturbance
+                                force to represent load changes.</li>
+                            <li>Simulated step setpoints (5 → 15 → 25 m/s) to test overshoot, settling, and stability
+                                across speeds
                             </li>
+                            <li>Logged time, setpoint, velocity, throttle, disturbance, and energy to CSV and plotted
+                                results in Python.</li>
                         </ul>
 
                         <h3 class="proj-subhead">Key Decisions</h3>
                         <ul class="proj-bullets">
-                            <li>Implemented anti-windup clamping to handle actuator saturation during hill climbs.</li>
-                            <li>Used a simplified point-mass model for real-time simulation performance.</li>
+                            <li>Kept the plant model simple (point-mass + resistive forces) so I could focus on
+                                controller behavior instead of perfect realism.</li>
+                            <li>Added actuator limits (0–1 throttle) and anti-windup clamping so the controller wouldn’t
+                                “run away” under load</li>
+                            <li>Used step changes and a disturbance force to stress-test the controller instead of only
+                                tuning at steady state.</li>
                         </ul>
 
-                        <h3 class="proj-subhead">Results / Validation</h3>
+                        <h3 class="proj-subhead">Results</h3>
                         <ul class="proj-bullets">
-                            <li>Maintained target velocity within &plusmn;0.5 m/s under varying incline disturbances.
+                            <li>The bike was able to settle to new speed targets without becoming unstable.
                             </li>
-                            <li>Optimized controller gains (Kp, Ki, Kd) for minimal overshoot and settling time.</li>
+                            <li>Under added load, throttle output saturated as expected and speed temporarily dropped
+                                before recovering.</li>
+                            <li>Speed, throttle, and energy plots showed different behavior across low, medium, and high
+                                target speeds.</li>
                         </ul>
 
                         <div class="skills-row">
                             <span class="skill-pill">C++</span>
-                            <span class="skill-pill">Python</span>
-                            <span class="skill-pill">Control Systems</span>
+                            <span class="skill-pill">PID Control</span>
+                            <span class="skill-pill">Physics Modeling</span>
+                            <span class="skill-pill">Simulation</span>
+                            <span class="skill-pill">Python (Matplotlib)</span>
+                            <span class="skill-pill">Data Logging (CSV)</span>
                         </div>
                     </div>
 
