@@ -377,4 +377,8 @@ nav {
     .project-intro {
         margin-bottom: 4rem;
     }
+
+    .hide-mobile {
+        display: none !important;
+    }
 }
