@@ -381,6 +381,21 @@
 
         <!-- 2. Overview Cards -->
         <div class="overview-grid">
+            <!-- Linear Automation -->
+            <div class="overview-card" onclick="scrollToSection('linear')">
+                <div class="card-img-container placeholder-box" style="background: #1a1a1a;">
+                    <span style="font-size: 0.85rem; color: #555;">Image coming soon</span>
+                </div>
+                <div class="card-content">
+                    <div>
+                        <span class="card-team">Linear Automation Inc.</span>
+                        <span class="card-role">Mechanical Engineer Co-op</span>
+                        <p class="card-desc">Designed and stress-tested structural vehicle components, automated engineering drawing workflows, and used SQL to identify and reduce manufacturing defects on the production floor.</p>
+                    </div>
+                    <button class="btn-card">View Experience →</button>
+                </div>
+            </div>
+
             <!-- Waterloop -->
             <div class="overview-card" onclick="scrollToSection('waterloop')">
                 <div class="card-img-container">
@@ -431,6 +446,48 @@
         </div>
 
         <!-- 3. Detailed Sections -->
+
+        <!-- Linear Automation -->
+        <section id="linear" class="detail-section">
+            <div class="detail-header">
+                <h2 class="detail-team">Linear Automation Inc.</h2>
+                <div class="detail-meta">Mechanical Engineer Co-op | Apr 2026 - Present</div>
+            </div>
+
+            <div class="split-layout">
+                <div class="split-content">
+                    <p class="detail-desc">
+                        Worked as a mechanical engineer co-op on structural component design, manufacturing analysis, and engineering automation tooling, contributing across SolidWorks modelling, FEA simulation, SQL defect analysis, and Python scripting to improve both design quality and production outcomes.
+                    </p>
+                    <ul class="detail-bullets">
+                        <li>Designed and stress-tested 5+ structural Honda vehicle frame components in SolidWorks using MATLAB and FEA across 7+ iterations, running parameter sweeps across wall thickness and load cases to isolate stress concentration failures, then redesigning geometry and upgrading material from Al 5000 to 6000 series to cut component weight by 30% while maintaining 300+ lb structural load requirements.</li>
+                        <li>Queried the manufacturing execution system using SQL, filtering production data by machine ID, shift, and rejection code to surface defect trends, identified one machine driving a disproportionate share of night shift rejects, escalated findings to the floor supervisor, and the resulting calibration fix reduced the plant wide rejection rate by 22%.</li>
+                        <li>Built a Python script that reads SolidWorks drawing feature types and auto-assigns decimal precision per internal GD&T standards, eliminating manual precision decisions across 20+ engineering drawings and reducing decimal precision review comments by 90% across the team.</li>
+                    </ul>
+
+                    <div class="skills-container">
+                        <span class="skills-label">Skills Used</span>
+                        <div class="skills-tags">
+                            <span class="skill-tag">SolidWorks</span>
+                            <span class="skill-tag">FEA</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">GD&amp;T</span>
+                            <span class="skill-tag">Tolerance Analysis</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Manufacturing Systems</span>
+                            <span class="skill-tag">DFM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="split-images">
+                    <div class="compact-img placeholder-box" style="background: #1a1a1a;">
+                        <span style="font-size: 0.85rem; color: #555;">Images coming soon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Waterloop -->
         <section id="waterloop" class="detail-section">
