@@ -35,20 +35,247 @@
     <main class="project-page">
         <section class="container projects-header">
             <div class="proj-header-editorial">
-                <h1>Selected Engineering Projects</h1>
-                <p class="project-subtitle">Mechanical Systems, Embedded Sensors, and <span class="gold-text">
-                        Control</span>
+                <h1>Projects</h1>
+                <p class="project-subtitle">Quantitative Finance, Engineering Systems, and <span class="gold-text">
+                        Automation</span>
                 </p>
             </div>
             <div class="project-intro">
-                <p>I build hands-on projects to understand how mechanical, electrical, and software systems work
-                    together.
-                    These projects focus on real constraints like packaging, sensing, control logic, and iteration, not
-                    just the final output.</p>
+                <p>From options pricing engines and algorithmic trading systems to embedded hardware and control simulations. Every project here was built to understand something real, not just to have something to show.</p>
             </div>
         </section>
 
         <div class="projects-container">
+
+            <!-- Project: Algorithmic Crypto Trading Backtester -->
+            <section class="project-section container">
+                <div class="project-grid">
+                    <div class="project-text">
+                        <h2 class="proj-title-large">Algorithmic Crypto Trading Backtester</h2>
+                        <span class="proj-hook">Full backtesting engine across 3 years of OHLCV data with live performance analytics</span>
+                        <p class="proj-desc">Built a backtesting engine implementing MA Crossover, RSI Mean Reversion, and Volume Breakout strategies across 3 years of OHLCV data. Discovered a 58% win rate masking a 1.8x risk/reward ratio — restructured position sizing by cutting losers faster and extending winners until the strategy turned net positive.</p>
+
+                        <h3 class="proj-subhead">How I Built It</h3>
+                        <ul class="proj-bullets">
+                            <li>Implemented three strategies — MA Crossover, RSI Mean Reversion, and Volume Breakout — each backtested over 3 years of OHLCV data.</li>
+                            <li>Computed Sharpe ratio, max drawdown, win rate, and profit factor on every run for full performance visibility.</li>
+                            <li>Built a SQLite backend with a SQL Explorer and a portfolio correlation matrix across 10 crypto assets.</li>
+                            <li>Surfaced all results through a Streamlit dashboard with Plotly visualizations.</li>
+                        </ul>
+
+                        <h3 class="proj-subhead">Key Decisions</h3>
+                        <ul class="proj-bullets">
+                            <li>Found the 58% win rate was misleading — added risk/reward ratio analysis to surface what raw win rate hides.</li>
+                            <li>Restructured position sizing logic to exit losers faster and hold winners longer instead of treating every trade symmetrically.</li>
+                            <li>Used SQLite as the data layer to make the full trade history queryable and auditable, not just summarized.</li>
+                        </ul>
+
+                        <h3 class="proj-subhead">Results</h3>
+                        <ul class="proj-bullets">
+                            <li>Strategy turned net positive after restructuring position sizing around the 1.8x risk/reward ratio finding.</li>
+                            <li>Correlation matrix across 10 assets revealed which pairs moved together, informing diversification decisions.</li>
+                            <li>Sharpe ratio and max drawdown outputs made strategy comparison objective and reproducible.</li>
+                        </ul>
+
+                        <div class="skills-row">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">pandas</span>
+                            <span class="skill-pill">Streamlit</span>
+                            <span class="skill-pill">SQLite</span>
+                            <span class="skill-pill">Plotly</span>
+                        </div>
+
+                        <div class="project-ctas">
+                            <a href="https://github.com/vibhastallapalli/crypto-backtester" target="_blank"
+                                rel="noopener" class="btn btn-secondary">View Code ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="project-media">
+                        <div class="placeholder-card">
+                            <h4>Dashboard screenshots coming soon</h4>
+                            <p>See the write-up and bullets for full details.</p>
+                            <div class="placeholder-tags">
+                                <span class="mini-tag">Python</span>
+                                <span class="mini-tag">Streamlit</span>
+                                <span class="mini-tag">SQLite</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project: Black-Scholes Live Options Pricing Dashboard -->
+            <section class="project-section container">
+                <div class="project-grid">
+                    <div class="project-text">
+                        <h2 class="proj-title-large">Black-Scholes Live Options Pricing Dashboard</h2>
+                        <span class="proj-hook">C++ pricing engine computing all 4 Greeks in real time across 5 equities</span>
+                        <p class="proj-desc">C++ pricing engine built from scratch for European call and put options, pricing 5 simultaneous equities (AAPL, TSLA, NVDA, AMZN, SPY) with a custom CND polynomial approximation accurate to 6 decimal places using zero external math libraries. All 4 Greeks recalculate every 2 seconds across 1,800 price ticks per hour, with results logged to a normalized SQLite database.</p>
+
+                        <h3 class="proj-subhead">How I Built It</h3>
+                        <ul class="proj-bullets">
+                            <li>Implemented the full Black-Scholes formula in C++ for European calls and puts with no external math dependencies.</li>
+                            <li>Wrote a custom CND polynomial approximation accurate to 6 decimal places to replace standard library calls.</li>
+                            <li>Computed all 4 Greeks — Delta, Gamma, Theta, Vega — in real time, recalculating 8 output values every 2 seconds across 1,800 price ticks per hour.</li>
+                            <li>Logged results to a normalized SQLite database across 2 relational tables, storing 100+ timestamped snapshots per session.</li>
+                        </ul>
+
+                        <h3 class="proj-subhead">Key Decisions</h3>
+                        <ul class="proj-bullets">
+                            <li>Avoided all external math libraries to understand exactly what the CND approximation was doing numerically.</li>
+                            <li>Chose a normalized 2-table SQLite schema so snapshots could be queried across time, not just viewed at a single point.</li>
+                            <li>Priced 5 equities simultaneously to make the real-time recalculation rate meaningful under realistic load.</li>
+                        </ul>
+
+                        <h3 class="proj-subhead">Results</h3>
+                        <ul class="proj-bullets">
+                            <li>Custom CND approximation matched reference values to 6 decimal places with zero library dependencies.</li>
+                            <li>Engine sustained 1,800 price ticks per hour across all 5 equities with consistent output timing.</li>
+                            <li>SQLite backend stored 100+ timestamped snapshots per session, making historical price and Greek data fully queryable.</li>
+                        </ul>
+
+                        <div class="skills-row">
+                            <span class="skill-pill">C++</span>
+                            <span class="skill-pill">JavaScript</span>
+                            <span class="skill-pill">Chart.js</span>
+                            <span class="skill-pill">SQLite</span>
+                        </div>
+
+                        <div class="project-ctas">
+                            <a href="https://github.com/vibhastallapalli/black-scholes" target="_blank"
+                                rel="noopener" class="btn btn-secondary">View Code ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="project-media">
+                        <div class="placeholder-card">
+                            <h4>Dashboard screenshots coming soon</h4>
+                            <p>See the write-up and bullets for full details.</p>
+                            <div class="placeholder-tags">
+                                <span class="mini-tag">C++</span>
+                                <span class="mini-tag">Options Pricing</span>
+                                <span class="mini-tag">Greeks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project: Job Application Automation Bot -->
+            <section class="project-section container">
+                <div class="project-grid">
+                    <div class="project-text">
+                        <h2 class="proj-title-large">Job Application Automation Bot</h2>
+                        <span class="proj-hook">Full-stack bot cutting per-application time from 15 minutes to 30 seconds</span>
+                        <p class="proj-desc">Full stack job application bot scraping LinkedIn and auto-submitting applications, integrating the Anthropic API to generate tailored cover responses constrained to applicant bio and job description only. Reduced per-application time from 15 minutes to 30 seconds — a 97% reduction — while maintaining a 10% interview rate.</p>
+
+                        <h3 class="proj-subhead">How I Built It</h3>
+                        <ul class="proj-bullets">
+                            <li>Built a Playwright scraper to pull LinkedIn postings and auto-submit applications at scale.</li>
+                            <li>Integrated the Anthropic API to generate tailored cover responses constrained strictly to applicant bio and job description — no hallucinated credentials.</li>
+                            <li>Designed a 4-table normalized SQLite schema tracking 6 application stages with applicant count filtering to surface low-competition postings.</li>
+                            <li>Surfaced the pipeline through a real-time Flask dashboard with 2-second live polling.</li>
+                        </ul>
+
+                        <h3 class="proj-subhead">Key Decisions</h3>
+                        <ul class="proj-bullets">
+                            <li>Constrained the AI prompt to bio and job description only to prevent the model from fabricating experience.</li>
+                            <li>Added applicant count filtering so the bot prioritized postings with fewer applicants rather than just high-volume applications.</li>
+                            <li>Used 2-second polling on the Flask dashboard so application status was visible in near real time without rebuilding the page.</li>
+                        </ul>
+
+                        <h3 class="proj-subhead">Results</h3>
+                        <ul class="proj-bullets">
+                            <li>Cut per-application time from 15 minutes to 30 seconds — a 97% reduction.</li>
+                            <li>Maintained a 10% interview rate across automated submissions.</li>
+                            <li>6-stage tracking schema made it possible to audit the full pipeline from scrape to response.</li>
+                        </ul>
+
+                        <div class="skills-row">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">Flask</span>
+                            <span class="skill-pill">Playwright</span>
+                            <span class="skill-pill">SQLite</span>
+                            <span class="skill-pill">Claude AI</span>
+                        </div>
+
+                        <div class="project-ctas">
+                            <a href="https://github.com/vibhastallapalli/Job-Bot" target="_blank"
+                                rel="noopener" class="btn btn-secondary">View Code ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="project-media">
+                        <div class="placeholder-card">
+                            <h4>Dashboard screenshots coming soon</h4>
+                            <p>See the write-up and bullets for full details.</p>
+                            <div class="placeholder-tags">
+                                <span class="mini-tag">Flask</span>
+                                <span class="mini-tag">Playwright</span>
+                                <span class="mini-tag">Claude AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project: Kalman Filter Sensor Fusion Simulation -->
+            <section class="project-section container">
+                <div class="project-grid">
+                    <div class="project-text">
+                        <h2 class="proj-title-large">Kalman Filter Sensor Fusion Simulation</h2>
+                        <span class="proj-hook">Physics-based GPS and accelerometer fusion with 60–80% RMS error reduction</span>
+                        <p class="proj-desc">Physics-based simulation fusing GPS and accelerometer data to estimate position and velocity of a moving object. GPS modeled with high noise and low frequency updates, accelerometer with low noise and high frequency updates. Full Kalman filter implemented from scratch — predict and update steps, full covariance matrix propagation — running at 100 Hz over 10 seconds.</p>
+
+                        <h3 class="proj-subhead">How I Built It</h3>
+                        <ul class="proj-bullets">
+                            <li>Modeled GPS with high noise and low update frequency, accelerometer with low noise and high update frequency — matching real sensor characteristics.</li>
+                            <li>Implemented the full Kalman filter from scratch including predict and update steps and full covariance matrix propagation.</li>
+                            <li>Ran the simulation at 100 Hz over 10 seconds to produce a meaningful number of ticks for statistical evaluation.</li>
+                            <li>Plotted raw GPS, raw accelerometer, and Kalman estimate to make the fusion benefit visually clear.</li>
+                        </ul>
+
+                        <h3 class="proj-subhead">Key Decisions</h3>
+                        <ul class="proj-bullets">
+                            <li>Modeled both sensors with realistic noise characteristics rather than using simplified equal-weight averaging.</li>
+                            <li>Implemented full covariance propagation instead of a scalar gain to understand how uncertainty compounds across predict and update cycles.</li>
+                            <li>Chose 100 Hz to stress the filter under a high tick rate and get stable RMS error measurements.</li>
+                        </ul>
+
+                        <h3 class="proj-subhead">Results</h3>
+                        <ul class="proj-bullets">
+                            <li>Kalman estimate achieved 60 to 80 percent RMS error reduction over raw GPS alone.</li>
+                            <li>Covariance propagation confirmed the filter was correctly weighting sensor confidence at each step.</li>
+                            <li>Simulation demonstrated the core trade-off between GPS accuracy and accelerometer drift at realistic noise levels.</li>
+                        </ul>
+
+                        <div class="skills-row">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">NumPy</span>
+                            <span class="skill-pill">Matplotlib</span>
+                            <span class="skill-pill">Kalman Filter</span>
+                        </div>
+
+                        <div class="project-ctas">
+                            <a href="https://github.com/vibhastallapalli/kalman-filter-sensor-fusion" target="_blank"
+                                rel="noopener" class="btn btn-secondary">View Code ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="project-media">
+                        <div class="placeholder-card">
+                            <h4>Simulation plots coming soon</h4>
+                            <p>See the write-up and bullets for full details.</p>
+                            <div class="placeholder-tags">
+                                <span class="mini-tag">NumPy</span>
+                                <span class="mini-tag">Matplotlib</span>
+                                <span class="mini-tag">Kalman Filter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Project 1: Pod Assembly Fit -->
             <section class="project-section container">
