@@ -709,10 +709,16 @@
             background: var(--gold);
             color: #000;
         }
-        .resume-modal-iframe {
+        .resume-modal-scroll {
             width: 100%;
             height: 100%;
-            border: none;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .resume-modal-scroll img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         @media (max-width: 767px) {
             .resume-modal-box {
@@ -878,7 +884,9 @@
     <div id="resumeModal" class="resume-modal-backdrop" onclick="handleBackdropClick(event)">
         <div class="resume-modal-box">
             <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times;</button>
-            <iframe src="resume-viewer.html" class="resume-modal-iframe" title="Resume"></iframe>
+            <div class="resume-modal-scroll">
+                <img src="Assets/resume_page-1.png" alt="Resume">
+            </div>
         </div>
     </div>
 
