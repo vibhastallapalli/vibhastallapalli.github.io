@@ -5,47 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #1a1a1a; overflow-x: hidden; }
-        #viewer { display: flex; flex-direction: column; align-items: center; }
-        canvas { width: 100%; height: auto; display: block; }
-        #msg { color: #888; text-align: center; padding: 2rem; font-family: sans-serif; font-size: 0.9rem; }
+        body { background: #1a1a1a; }
+        img { width: 100%; height: auto; display: block; }
     </style>
 </head>
 <body>
-    <div id="msg">Loading...</div>
-    <div id="viewer"></div>
-    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
-    <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.worker.min.js';
-
-        pdfjsLib.getDocument('https://vibhastallapalli.github.io/Assets/resume.pdf').promise.then(function(pdf) {
-            document.getElementById('msg').style.display = 'none';
-            var viewer = document.getElementById('viewer');
-            var containerWidth = document.documentElement.clientWidth;
-            var dpr = window.devicePixelRatio || 1;
-
-            function renderPage(num) {
-                return pdf.getPage(num).then(function(page) {
-                    var base = page.getViewport({ scale: 1 });
-                    var scale = (containerWidth / base.width) * dpr;
-                    var viewport = page.getViewport({ scale: scale });
-                    var canvas = document.createElement('canvas');
-                    canvas.width = viewport.width;
-                    canvas.height = viewport.height;
-                    canvas.style.width = '100%';
-                    canvas.style.height = 'auto';
-                    viewer.appendChild(canvas);
-                    return page.render({ canvasContext: canvas.getContext('2d'), viewport: viewport }).promise;
-                });
-            }
-
-            var chain = Promise.resolve();
-            for (var i = 1; i <= pdf.numPages; i++) {
-                (function(n) { chain = chain.then(function() { return renderPage(n); }); })(i);
-            }
-        }).catch(function() {
-            document.getElementById('msg').textContent = 'Could not load resume.';
-        });
-    </script>
+    <img src="Assets/resume_page-1.png" alt="Resume">
 </body>
 </html>
