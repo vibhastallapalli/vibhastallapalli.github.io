@@ -714,6 +714,14 @@
             height: 100%;
             border: none;
         }
+        @media (max-width: 767px) {
+            .resume-modal-box {
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+                border: none;
+            }
+        }
     </style>
 </head>
 
@@ -860,16 +868,12 @@
     <div id="resumeModal" class="resume-modal-backdrop" onclick="handleBackdropClick(event)">
         <div class="resume-modal-box">
             <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times;</button>
-            <iframe src="Assets/resume.pdf" class="resume-modal-iframe" title="Resume"></iframe>
+            <iframe src="Assets/resume.pdf#zoom=page-fit" class="resume-modal-iframe" title="Resume"></iframe>
         </div>
     </div>
 
     <script>
         function openResumeModal() {
-            if (window.innerWidth < 768) {
-                window.open('Assets/resume.pdf', '_blank');
-                return;
-            }
             document.getElementById('resumeModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
