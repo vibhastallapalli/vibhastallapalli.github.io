@@ -717,7 +717,7 @@
         @media (max-width: 767px) {
             .resume-modal-box {
                 width: 100vw;
-                height: 100vh;
+                height: 100dvh;
                 border-radius: 0;
                 border: none;
                 display: flex;
@@ -728,7 +728,8 @@
                 top: auto;
                 right: auto;
                 width: 100%;
-                height: 48px;
+                height: calc(48px + env(safe-area-inset-top));
+                padding-top: env(safe-area-inset-top);
                 border-radius: 0;
                 border: none;
                 border-bottom: 1px solid #333;
@@ -886,7 +887,7 @@
     <div id="resumeModal" class="resume-modal-backdrop" onclick="handleBackdropClick(event)">
         <div class="resume-modal-box">
             <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times; Close</button>
-            <iframe src="https://docs.google.com/viewer?url=https%3A%2F%2Fvibhastallapalli.github.io%2FAssets%2Fresume.pdf&embedded=true" class="resume-modal-iframe" title="Resume"></iframe>
+            <iframe src="Assets/resume.pdf" class="resume-modal-iframe" title="Resume"></iframe>
         </div>
     </div>
 
