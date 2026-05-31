@@ -8,23 +8,26 @@
         body { background: #1a1a1a; overflow-x: hidden; }
         #viewer { display: flex; flex-direction: column; align-items: center; }
         canvas { width: 100%; height: auto; display: block; }
+        #msg { color: #888; text-align: center; padding: 2rem; font-family: sans-serif; font-size: 0.9rem; }
     </style>
 </head>
 <body>
+    <div id="msg">Loading...</div>
     <div id="viewer"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
     <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.worker.min.js';
 
-        pdfjsLib.getDocument('Assets/resume.pdf').promise.then(function(pdf) {
+        pdfjsLib.getDocument('https://vibhastallapalli.github.io/Assets/resume.pdf').promise.then(function(pdf) {
+            document.getElementById('msg').style.display = 'none';
             var viewer = document.getElementById('viewer');
             var containerWidth = document.documentElement.clientWidth;
             var dpr = window.devicePixelRatio || 1;
 
             function renderPage(num) {
                 return pdf.getPage(num).then(function(page) {
-                    var unscaled = page.getViewport({ scale: 1 });
-                    var scale = (containerWidth / unscaled.width) * dpr;
+                    var base = page.getViewport({ scale: 1 });
+                    var scale = (containerWidth / base.width) * dpr;
                     var viewport = page.getViewport({ scale: scale });
                     var canvas = document.createElement('canvas');
                     canvas.width = viewport.width;
@@ -38,10 +41,10 @@
 
             var chain = Promise.resolve();
             for (var i = 1; i <= pdf.numPages; i++) {
-                (function(n) {
-                    chain = chain.then(function() { return renderPage(n); });
-                })(i);
+                (function(n) { chain = chain.then(function() { return renderPage(n); }); })(i);
             }
+        }).catch(function() {
+            document.getElementById('msg').textContent = 'Could not load resume.';
         });
     </script>
 </body>
