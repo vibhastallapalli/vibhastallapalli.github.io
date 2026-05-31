@@ -866,6 +866,10 @@
 
     <script>
         function openResumeModal() {
+            if (window.innerWidth < 768) {
+                window.open('Assets/resume.pdf', '_blank');
+                return;
+            }
             document.getElementById('resumeModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
