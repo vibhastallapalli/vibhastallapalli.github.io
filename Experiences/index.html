@@ -409,25 +409,16 @@
                 height: 100dvh;
                 border-radius: 0;
                 border: none;
-                display: flex;
-                flex-direction: column;
             }
             .resume-modal-close {
-                position: relative;
-                top: auto;
-                right: auto;
-                width: 100%;
-                height: calc(48px + env(safe-area-inset-top));
-                padding-top: env(safe-area-inset-top);
-                border-radius: 0;
-                border: none;
-                border-bottom: 1px solid #333;
-                font-size: 0.95rem;
-                flex-shrink: 0;
-            }
-            .resume-modal-iframe {
-                flex: 1;
-                min-height: 0;
+                position: fixed;
+                top: calc(0.6rem + env(safe-area-inset-top));
+                right: 0.75rem;
+                z-index: 10000;
+                width: 2.2rem;
+                height: 2.2rem;
+                font-size: 1.1rem;
+                background: rgba(26,26,26,0.9);
             }
         }
     </style>
@@ -748,8 +739,8 @@
     <!-- Resume Modal -->
     <div id="resumeModal" class="resume-modal-backdrop" onclick="handleBackdropClick(event)">
         <div class="resume-modal-box">
-            <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times; Close</button>
-            <iframe src="../Assets/resume.pdf" class="resume-modal-iframe" title="Resume"></iframe>
+            <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times;</button>
+            <iframe src="../resume-viewer.html" class="resume-modal-iframe" title="Resume"></iframe>
         </div>
     </div>
 
