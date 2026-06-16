@@ -179,6 +179,20 @@
         .exp-strip-bullets li { position: relative; padding-left: 1.2rem; font-size: 0.87rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.2rem; }
         .exp-strip-bullets li::before { content: "▹"; position: absolute; left: 0; color: var(--gold); font-size: 0.8rem; top: 0.05rem; }
 
+        /* Logo variant for non-photo strips */
+        .exp-strip-logo-wrap {
+            width: 200px;
+            flex-shrink: 0;
+            background: #1e1e1e;
+            border-right: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .exp-strip-logo { width: 130px; height: auto; object-fit: contain; border-radius: 0; display: block; transition: transform 0.4s ease; }
+        .exp-strip:hover .exp-strip-logo { transform: scale(1.06); }
+
         /* Projects grid */
         .all-projects-grid {
             display: grid;
@@ -367,6 +381,25 @@
                     <li>Modeled custom battery enclosure in SolidWorks; iterated 3D-printed mounts in Cura for interference-free fitment</li>
                     <li>Managed master CAD assembly across SolidWorks, Onshape, and Fusion 360 with version control</li>
                     <li>Full frame surface prep, final assembly of handlebars, brakes, wheel hubs, and electrical routing</li>
+                </ul>
+            </div>
+        </div>
+        <!-- IntegraYouth -->
+        <div class="exp-strip">
+            <div class="exp-strip-logo-wrap">
+                <img src="https://static.wixstatic.com/media/79cc67_2ec14e89f80b44209040c2973d8f4682~mv2.png" alt="IntegraYouth" class="exp-strip-logo">
+            </div>
+            <div class="exp-strip-content">
+                <div class="exp-strip-top">
+                    <div>
+                        <div class="exp-strip-company">IntegraYouth</div>
+                        <div class="exp-strip-role">Secretary &amp; Blog Writer</div>
+                    </div>
+                    <div class="exp-strip-date">June 2024 – Present</div>
+                </div>
+                <ul class="exp-strip-bullets">
+                    <li>Wrote 50+ blog posts on programs and impact, reaching 1,000+ views through consistent publishing and topic planning</li>
+                    <li>Ran Secretary-team operations and supported event logistics for 5+ events with 200+ attendees</li>
                 </ul>
             </div>
         </div>
