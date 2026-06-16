@@ -120,44 +120,64 @@
         .skill-list { color: var(--text-muted); font-size: 0.9rem; }
         .about-feature-img { width: 100%; height: 100%; min-height: 350px; object-fit: cover; border-radius: var(--radius); display: block; }
 
-        /* Experience detail cards */
-        .exp-detail-card {
+        /* Experience strips */
+        .exp-strip {
+            display: flex;
+            align-items: stretch;
             background: var(--bg-card);
             border-radius: var(--radius);
-            border-left: 3px solid var(--gold);
             overflow: hidden;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             box-shadow: var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
         }
-        .exp-detail-banner {
+        .exp-strip::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--gold);
+            z-index: 1;
+        }
+        .exp-strip:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.45); }
+        .exp-strip-img-wrap {
+            position: relative;
+            width: 200px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .exp-strip-img {
             width: 100%;
-            height: 180px;
+            height: 100%;
             object-fit: cover;
             border-radius: 0;
-            border-bottom: 1px solid #333;
             display: block;
+            transition: transform 0.4s ease;
         }
-        .exp-detail-header { padding: 1.5rem 1.5rem 0 1.5rem; }
-        .exp-detail-company { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
-        .exp-detail-role { font-size: 0.95rem; color: var(--gold); font-weight: 500; margin-bottom: 0.5rem; }
-        .exp-detail-body { padding: 1.5rem; }
-
-        .detail-desc { font-size: 0.97rem; color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.7; }
-        .detail-bullets { list-style: none; margin-bottom: 1.2rem; }
-        .detail-bullets li { position: relative; padding-left: 1.5rem; margin-bottom: 0.6rem; color: var(--text-muted); font-size: 0.93rem; line-height: 1.5; }
-        .detail-bullets li::before { content: "▹"; position: absolute; left: 0; color: var(--gold); }
-
-        /* Split layout inside exp cards */
-        .split-layout { display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; align-items: start; }
-        .split-images { display: flex; flex-direction: column; gap: 1rem; }
-        .compact-img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); border: 1px solid #333; }
-
-        /* Skills tags */
-        .skills-container { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid #2a2a2a; }
-        .skills-label { display: block; margin-bottom: 0.6rem; color: var(--gold); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-        .skills-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .skill-tag { background: rgba(255,255,255,0.05); border: 1px solid #333; color: var(--text-muted); padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.82rem; transition: all 0.2s ease; }
-        .skill-tag:hover { border-color: var(--gold); color: #fff; background: rgba(228,180,41,0.1); }
+        .exp-strip:hover .exp-strip-img { transform: scale(1.06); }
+        .exp-strip-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, transparent 55%, var(--bg-card) 100%);
+        }
+        .exp-strip-content {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.45rem;
+            min-height: 130px;
+        }
+        .exp-strip-top { display: flex; justify-content: space-between; align-items: flex-start; }
+        .exp-strip-company { font-size: 1.1rem; font-weight: 700; color: #fff; }
+        .exp-strip-role { font-size: 0.87rem; color: var(--gold); font-weight: 500; margin-top: 0.1rem; }
+        .exp-strip-date { font-size: 0.78rem; color: var(--text-dim); white-space: nowrap; padding-top: 0.15rem; }
+        .exp-strip-bullets { list-style: none; margin-top: 0.3rem; }
+        .exp-strip-bullets li { position: relative; padding-left: 1.2rem; font-size: 0.87rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.2rem; }
+        .exp-strip-bullets li::before { content: "▹"; position: absolute; left: 0; color: var(--gold); font-size: 0.8rem; top: 0.05rem; }
 
         /* Projects grid */
         .all-projects-grid {
@@ -190,10 +210,9 @@
         .resume-modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.78); z-index: 1000; align-items: center; justify-content: center; }
         .resume-modal-backdrop.active { display: flex; }
         .resume-modal-box { position: relative; width: 85vw; height: 95vh; background: #1a1a1a; border: 1px solid var(--gold); border-radius: var(--radius); overflow: hidden; box-shadow: 0 0 40px rgba(228,180,41,0.15); }
-        .resume-modal-close { position: absolute; top: 0.6rem; right: 0.6rem; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-size: 1.1rem; width: 2rem; height: 2rem; border-radius: 4px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+        .resume-modal-close { position: absolute; top: 0.6rem; right: 0.6rem; background: rgba(26,26,26,0.9); border: 1px solid var(--gold); color: var(--gold); font-size: 1.1rem; width: 2rem; height: 2rem; border-radius: 4px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
         .resume-modal-close:hover { background: var(--gold); color: #000; }
-        .resume-modal-scroll { width: 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; display: flex; justify-content: center; }
-        .resume-modal-scroll img { max-width: 100%; max-height: 95vh; width: auto; height: auto; display: block; }
+        .resume-modal-iframe { width: 100%; height: 100%; border: none; display: block; }
 
         /* Mobile */
         @media (max-width: 768px) {
@@ -206,13 +225,10 @@
             h1 { font-size: 2rem; }
             .nav-links { gap: 1rem; font-size: 0.8rem; }
             .nav-content { flex-direction: column; gap: 1rem; align-items: center; }
-            .split-layout { grid-template-columns: 1fr; }
-            .split-images { display: none; }
             .all-projects-grid { grid-template-columns: 1fr; }
-            .resume-modal-scroll { display: block; }
-            .resume-modal-scroll img { max-height: none; width: 100%; height: auto; }
+            .exp-strip-img-wrap { width: 110px; }
             .resume-modal-box { width: 100vw; height: 100dvh; border-radius: 0; border: none; }
-            .resume-modal-close { position: fixed; top: calc(0.6rem + env(safe-area-inset-top)); right: 0.75rem; z-index: 10000; width: 2.2rem; height: 2.2rem; font-size: 1.1rem; background: rgba(26,26,26,0.9); }
+            .resume-modal-close { position: fixed; top: calc(0.6rem + env(safe-area-inset-top)); right: 0.75rem; z-index: 10000; width: 2.2rem; height: 2.2rem; font-size: 1.1rem; }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -293,126 +309,65 @@
         <h2>Experiences</h2>
 
         <!-- Linear Automation -->
-        <div class="exp-detail-card">
-            <img src="Assets/lienar_card.png" alt="Linear Automation" class="exp-detail-banner" style="object-position: center 40%;">
-            <div class="exp-detail-header">
-                <div class="exp-detail-company">Linear Automation Inc.</div>
-                <div class="exp-detail-role">Mechanical Engineer Co-op | Apr 2026 - Present</div>
+        <div class="exp-strip">
+            <div class="exp-strip-img-wrap">
+                <img src="Assets/lienar_card.png" alt="Linear Automation" class="exp-strip-img" style="object-position: center 40%;">
             </div>
-            <div class="exp-detail-body">
-                <div class="split-layout">
+            <div class="exp-strip-content">
+                <div class="exp-strip-top">
                     <div>
-                        <p class="detail-desc">Worked as a Mechanical Engineer Co-op contributing across structural component design, manufacturing data analysis, and engineering automation tooling. Supported Honda vehicle programs through SolidWorks modelling and FEA simulation while writing Python scripts and running SQL queries to improve production outcomes and eliminate manual review work.</p>
-                        <ul class="detail-bullets">
-                            <li>Built a Python script that reads SolidWorks drawing feature types and auto-assigns decimal precision per internal GD&amp;T standards, eliminating manual precision decisions across 20+ engineering drawings and reducing decimal precision review comments by 90% across the team.</li>
-                            <li>Queried the manufacturing execution system using SQL, filtering production data by machine ID, shift, and rejection code to surface defect trends — identified one machine driving a disproportionate share of night shift rejects, escalated findings to the floor supervisor, and the resulting calibration fix reduced the plant-wide rejection rate by 22%.</li>
-                            <li>Designed and stress-tested 5+ structural Honda vehicle frame components in SolidWorks using MATLAB and FEA across 7+ iterations, running parameter sweeps across wall thickness and load cases to isolate stress concentration failures, then redesigning geometry and upgrading material from Al 5000 to 6000 series to cut component weight by 30% while maintaining 300+ lb structural load requirements.</li>
-                            <li>Converted a 50+ hole manifold from metric to NPT threading, resolving hole sizing, wall clearance, and tapered thread engagement depth across 6+ revisions to ensure every port met dimensional accuracy and prevent a $400+ scrapped part from reaching the production floor.</li>
-                            <li>Produced 100+ production drawings across unique parts and assemblies for 6 senior engineers, applying GD&amp;T callouts, tolerances, and STEP file updates so every part reached the shop floor ready to build, eliminating 2+ hour backtracking cycles per bad callout sent to manufacturing.</li>
-                        </ul>
-                        <div class="skills-container">
-                            <span class="skills-label">Skills Used</span>
-                            <div class="skills-tags">
-                                <span class="skill-tag">SolidWorks</span>
-                                <span class="skill-tag">FEA</span>
-                                <span class="skill-tag">MATLAB</span>
-                                <span class="skill-tag">GD&amp;T</span>
-                                <span class="skill-tag">Tolerance Analysis</span>
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">Manufacturing Systems</span>
-                                <span class="skill-tag">DFM</span>
-                            </div>
-                        </div>
+                        <div class="exp-strip-company">Linear Automation Inc.</div>
+                        <div class="exp-strip-role">Mechanical Engineer Co-op</div>
                     </div>
-                    <div class="split-images">
-                        <img src="Assets/linear_main.png" alt="Linear Automation" class="compact-img">
-                        <img src="Assets/linear_2.png" alt="Linear Automation Work" class="compact-img">
-                    </div>
+                    <div class="exp-strip-date">Apr 2026 – Present</div>
                 </div>
+                <ul class="exp-strip-bullets">
+                    <li>FEA on Honda vehicle frame components — cut weight 30% while maintaining 300+ lb load requirements</li>
+                    <li>SQL defect analysis surfaced a rogue machine; calibration fix reduced plant rejection rate by 22%</li>
+                    <li>Python automation eliminated 90% of manual drawing precision review across 20+ engineering drawings</li>
+                </ul>
             </div>
         </div>
 
         <!-- Waterloop -->
-        <div class="exp-detail-card">
-            <img src="Assets/pod.jpg" alt="Waterloop Hyperloop Pod" class="exp-detail-banner">
-            <div class="exp-detail-header">
-                <div class="exp-detail-company">Waterloop</div>
-                <div class="exp-detail-role">Mechanical Engineer | 2025</div>
+        <div class="exp-strip">
+            <div class="exp-strip-img-wrap">
+                <img src="Assets/Carbonfibre.jpg" alt="Waterloop" class="exp-strip-img">
             </div>
-            <div class="exp-detail-body">
-                <div class="split-layout">
+            <div class="exp-strip-content">
+                <div class="exp-strip-top">
                     <div>
-                        <p class="detail-desc">Competed in the SpaceX Hyperloop competition, working hands-on with carbon fiber chassis components, brake integration, and custom machined hardware for a high-speed pod system. Turned existing designs into CAD assemblies and ensured brake hardware could be installed without fit or alignment issues.</p>
-                        <ul class="detail-bullets">
-                            <li>Imported the braking system into Onshape and applied assembly constraints, adjusting part mates to make sure everything fit properly within the pod model.</li>
-                            <li>Planned mounting locations, fasteners, and hole placements by testing different positions and verifying clearances, so the braking system could be installed and adjusted without hassle.</li>
-                            <li>Worked through mate constraints and alignment issues while fitting the brake assembly into the full pod model by testing different alignments and updating CAD constraints.</li>
-                            <li>3D-printed small battery enclosure parts to test how they would assemble and interact before final fabrication.</li>
-                            <li>Machined aluminum clamps and brackets on the mill and lathe, checking fit and making adjustments as needed for the brake system.</li>
-                            <li>Cut openings and mounting holes in the carbon-fiber panels, ensuring the brake hardware fit and aligned correctly.</li>
-                        </ul>
-                        <div class="skills-container">
-                            <span class="skills-label">Skills Used</span>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Onshape</span>
-                                <span class="skill-tag">CAD Modeling</span>
-                                <span class="skill-tag">Mechanical Assembly</span>
-                                <span class="skill-tag">Tolerances</span>
-                                <span class="skill-tag">3D Printing</span>
-                                <span class="skill-tag">Carbon-Fiber Fabrication</span>
-                                <span class="skill-tag">Machining (Mill, Lathe)</span>
-                                <span class="skill-tag">Fasteners &amp; Hardware</span>
-                            </div>
-                        </div>
+                        <div class="exp-strip-company">Waterloop</div>
+                        <div class="exp-strip-role">Mechanical Engineer</div>
                     </div>
-                    <div class="split-images">
-                        <img src="Assets/Carbonfibre.jpg" alt="Waterloop Carbon Fibre" class="compact-img">
-                        <img src="Assets/3d.jpg" alt="Waterloop 3D Model" class="compact-img">
-                    </div>
+                    <div class="exp-strip-date">2025</div>
                 </div>
+                <ul class="exp-strip-bullets">
+                    <li>Integrated Hyperloop pod braking system into Onshape CAD assembly with mate constraints and clearance verification</li>
+                    <li>Machined aluminum clamps and brackets on mill and lathe for brake hardware installation</li>
+                    <li>Cut openings and mounting holes in carbon-fiber panels; 3D-printed battery enclosure test parts</li>
+                </ul>
             </div>
         </div>
 
         <!-- Electrium -->
-        <div class="exp-detail-card">
-            <img src="Assets/ethum.jpg" alt="Electrium Mobility" class="exp-detail-banner">
-            <div class="exp-detail-header">
-                <div class="exp-detail-company">Electrium Mobility</div>
-                <div class="exp-detail-role">Hardware Design Engineer | 2025</div>
+        <div class="exp-strip">
+            <div class="exp-strip-img-wrap">
+                <img src="Assets/cade.jpg" alt="Electrium Mobility" class="exp-strip-img">
             </div>
-            <div class="exp-detail-body">
-                <div class="split-layout">
+            <div class="exp-strip-content">
+                <div class="exp-strip-top">
                     <div>
-                        <p class="detail-desc">Worked on the mechanical integration of an electric bike conversion, managing CAD modeling, 3D-printed mounts, and frame surface preparation for final assembly. Collaborated with the electrical team to route cabling and account for battery packaging throughout the frame.</p>
-                        <ul class="detail-bullets">
-                            <li>Modeled custom battery enclosure and mount geometry in SolidWorks to ensure interference-free fitment on the bike frame.</li>
-                            <li>Configured and 3D-printed mounts using Cura, iterating on print settings to achieve optimal strength and dimensional accuracy.</li>
-                            <li>Managed the master CAD assembly across SolidWorks, Onshape, and Fusion 360, maintaining version control as components evolved.</li>
-                            <li>Executed full frame surface preparation, including sanding and spray painting, to restore the chassis before reassembly.</li>
-                            <li>Assembled critical mechanical subsystems including handlebars, braking components, and wheel hubs.</li>
-                            <li>Collaborated with the electrical team to route cabling and mount display components securely.</li>
-                        </ul>
-                        <div class="skills-container">
-                            <span class="skills-label">Skills Used</span>
-                            <div class="skills-tags">
-                                <span class="skill-tag">SolidWorks</span>
-                                <span class="skill-tag">Onshape</span>
-                                <span class="skill-tag">Fusion 360</span>
-                                <span class="skill-tag">CAD Modeling</span>
-                                <span class="skill-tag">Mechanical Packaging</span>
-                                <span class="skill-tag">3D Printing</span>
-                                <span class="skill-tag">Cura</span>
-                                <span class="skill-tag">Hands-On Assembly</span>
-                                <span class="skill-tag">Mech-Elec Integration</span>
-                            </div>
-                        </div>
+                        <div class="exp-strip-company">Electrium Mobility</div>
+                        <div class="exp-strip-role">Hardware Design Engineer</div>
                     </div>
-                    <div class="split-images">
-                        <img src="Assets/cade.jpg" alt="Battery Enclosure CAD" class="compact-img">
-                        <img src="Assets/spray.jpg" alt="Frame after surface prep" class="compact-img">
-                    </div>
+                    <div class="exp-strip-date">2025</div>
                 </div>
+                <ul class="exp-strip-bullets">
+                    <li>Modeled custom battery enclosure in SolidWorks; iterated 3D-printed mounts in Cura for interference-free fitment</li>
+                    <li>Managed master CAD assembly across SolidWorks, Onshape, and Fusion 360 with version control</li>
+                    <li>Full frame surface prep, final assembly of handlebars, brakes, wheel hubs, and electrical routing</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -535,9 +490,7 @@
     <div id="resumeModal" class="resume-modal-backdrop" onclick="handleBackdropClick(event)">
         <div class="resume-modal-box">
             <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times;</button>
-            <div class="resume-modal-scroll">
-                <img src="Assets/resume_page-1.png" alt="Resume">
-            </div>
+            <iframe src="Assets/Resume_mech.pdf" class="resume-modal-iframe" title="Resume"></iframe>
         </div>
     </div>
 
