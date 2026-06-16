@@ -4,46 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio of Vibhas Tallapalli, Engineering student at Waterloo. Quantitative finance, systems design, and automation.">
+    <meta name="description" content="Portfolio of Vibhas Tallapalli, Engineering student at Waterloo. Quantitative finance, systems design, and automation.">
     <title>Vibhas Tallapalli | Engineering &amp; Finance</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/smoothscroll.min.js"></script>
-    <script>
-        // Native smooth scrolling for Chrome/Firefox/Edge
-        document.documentElement.style.scrollBehavior = 'smooth';
-    </script>
+    <script>document.documentElement.style.scrollBehavior = 'smooth';</script>
 
     <style>
-        /* --- CSS Reset & Variables --- */
         :root {
-            /* Colors */
             --bg-dark: #1a1a1a;
             --bg-card: #252525;
             --gold: #E4B429;
-            /* Muted Waterloo Gold */
             --text-main: #f5f5f5;
             --text-muted: #cdcdcd;
             --text-dim: #999999;
-
-            /* Spacing - Compact to reduce scroll */
             --section-padding: 2rem 1.5rem;
             --max-width: 1100px;
-
-            /* UI */
             --radius: 8px;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -53,56 +37,16 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: opacity 0.2s;
-        }
+        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        a:hover { opacity: 0.8; }
+        img { display: block; max-width: 100%; height: auto; border-radius: var(--radius); }
 
-        a:hover {
-            opacity: 0.8;
-        }
+        h1, h2, h3 { font-weight: 700; line-height: 1.1; color: #fff; }
+        h1 { font-size: 2.5rem; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #333; padding-bottom: 0.5rem; display: inline-block; }
 
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--radius);
-        }
+        .gold { color: var(--gold); }
 
-        /* Typography */
-        h1,
-        h2,
-        h3 {
-            font-weight: 700;
-            line-height: 1.1;
-            color: #fff;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .gold {
-            color: var(--gold);
-        }
-
-        .text-sm {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-        }
-
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -111,116 +55,31 @@
             font-weight: 600;
             border-radius: 6px;
             font-size: 1rem;
-            text-align: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
             border: none;
             cursor: pointer;
             outline: none;
-            /* Remove focus outline */
             text-decoration: none;
         }
+        .btn:focus { outline: none; }
+        .btn-primary { background: var(--gold); color: #000; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 12px rgba(128,128,128,0.6); filter: brightness(1.05); }
+        .btn-secondary { background: var(--bg-card); border: 1px solid #333; color: #fff; }
+        .btn-secondary:hover { transform: translateY(-3px); box-shadow: 0 0 12px var(--gold); border-color: var(--gold); }
 
-        .btn:focus {
-            outline: none;
-        }
+        .container { max-width: var(--max-width); margin: 0 auto; width: 100%; }
+        section { padding: var(--section-padding); }
 
-        .btn-primary {
-            background: var(--gold);
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 12px rgba(128, 128, 128, 0.6);
-            /* Gray Glow for better contrast */
-            filter: brightness(1.05);
-        }
-
-        .btn-secondary {
-            background: var(--bg-card);
-            /* Dark Grey */
-            border: 1px solid #333;
-            color: #fff;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 12px var(--gold);
-            /* Gold Glow */
-            border-color: var(--gold);
-        }
-
-        /* Layout Utilities */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        section {
-            padding: var(--section-padding);
-        }
-
-        /* Placeholders */
-        .placeholder {
-            background: #2a2a2a;
-            border: 2px dashed #444;
-            color: var(--text-dim);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            text-align: center;
-            border-radius: var(--radius);
-        }
-
-        /* Modern Placeholder for Projects */
-        .modern-placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #232323, #1a1a1a);
-            color: var(--text-muted);
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid #333;
-        }
-
-        .modern-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(228, 180, 41, 0.08) 0%, transparent 70%);
-        }
-
-        .modern-placeholder span {
-            position: relative;
-            z-index: 1;
-            opacity: 0.9;
-            line-height: 1.4;
-            color: #e0e0e0;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* --- 1. Sticky Navbar --- */
+        /* Navbar */
         nav {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(26,26,26,0.95);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid #333;
             padding: 1.2rem 2rem;
         }
-
         .nav-content {
             max-width: var(--max-width);
             margin: 0 auto;
@@ -228,550 +87,161 @@
             justify-content: space-between;
             align-items: center;
         }
+        .brand { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 2rem; font-size: 0.9rem; font-weight: 500; align-items: center; }
+        .nav-links a { color: var(--text-muted); }
+        .nav-links a:hover { color: var(--gold); opacity: 1; }
+        .github-icon { display: flex; align-items: center; color: var(--text-muted); }
+        .github-icon:hover { color: var(--gold); opacity: 1; }
 
-        .brand {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        /* --- 2. Hero Section (No Scroll) --- */
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin: 1.5rem 0;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .hero-uw-logo {
-            height: 48px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .hero-focus {
-            font-size: 1.3rem;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            opacity: 0.95;
-        }
-
-        .hero-desc {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 540px;
-            line-height: 1.7;
-        }
-
-        /* Hero Buttons Layout */
-        .hero-btns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            max-width: 500px;
-            /* Limit width to force wrap if needed, but flex wrap logic below handles structure */
-            align-items: center;
-        }
-
-        /* Force break for 3rd button to be on new row if using flex wrap... 
-           Actually, the user wants 2 top, 1 bottom.
-           We can simply use flex-wrap and set the width of the last button or container constraints.
-           Or use a specific width calculator.
-           
-           Better approach: Just standard flex logic. Buttons will wrap if container is small.
-           To FORCE the layout [1][2] / [3], we can use a grid with specific placement, 
-           BUT user complained about grid issues. 
-           
-           Let's stick to flex, but maybe just let them wrap naturally or use a wrapper in HTML?
-           The HTML is flat.
-           
-           Let's try grid again but correct:
-        */
+        /* Hero */
+        .hero { min-height: 75vh; display: flex; align-items: center; }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+        .hero-subtitle { font-size: 1.25rem; margin: 1.5rem 0; font-weight: 600; display: flex; align-items: center; gap: 12px; }
+        .hero-uw-logo { height: 48px; width: auto; object-fit: contain; }
+        .hero-focus { font-size: 1.3rem; color: var(--text-main); margin-bottom: 1.5rem; font-weight: 500; opacity: 0.95; }
+        .hero-desc { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 540px; line-height: 1.7; }
         .hero-btns {
             display: grid;
             grid-template-columns: repeat(2, auto);
             gap: 1rem;
             width: fit-content;
             justify-items: center;
-            /* Center items in their cells */
         }
+        .hero-btns .btn { width: 100%; min-width: 160px; }
+        .hero-btns .btn:last-child { grid-column: 1 / -1; justify-self: center; width: auto; min-width: 160px; color: var(--gold); }
+        .hero-img { width: 100%; max-width: 320px; margin: 0 auto; aspect-ratio: 3/4; object-fit: cover; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
 
-        .hero-btns .btn {
-            width: 100%;
-            /* Fill the cell */
-            min-width: 160px;
-            /* Ensure decent size */
-        }
+        /* About */
+        .about-section { background: #202020; }
+        .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center; }
+        .skill-row { margin-bottom: 0.75rem; border-bottom: 1px solid #333; padding-bottom: 0.4rem; }
+        .skill-cat { font-weight: 700; color: var(--gold); display: block; margin-bottom: 0.2rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .skill-list { color: var(--text-muted); font-size: 0.9rem; }
+        .about-feature-img { width: 100%; height: 100%; min-height: 350px; object-fit: cover; border-radius: var(--radius); display: block; }
 
-        /* The 3rd button (Resume) */
-        .hero-btns .btn:last-child {
-            grid-column: 1 / -1;
-            /* Span full width of grid */
-            justify-self: center;
-            /* Center horizontally */
-            width: auto;
-            /* Don't stretch full width */
-            min-width: 160px;
-            /* Match others */
-            color: var(--gold);
-        }
-
-        /* Mobile Adjustments for Hero Buttons */
-        @media (max-width: 768px) {
-            .hero-btns {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .hero-btns .btn {
-                width: 100%;
-            }
-        }
-
-        .hero-img {
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        /* --- 3. About + Skills (Combined) --- */
-        .about-section {
-            background: #202020;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            /* 56% / 44% Split */
-            gap: 3rem;
-            align-items: center;
-        }
-
-        /* Skills Table style */
-        .skill-row {
-            margin-bottom: 0.75rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 0.4rem;
-        }
-
-        .skill-cat {
-            font-weight: 700;
-            color: var(--gold);
-            display: block;
-            margin-bottom: 0.2rem;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .skill-list {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .about-feature-img {
-            width: 100%;
-            height: 100%;
-            min-height: 350px;
-            object-fit: cover;
-            border-radius: var(--radius);
-            display: block;
-        }
-
-        /* --- 4. Experience (Compact) --- */
-        .exp-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .exp-card {
+        /* Experience detail cards */
+        .exp-detail-card {
             background: var(--bg-card);
-            padding: 1.5rem;
             border-radius: var(--radius);
             border-left: 3px solid var(--gold);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
         }
-
-        .exp-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1rem;
+        .exp-detail-banner {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 0;
+            border-bottom: 1px solid #333;
+            display: block;
         }
+        .exp-detail-header { padding: 1.5rem 1.5rem 0 1.5rem; }
+        .exp-detail-company { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+        .exp-detail-role { font-size: 0.95rem; color: var(--gold); font-weight: 500; margin-bottom: 0.5rem; }
+        .exp-detail-body { padding: 1.5rem; }
 
-        .exp-company {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #fff;
-        }
+        .detail-desc { font-size: 0.97rem; color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.7; }
+        .detail-bullets { list-style: none; margin-bottom: 1.2rem; }
+        .detail-bullets li { position: relative; padding-left: 1.5rem; margin-bottom: 0.6rem; color: var(--text-muted); font-size: 0.93rem; line-height: 1.5; }
+        .detail-bullets li::before { content: "▹"; position: absolute; left: 0; color: var(--gold); }
 
-        .exp-role {
-            font-size: 0.9rem;
-            color: var(--gold);
-        }
+        /* Split layout inside exp cards */
+        .split-layout { display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; align-items: start; }
+        .split-images { display: flex; flex-direction: column; gap: 1rem; }
+        .compact-img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); border: 1px solid #333; }
 
-        .exp-bullets {
-            list-style: none;
-        }
+        /* Skills tags */
+        .skills-container { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid #2a2a2a; }
+        .skills-label { display: block; margin-bottom: 0.6rem; color: var(--gold); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .skills-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag { background: rgba(255,255,255,0.05); border: 1px solid #333; color: var(--text-muted); padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.82rem; transition: all 0.2s ease; }
+        .skill-tag:hover { border-color: var(--gold); color: #fff; background: rgba(228,180,41,0.1); }
 
-        .exp-bullets li {
-            position: relative;
-            padding-left: 1rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .exp-bullets li::before {
-            content: "•";
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-        }
-
-        /* --- 5. Featured Projects (Teaser) --- */
-        .projects-grid {
+        /* Projects grid */
+        .all-projects-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
-
-        .proj-card {
+        .proj-grid-card {
             background: var(--bg-card);
             border-radius: var(--radius);
             overflow: hidden;
-        }
-
-        .proj-img {
-            height: 200px;
-            width: 100%;
-            border-bottom: 1px solid #333;
-        }
-
-        .proj-content {
-            padding: 1.5rem;
-        }
-
-        .proj-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .proj-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- 6. Waterloo Branding --- */
-        /* --- 6. Waterloo Branding (Credential Card) --- */
-        .waterloo-sec {
-            text-align: center;
-            padding: 4rem 1rem;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        .proj-grid-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+        .proj-grid-img { width: 100%; height: 160px; object-fit: cover; border-bottom: 1px solid #333; border-radius: 0; display: block; }
+        .proj-grid-content { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .proj-grid-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+        .proj-grid-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem; flex-grow: 1; }
+        .proj-grid-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+        .proj-grid-pill { background: rgba(228,180,41,0.1); border: 1px solid rgba(228,180,41,0.3); color: var(--gold); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.77rem; font-weight: 500; }
+        .proj-grid-link { align-self: flex-start; background: transparent; border: 1px solid #444; color: #fff; padding: 0.45rem 0.9rem; border-radius: 4px; font-size: 0.82rem; transition: all 0.2s; }
+        .proj-grid-link:hover { border-color: var(--gold); color: var(--gold); opacity: 1; }
 
-        .credential-card {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            background: #202020;
-            padding: 1.25rem 2rem;
-            border-radius: 12px;
-            border: 1px solid #333;
-            box-shadow: var(--shadow);
-            max-width: 500px;
-        }
+        /* Section spacing */
+        .section-pad { padding-top: 3rem; padding-bottom: 3rem; }
 
-        .waterloo-logo {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-        }
-
-        .uw-details {
-            text-align: left;
-        }
-
-        .waterloo-text {
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--gold);
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 0.2rem;
-            display: block;
-        }
-
-        .waterloo-uni {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #fff;
-            line-height: 1.2;
-        }
-
-        /* --- 7. Final CTA --- */
-        .cta-sec {
-            text-align: center;
-            padding-bottom: 6rem;
-        }
-
-        .cta-text {
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
+        /* Resume Modal */
+        .resume-modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.78); z-index: 1000; align-items: center; justify-content: center; }
+        .resume-modal-backdrop.active { display: flex; }
+        .resume-modal-box { position: relative; width: 85vw; height: 95vh; background: #1a1a1a; border: 1px solid var(--gold); border-radius: var(--radius); overflow: hidden; box-shadow: 0 0 40px rgba(228,180,41,0.15); }
+        .resume-modal-close { position: absolute; top: 0.6rem; right: 0.6rem; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-size: 1.1rem; width: 2rem; height: 2rem; border-radius: 4px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+        .resume-modal-close:hover { background: var(--gold); color: #000; }
+        .resume-modal-scroll { width: 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; display: flex; justify-content: center; }
+        .resume-modal-scroll img { max-width: 100%; max-height: 95vh; width: auto; height: auto; display: block; }
 
         /* Mobile */
         @media (max-width: 768px) {
-
-            .hero-grid,
-            .about-grid,
-            .exp-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .hero {
-                text-align: center;
-                padding-top: 1rem;
-            }
-
-            .hero-btns {
-                justify-content: center;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-content {
-                order: 1;
-            }
-
-            .hero-img {
-                order: 0;
-                margin-bottom: 1.5rem;
-                height: 250px;
-            }
-
-            .nav-links {
-                /* Make sure nav is visible on mobile */
-                display: flex;
-                flex-direction: row;
-                gap: 1rem;
-                font-size: 0.8rem;
-                justify-content: flex-end;
-            }
-
-            .nav-content {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
-            }
-
-            /* Simplified for now */
-            h1 {
-                font-size: 2.5rem;
-            }
+            .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero { text-align: center; padding-top: 1rem; }
+            .hero-btns { display: flex; flex-direction: column; width: 100%; }
+            .hero-btns .btn { width: 100%; }
+            .hero-img { order: 0; margin-bottom: 1.5rem; height: 250px; }
+            .hero-content { order: 1; }
+            h1 { font-size: 2rem; }
+            .nav-links { gap: 1rem; font-size: 0.8rem; }
+            .nav-content { flex-direction: column; gap: 1rem; align-items: center; }
+            .split-layout { grid-template-columns: 1fr; }
+            .split-images { display: none; }
+            .all-projects-grid { grid-template-columns: 1fr; }
+            .resume-modal-scroll { display: block; }
+            .resume-modal-scroll img { max-height: none; width: 100%; height: auto; }
+            .resume-modal-box { width: 100vw; height: 100dvh; border-radius: 0; border: none; }
+            .resume-modal-close { position: fixed; top: calc(0.6rem + env(safe-area-inset-top)); right: 0.75rem; z-index: 10000; width: 2.2rem; height: 2.2rem; font-size: 1.1rem; background: rgba(26,26,26,0.9); }
         }
 
-        /* --- Hover Focus Effects (Main Page) --- */
-        /* Common logic for both sections */
-        @media (min-width: 769px) {
-
-            /* Fix: Prevent blur when hovering logical gaps by disabling pointer events on container */
-            .exp-highlight-section,
-            .featured-projects-section {
-                pointer-events: none;
-            }
-
-            .exp-highlight-card,
-            .featured-project-card {
-                pointer-events: auto;
-            }
-
-            /* When hovering the container (now only triggers via card), blur all children */
-            .exp-highlight-section:hover .exp-highlight-card,
-            .featured-projects-section:hover .featured-project-card {
-                filter: blur(2px) brightness(0.7);
-                transform: scale(0.98);
-            }
-
-            /* When hovering a specific card, reset it */
-            .exp-highlight-section .exp-highlight-card:hover,
-            .featured-projects-section .featured-project-card:hover {
-                filter: none;
-                transform: scale(1.05);
-                /* Pop effect */
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-                z-index: 2;
-            }
-        }
-
-        /* Card Transitions base - apply to the cards themselves */
-        .exp-highlight-card,
-        .featured-project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-        }
-
-        /* Mobile specific adjustments (disable blur) */
-        @media (max-width: 768px) {
-
-            .exp-highlight-card:active,
-            .featured-project-card:active {
-                transform: scale(1.02);
-            }
-        }
-
-        /* Resume Modal */
-        .resume-modal-backdrop {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.78);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        .resume-modal-backdrop.active {
-            display: flex;
-        }
-        .resume-modal-box {
-            position: relative;
-            width: 85vw;
-            height: 95vh;
-            background: #1a1a1a;
-            border: 1px solid var(--gold);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(228, 180, 41, 0.15);
-        }
-        .resume-modal-close {
-            position: absolute;
-            top: 0.6rem;
-            right: 0.6rem;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            font-size: 1.1rem;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-            transition: background 0.2s, color 0.2s;
-        }
-        .resume-modal-close:hover {
-            background: var(--gold);
-            color: #000;
-        }
-        .resume-modal-scroll {
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            display: flex;
-            justify-content: center;
-        }
-        .resume-modal-scroll img {
-            max-width: 100%;
-            max-height: 95vh;
-            width: auto;
-            height: auto;
-            display: block;
-        }
-        @media (max-width: 767px) {
-            .resume-modal-scroll {
-                display: block;
-            }
-            .resume-modal-scroll img {
-                max-height: none;
-                width: 100%;
-                height: auto;
-            }
-        }
-        @media (max-width: 767px) {
-            .resume-modal-box {
-                width: 100vw;
-                height: 100dvh;
-                border-radius: 0;
-                border: none;
-            }
-            .resume-modal-close {
-                position: fixed;
-                top: calc(0.6rem + env(safe-area-inset-top));
-                right: 0.75rem;
-                z-index: 10000;
-                width: 2.2rem;
-                height: 2.2rem;
-                font-size: 1.1rem;
-                background: rgba(26,26,26,0.9);
-            }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .all-projects-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- 1. Navbar -->
+    <!-- Navbar -->
     <nav>
         <div class="nav-content">
             <div class="brand">Vibhas Tallapalli</div>
             <div class="nav-links">
-                <a href="Projects/index_proj.html">Projects</a>
-                <a href="Experiences/index.html">Experiences</a>
+                <a href="#experiences">Experiences</a>
+                <a href="#projects">Projects</a>
                 <a href="#" onclick="openResumeModal(); return false;">View Resume</a>
-                <a href="https://www.linkedin.com/in/vibhas-tallapalli-168b0a320/" target="_blank"
-                    rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/vibhas-tallapalli-168b0a320/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/vibhastallapalli" target="_blank" rel="noopener noreferrer" class="github-icon" title="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- 2. Hero Section -->
+    <!-- Hero -->
     <section class="hero container">
         <div class="hero-grid">
             <div class="hero-content">
@@ -781,12 +251,10 @@
                     <span>University of Waterloo | Engineering</span>
                 </div>
                 <div class="hero-focus">Engineering · Quantitative Finance · Systems</div>
-                <p class="hero-desc">
-                    Engineering student at Waterloo, currently at Linear Automation as an Engineering Co-op. Interested in quantitative finance, systems design, and building things that actually work.
-                </p>
+                <p class="hero-desc">Engineering student at Waterloo, currently at Linear Automation as an Engineering Co-op. Interested in quantitative finance, systems design, and building things that actually work.</p>
                 <div class="hero-btns">
-                    <a href="Experiences/index.html" class="btn btn-primary">View Experiences</a>
-                    <a href="Projects/index_proj.html" class="btn btn-secondary">View Technical Projects</a>
+                    <a href="#experiences" class="btn btn-primary">View Experiences</a>
+                    <a href="#projects" class="btn btn-secondary">View Technical Projects</a>
                     <a href="#" onclick="openResumeModal(); return false;" class="btn btn-secondary">View Resume</a>
                 </div>
             </div>
@@ -794,17 +262,12 @@
         </div>
     </section>
 
-    <!-- 3. About + Skills (Restructured) -->
+    <!-- About + Skills -->
     <section class="about-section">
         <div class="container about-grid">
-            <!-- Left: Text + Skills -->
             <div>
                 <h2>Engineering Meets <span class="gold">Finance</span></h2>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    I’m an engineering student at Waterloo who builds quantitative finance tools and trading systems on the side. Currently on co-op at Linear Automation working with automotive giants such as Honda on structural component design and manufacturing analytics.
-                </p>
-
-                <!-- Embedded Skills Block -->
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">I'm an engineering student at Waterloo who builds quantitative finance tools and trading systems on the side. Currently on co-op at Linear Automation working with automotive giants such as Honda on structural component design and manufacturing analytics.</p>
                 <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #333;">
                     <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: #fff;">Technical Toolkit</h3>
                     <div class="skill-row">
@@ -817,82 +280,256 @@
                     </div>
                     <div class="skill-row">
                         <span class="skill-cat">Engineering</span>
-                        <div class="skill-list">SolidWorks, FEA, GD&T, Onshape, 3D Printing, Embedded Systems</div>
+                        <div class="skill-list">SolidWorks, FEA, GD&amp;T, Onshape, 3D Printing, Embedded Systems</div>
                     </div>
                 </div>
             </div>
-
-            <!-- Right: Feature Image -->
             <img src="Assets/carbon.jpg" alt="Carbon Fibre Workshop" class="about-feature-img" loading="lazy">
         </div>
     </section>
 
-    <!-- 4. Experience Highlights -->
-    <section class="container" id="experiences">
-        <h2>Experience Highlights</h2>
-        <div class="exp-grid exp-highlight-section">
-            <!-- Linear Automation -->
-            <div class="exp-card exp-highlight-card">
-                <div class="exp-head">
-                    <div class="exp-company">Linear Automation</div>
-                    <div class="exp-role">Engineering Co-op</div>
-                </div>
-                <ul class="exp-bullets">
-                    <li>FEA on Honda vehicle frame components.</li>
-                    <li>SQL defect analysis that cut plant rejection rate by 22%.</li>
-                    <li>Python automation script that eliminated 90% of manual drawing review.</li>
-                </ul>
-            </div>
-            <!-- Biomechatronics -->
-            <div class="exp-card exp-highlight-card">
-                <div class="exp-head">
-                    <div class="exp-company">Biomechatronics Team</div>
-                    <div class="exp-role">Firmware &amp; Controls</div>
-                </div>
-                <ul class="exp-bullets">
-                    <li>Embedded C/C++ sensor pipeline with PPG and IMU integration.</li>
-                    <li>PID control for a lower body exoskeleton.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <!-- Experiences -->
+    <section id="experiences" class="container section-pad">
+        <h2>Experiences</h2>
 
-    <!-- 5. Featured Projects -->
-    <section id="projects-grid" class="about-section"> <!-- Darker bg for contrast -->
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid featured-projects-section">
-                <!-- Project 1 -->
-                <div class="proj-card featured-project-card">
-                    <div class="proj-img">
-                        <img src="Assets/Main_Backtester.png" alt="Crypto Backtester Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- Linear Automation -->
+        <div class="exp-detail-card">
+            <img src="Assets/lienar_card.png" alt="Linear Automation" class="exp-detail-banner" style="object-position: center 40%;">
+            <div class="exp-detail-header">
+                <div class="exp-detail-company">Linear Automation Inc.</div>
+                <div class="exp-detail-role">Mechanical Engineer Co-op | Apr 2026 - Present</div>
+            </div>
+            <div class="exp-detail-body">
+                <div class="split-layout">
+                    <div>
+                        <p class="detail-desc">Worked as a Mechanical Engineer Co-op contributing across structural component design, manufacturing data analysis, and engineering automation tooling. Supported Honda vehicle programs through SolidWorks modelling and FEA simulation while writing Python scripts and running SQL queries to improve production outcomes and eliminate manual review work.</p>
+                        <ul class="detail-bullets">
+                            <li>Built a Python script that reads SolidWorks drawing feature types and auto-assigns decimal precision per internal GD&amp;T standards, eliminating manual precision decisions across 20+ engineering drawings and reducing decimal precision review comments by 90% across the team.</li>
+                            <li>Queried the manufacturing execution system using SQL, filtering production data by machine ID, shift, and rejection code to surface defect trends — identified one machine driving a disproportionate share of night shift rejects, escalated findings to the floor supervisor, and the resulting calibration fix reduced the plant-wide rejection rate by 22%.</li>
+                            <li>Designed and stress-tested 5+ structural Honda vehicle frame components in SolidWorks using MATLAB and FEA across 7+ iterations, running parameter sweeps across wall thickness and load cases to isolate stress concentration failures, then redesigning geometry and upgrading material from Al 5000 to 6000 series to cut component weight by 30% while maintaining 300+ lb structural load requirements.</li>
+                            <li>Converted a 50+ hole manifold from metric to NPT threading, resolving hole sizing, wall clearance, and tapered thread engagement depth across 6+ revisions to ensure every port met dimensional accuracy and prevent a $400+ scrapped part from reaching the production floor.</li>
+                            <li>Produced 100+ production drawings across unique parts and assemblies for 6 senior engineers, applying GD&amp;T callouts, tolerances, and STEP file updates so every part reached the shop floor ready to build, eliminating 2+ hour backtracking cycles per bad callout sent to manufacturing.</li>
+                        </ul>
+                        <div class="skills-container">
+                            <span class="skills-label">Skills Used</span>
+                            <div class="skills-tags">
+                                <span class="skill-tag">SolidWorks</span>
+                                <span class="skill-tag">FEA</span>
+                                <span class="skill-tag">MATLAB</span>
+                                <span class="skill-tag">GD&amp;T</span>
+                                <span class="skill-tag">Tolerance Analysis</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Manufacturing Systems</span>
+                                <span class="skill-tag">DFM</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="proj-content">
-                        <h3 class="proj-title">Crypto Backtester</h3>
-                        <p class="proj-desc">3 strategies across 3 years of OHLCV data. Found a hidden risk/reward problem masking a 58% win rate. Restructured position sizing into profitability.</p>
-                        <a href="Projects/index_proj.html" class="btn btn-secondary"
-                            style="font-size: 0.85rem; padding: 0.5rem 1rem;">View Project →</a>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="proj-card featured-project-card">
-                    <div class="proj-img">
-                        <img src="Assets/Black_scholes_dashboard.png" alt="Black-Scholes Options Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="proj-content">
-                        <h3 class="proj-title">Black-Scholes Options Dashboard</h3>
-                        <p class="proj-desc">C++ options pricing engine for 5 equities. All 4 Greeks computed in real time. Zero external math libraries. Recalculates every 2 seconds.</p>
-                        <a href="Projects/index_proj.html" class="btn btn-secondary"
-                            style="font-size: 0.85rem; padding: 0.5rem 1rem;">View Project →</a>
+                    <div class="split-images">
+                        <img src="Assets/linear_main.png" alt="Linear Automation" class="compact-img">
+                        <img src="Assets/linear_2.png" alt="Linear Automation Work" class="compact-img">
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Waterloop -->
+        <div class="exp-detail-card">
+            <img src="Assets/pod.jpg" alt="Waterloop Hyperloop Pod" class="exp-detail-banner">
+            <div class="exp-detail-header">
+                <div class="exp-detail-company">Waterloop</div>
+                <div class="exp-detail-role">Mechanical Engineer | 2025</div>
+            </div>
+            <div class="exp-detail-body">
+                <div class="split-layout">
+                    <div>
+                        <p class="detail-desc">Competed in the SpaceX Hyperloop competition, working hands-on with carbon fiber chassis components, brake integration, and custom machined hardware for a high-speed pod system. Turned existing designs into CAD assemblies and ensured brake hardware could be installed without fit or alignment issues.</p>
+                        <ul class="detail-bullets">
+                            <li>Imported the braking system into Onshape and applied assembly constraints, adjusting part mates to make sure everything fit properly within the pod model.</li>
+                            <li>Planned mounting locations, fasteners, and hole placements by testing different positions and verifying clearances, so the braking system could be installed and adjusted without hassle.</li>
+                            <li>Worked through mate constraints and alignment issues while fitting the brake assembly into the full pod model by testing different alignments and updating CAD constraints.</li>
+                            <li>3D-printed small battery enclosure parts to test how they would assemble and interact before final fabrication.</li>
+                            <li>Machined aluminum clamps and brackets on the mill and lathe, checking fit and making adjustments as needed for the brake system.</li>
+                            <li>Cut openings and mounting holes in the carbon-fiber panels, ensuring the brake hardware fit and aligned correctly.</li>
+                        </ul>
+                        <div class="skills-container">
+                            <span class="skills-label">Skills Used</span>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Onshape</span>
+                                <span class="skill-tag">CAD Modeling</span>
+                                <span class="skill-tag">Mechanical Assembly</span>
+                                <span class="skill-tag">Tolerances</span>
+                                <span class="skill-tag">3D Printing</span>
+                                <span class="skill-tag">Carbon-Fiber Fabrication</span>
+                                <span class="skill-tag">Machining (Mill, Lathe)</span>
+                                <span class="skill-tag">Fasteners &amp; Hardware</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-images">
+                        <img src="Assets/Carbonfibre.jpg" alt="Waterloop Carbon Fibre" class="compact-img">
+                        <img src="Assets/3d.jpg" alt="Waterloop 3D Model" class="compact-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Electrium -->
+        <div class="exp-detail-card">
+            <img src="Assets/ethum.jpg" alt="Electrium Mobility" class="exp-detail-banner">
+            <div class="exp-detail-header">
+                <div class="exp-detail-company">Electrium Mobility</div>
+                <div class="exp-detail-role">Hardware Design Engineer | 2025</div>
+            </div>
+            <div class="exp-detail-body">
+                <div class="split-layout">
+                    <div>
+                        <p class="detail-desc">Worked on the mechanical integration of an electric bike conversion, managing CAD modeling, 3D-printed mounts, and frame surface preparation for final assembly. Collaborated with the electrical team to route cabling and account for battery packaging throughout the frame.</p>
+                        <ul class="detail-bullets">
+                            <li>Modeled custom battery enclosure and mount geometry in SolidWorks to ensure interference-free fitment on the bike frame.</li>
+                            <li>Configured and 3D-printed mounts using Cura, iterating on print settings to achieve optimal strength and dimensional accuracy.</li>
+                            <li>Managed the master CAD assembly across SolidWorks, Onshape, and Fusion 360, maintaining version control as components evolved.</li>
+                            <li>Executed full frame surface preparation, including sanding and spray painting, to restore the chassis before reassembly.</li>
+                            <li>Assembled critical mechanical subsystems including handlebars, braking components, and wheel hubs.</li>
+                            <li>Collaborated with the electrical team to route cabling and mount display components securely.</li>
+                        </ul>
+                        <div class="skills-container">
+                            <span class="skills-label">Skills Used</span>
+                            <div class="skills-tags">
+                                <span class="skill-tag">SolidWorks</span>
+                                <span class="skill-tag">Onshape</span>
+                                <span class="skill-tag">Fusion 360</span>
+                                <span class="skill-tag">CAD Modeling</span>
+                                <span class="skill-tag">Mechanical Packaging</span>
+                                <span class="skill-tag">3D Printing</span>
+                                <span class="skill-tag">Cura</span>
+                                <span class="skill-tag">Hands-On Assembly</span>
+                                <span class="skill-tag">Mech-Elec Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-images">
+                        <img src="Assets/cade.jpg" alt="Battery Enclosure CAD" class="compact-img">
+                        <img src="Assets/spray.jpg" alt="Frame after surface prep" class="compact-img">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- 6. Waterloo Branding (Moved to Hero) -->
+    <!-- Projects -->
+    <section id="projects" class="about-section">
+        <div class="container section-pad">
+            <h2>Projects</h2>
+            <div class="all-projects-grid">
 
+                <div class="proj-grid-card">
+                    <img src="Assets/Main_Backtester.png" alt="Crypto Backtester" class="proj-grid-img">
+                    <div class="proj-grid-content">
+                        <div class="proj-grid-title">Algorithmic Crypto Backtester</div>
+                        <p class="proj-grid-desc">3 strategies across 3 years of OHLCV data. Found a hidden risk/reward problem masking a 58% win rate. Restructured position sizing into profitability.</p>
+                        <div class="proj-grid-skills">
+                            <span class="proj-grid-pill">Python</span>
+                            <span class="proj-grid-pill">pandas</span>
+                            <span class="proj-grid-pill">Streamlit</span>
+                            <span class="proj-grid-pill">SQLite</span>
+                        </div>
+                        <a href="https://github.com/vibhastallapalli/crypto-backtester" target="_blank" rel="noopener" class="proj-grid-link">View Code ↗</a>
+                    </div>
+                </div>
 
+                <div class="proj-grid-card">
+                    <img src="Assets/Black_scholes_dashboard.png" alt="Black-Scholes Dashboard" class="proj-grid-img">
+                    <div class="proj-grid-content">
+                        <div class="proj-grid-title">Black-Scholes Options Dashboard</div>
+                        <p class="proj-grid-desc">C++ pricing engine for 5 equities. All 4 Greeks computed in real time with zero external math libraries. Recalculates every 2 seconds.</p>
+                        <div class="proj-grid-skills">
+                            <span class="proj-grid-pill">C++</span>
+                            <span class="proj-grid-pill">JavaScript</span>
+                            <span class="proj-grid-pill">SQLite</span>
+                            <span class="proj-grid-pill">Chart.js</span>
+                        </div>
+                        <a href="https://github.com/vibhastallapalli/black-scholes" target="_blank" rel="noopener" class="proj-grid-link">View Code ↗</a>
+                    </div>
+                </div>
+
+                <div class="proj-grid-card">
+                    <img src="Assets/Job_bot_dashboard.png" alt="Job Application Bot" class="proj-grid-img">
+                    <div class="proj-grid-content">
+                        <div class="proj-grid-title">Job Application Automation Bot</div>
+                        <p class="proj-grid-desc">Full-stack bot cutting per-application time from 15 min to 30 seconds. Scrapes LinkedIn, auto-submits, generates tailored cover responses via Claude AI.</p>
+                        <div class="proj-grid-skills">
+                            <span class="proj-grid-pill">Python</span>
+                            <span class="proj-grid-pill">Flask</span>
+                            <span class="proj-grid-pill">Playwright</span>
+                            <span class="proj-grid-pill">Claude AI</span>
+                        </div>
+                        <a href="https://github.com/vibhastallapalli/Job-Bot" target="_blank" rel="noopener" class="proj-grid-link">View Code ↗</a>
+                    </div>
+                </div>
+
+                <div class="proj-grid-card">
+                    <img src="Assets/Sensor_main.png" alt="Kalman Filter" class="proj-grid-img">
+                    <div class="proj-grid-content">
+                        <div class="proj-grid-title">Kalman Filter Sensor Fusion</div>
+                        <p class="proj-grid-desc">Physics-based GPS and accelerometer fusion achieving 93.7% RMS error reduction. Full filter from scratch at 100 Hz over 10 seconds.</p>
+                        <div class="proj-grid-skills">
+                            <span class="proj-grid-pill">Python</span>
+                            <span class="proj-grid-pill">NumPy</span>
+                            <span class="proj-grid-pill">Matplotlib</span>
+                            <span class="proj-grid-pill">Kalman Filter</span>
+                        </div>
+                        <a href="https://github.com/vibhastallapalli/kalman-filter-sensor-fusion" target="_blank" rel="noopener" class="proj-grid-link">View Code ↗</a>
+                    </div>
+                </div>
+
+                <div class="proj-grid-card">
+                    <img src="Assets/PID11.jpg" alt="E-Bike Speed Control" class="proj-grid-img">
+                    <div class="proj-grid-content">
+                        <div class="proj-grid-title">E-Bike Speed Control</div>
+                        <p class="proj-grid-desc">Physics-based PID simulation for speed tracking under load. Discrete controller with anti-windup, modeled aero drag and resistive forces across step changes.</p>
+                        <div class="proj-grid-skills">
+                            <span class="proj-grid-pill">C++</span>
+                            <span class="proj-grid-pill">PID Control</span>
+                            <span class="proj-grid-pill">Python</span>
+                            <span class="proj-grid-pill">Simulation</span>
+                        </div>
+                        <a href="https://github.com/vibhastallapalli/PID-ControlProject" target="_blank" rel="noopener" class="proj-grid-link">View Code ↗</a>
+                    </div>
+                </div>
+
+                <div class="proj-grid-card">
+                    <img src="Assets/smart_timer_proj.jpeg" alt="Smart Study Timer" class="proj-grid-img">
+                    <div class="proj-grid-content">
+                        <div class="proj-grid-title">Smart Study Focus Timer</div>
+                        <p class="proj-grid-desc">Arduino sensor system with presence detection and LED break reminders. Custom 3D-printed enclosure. Validated through repeated exam-period use.</p>
+                        <div class="proj-grid-skills">
+                            <span class="proj-grid-pill">Arduino</span>
+                            <span class="proj-grid-pill">C++</span>
+                            <span class="proj-grid-pill">3D Printing</span>
+                            <span class="proj-grid-pill">PCB</span>
+                        </div>
+                        <a href="https://github.com/vibhastallapalli/PCB-Sensor-Project" target="_blank" rel="noopener" class="proj-grid-link">View Code ↗</a>
+                    </div>
+                </div>
+
+                <div class="proj-grid-card">
+                    <img src="Assets/na.png" alt="Energy Collecting Turbine" class="proj-grid-img">
+                    <div class="proj-grid-content">
+                        <div class="proj-grid-title">Energy Collecting Turbine</div>
+                        <p class="proj-grid-desc">Vertical axis wind turbine designed in CAD, fabricated with PVC and Nylon, and connected to a generator circuit to produce DC output during wind testing.</p>
+                        <div class="proj-grid-skills">
+                            <span class="proj-grid-pill">CAD</span>
+                            <span class="proj-grid-pill">Fabrication</span>
+                            <span class="proj-grid-pill">Electromechanical</span>
+                            <span class="proj-grid-pill">Material Selection</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Resume Modal -->
     <div id="resumeModal" class="resume-modal-backdrop" onclick="handleBackdropClick(event)">
@@ -923,4 +560,3 @@
 </body>
 
 </html>
-
