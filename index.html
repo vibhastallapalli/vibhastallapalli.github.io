@@ -131,6 +131,7 @@
             box-shadow: var(--shadow);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             position: relative;
+            height: 175px;
         }
         .exp-strip::before {
             content: '';
@@ -169,7 +170,7 @@
             flex-direction: column;
             justify-content: center;
             gap: 0.45rem;
-            min-height: 130px;
+            overflow: hidden;
         }
         .exp-strip-top { display: flex; justify-content: space-between; align-items: flex-start; }
         .exp-strip-company { font-size: 1.1rem; font-weight: 700; color: #fff; }
@@ -189,6 +190,7 @@
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
+            overflow: hidden;
         }
         .exp-strip-logo { width: 130px; height: auto; object-fit: contain; border-radius: 0; display: block; transition: transform 0.4s ease; }
         .exp-strip:hover .exp-strip-logo { transform: scale(1.06); }
