@@ -398,30 +398,11 @@
             background: var(--gold);
             color: #000;
         }
-        .resume-modal-scroll {
+        .resume-modal-iframe {
             width: 100%;
             height: 100%;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            display: flex;
-            justify-content: center;
-        }
-        .resume-modal-scroll img {
-            max-width: 100%;
-            max-height: 95vh;
-            width: auto;
-            height: auto;
+            border: none;
             display: block;
-        }
-        @media (max-width: 767px) {
-            .resume-modal-scroll {
-                display: block;
-            }
-            .resume-modal-scroll img {
-                max-height: none;
-                width: 100%;
-                height: auto;
-            }
         }
         @media (max-width: 767px) {
             .resume-modal-box {
@@ -760,9 +741,7 @@
     <div id="resumeModal" class="resume-modal-backdrop" onclick="handleBackdropClick(event)">
         <div class="resume-modal-box">
             <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times;</button>
-            <div class="resume-modal-scroll">
-                <img src="../Assets/resume_page-1.png" alt="Resume">
-            </div>
+            <iframe src="../Assets/Resume_mech.pdf" class="resume-modal-iframe" title="Resume"></iframe>
         </div>
     </div>
 
