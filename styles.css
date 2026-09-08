@@ -203,7 +203,8 @@ nav {
 }
 
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
     color: var(--gold);
 }
 
