@@ -230,6 +230,11 @@
         .resume-modal-close:hover { background: var(--gold); color: #000; }
         .resume-modal-iframe { width: 100%; height: 100%; border: none; display: block; }
 
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+
         /* Mobile */
         @media (max-width: 768px) {
             .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
