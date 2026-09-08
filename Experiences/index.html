@@ -220,7 +220,7 @@
             }
         }
 
-        .highlight-active {
+        .detail-section:target {
             animation: highlightInfo 1.5s ease-out;
             border-radius: var(--radius);
         }
@@ -455,7 +455,7 @@
         <!-- 2. Overview Cards -->
         <div class="overview-grid">
             <!-- Linear Automation -->
-            <div class="overview-card" onclick="scrollToSection('linear')">
+            <a class="overview-card" href="#linear">
                 <div class="card-img-container">
                     <img src="../Assets/lienar_card.png" alt="Linear Automation Sorting System" class="card-img" style="object-position: center 40%;">
                 </div>
@@ -465,12 +465,12 @@
                         <span class="card-role">Mechanical Engineer Co-op</span>
                         <p class="card-desc">Worked with automobile manufacturers including Honda on structural vehicle component design, while building Python automation tooling and running SQL defect analysis on the production floor.</p>
                     </div>
-                    <button class="btn-card">View Experience →</button>
+                    <span class="btn-card">View Experience →</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Biomechatronics -->
-            <div class="overview-card" onclick="scrollToSection('biomechatronics')">
+            <a class="overview-card" href="#biomechatronics">
                 <div class="card-img-container">
                     <img src="../Assets/bthum.jpeg" alt="Biomechatronics" class="card-img">
                 </div>
@@ -480,12 +480,12 @@
                         <span class="card-role">Mechatronics Prototyping Engineer</span>
                         <p class="card-desc">Designed and prototyped strap mounting systems for a lower-body exoskeleton, then built the embedded sensor pipeline integrating PPG and IMU data in C/C++ for PID tuning and real-time gait analysis.</p>
                     </div>
-                    <button class="btn-card">View Experience →</button>
+                    <span class="btn-card">View Experience →</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Waterloop -->
-            <div class="overview-card" onclick="scrollToSection('waterloop')">
+            <a class="overview-card" href="#waterloop">
                 <div class="card-img-container">
                     <img src="../Assets/pod.jpg" alt="Waterloop Pod" class="card-img">
                 </div>
@@ -495,12 +495,12 @@
                         <span class="card-role">Mechanical Engineer</span>
                         <p class="card-desc">Competed in the SpaceX Hyperloop competition, working hands on with carbon fiber chassis components, brake integration, and custom machined hardware for a high-speed pod system.</p>
                     </div>
-                    <button class="btn-card">View Experience →</button>
+                    <span class="btn-card">View Experience →</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Electrium -->
-            <div class="overview-card" onclick="scrollToSection('electrium')" style="grid-column: 2;">
+            <a class="overview-card" href="#electrium" style="grid-column: 2;">
                 <div class="card-img-container">
                     <img src="../Assets/ethum.jpg" alt="Electrium Battery" class="card-img">
                 </div>
@@ -511,9 +511,9 @@
                         <p class="card-desc">Created a CAD model of an existing e-bike frame and worked with the
                             electrical team to account for battery packaging.</p>
                     </div>
-                    <button class="btn-card">View Experience →</button>
+                    <span class="btn-card">View Experience →</span>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!-- 3. Detailed Sections -->
@@ -764,27 +764,6 @@
             if (e.key === 'Escape') closeResumeModal();
         });
 
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                const offset = 100; // Account for fixed header
-                const bodyRect = document.body.getBoundingClientRect().top;
-                const elementRect = element.getBoundingClientRect().top;
-                const elementPosition = elementRect - bodyRect;
-                const offsetPosition = elementPosition - offset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Optional: Add highlight effect
-                element.classList.add('highlight-active');
-                setTimeout(() => {
-                    element.classList.remove('highlight-active');
-                }, 1500);
-            }
-        }
     </script>
 </body>
 
