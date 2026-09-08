@@ -42,6 +42,12 @@ a:hover {
     opacity: 0.8;
 }
 
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
 img {
     display: block;
     max-width: 100%;
