@@ -69,13 +69,15 @@
 
 <body>
 
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <!-- 1. Navbar -->
     <nav>
         <div class="nav-content">
             <div class="brand">Vibhas Tallapalli</div>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="index_proj.html" style="color: var(--gold);">Projects</a>
+                <a href="index_proj.html" aria-current="page">Projects</a>
                 <a href="../Experiences/index.html">Experiences</a>
                 <a href="#" onclick="openResumeModal(); return false;">View Resume</a>
                 <a href="https://www.linkedin.com/in/vibhas-tallapalli-168b0a320/" target="_blank"
@@ -84,7 +86,7 @@
         </div>
     </nav>
 
-    <main class="project-page">
+    <main id="main-content" class="project-page">
         <section class="container projects-header">
             <div class="proj-header-editorial">
                 <h1>Projects</h1>

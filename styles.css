@@ -42,6 +42,41 @@ a:hover {
     opacity: 0.8;
 }
 
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: fixed;
+    top: 0;
+    left: 1rem;
+    z-index: 1001;
+    padding: 0.75rem 1rem;
+    background: var(--gold);
+    color: #000;
+    font-weight: 700;
+    transform: translateY(-120%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
 img {
     display: block;
     max-width: 100%;
@@ -168,7 +203,8 @@ nav {
 }
 
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
     color: var(--gold);
 }
 
