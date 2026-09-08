@@ -40,6 +40,8 @@
         a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
         a:hover { opacity: 0.8; }
         a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+        .skip-link { position: fixed; top: 0; left: 1rem; z-index: 1001; padding: 0.75rem 1rem; background: var(--gold); color: #000; font-weight: 700; transform: translateY(-120%); }
+        .skip-link:focus { transform: translateY(0); }
         img { display: block; max-width: 100%; height: auto; border-radius: var(--radius); }
 
         h1, h2, h3 { font-weight: 700; line-height: 1.1; color: #fff; }
@@ -260,6 +262,8 @@
 
 <body>
 
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <!-- Navbar -->
     <nav>
         <div class="nav-content">
@@ -279,7 +283,7 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero container">
+    <section id="main-content" class="hero container">
         <div class="hero-grid">
             <div class="hero-content">
                 <h1>Vibhas Tallapalli</h1>
