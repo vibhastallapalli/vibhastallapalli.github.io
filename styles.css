@@ -48,6 +48,19 @@ button:focus-visible {
     outline-offset: 3px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
 img {
     display: block;
     max-width: 100%;
