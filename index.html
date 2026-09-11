@@ -560,8 +560,8 @@
 
     <!-- Resume Modal -->
     <div id="resumeModal" class="resume-modal-backdrop" onclick="handleBackdropClick(event)">
-        <div class="resume-modal-box">
-            <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times;</button>
+        <div class="resume-modal-box" role="dialog" aria-modal="true" aria-label="Resume preview">
+            <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close resume preview">&times;</button>
             <iframe src="Assets/Resume_mech.pdf" class="resume-modal-iframe" title="Resume"></iframe>
         </div>
     </div>
